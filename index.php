@@ -24,7 +24,10 @@
 </head>
 
 <body>
-
+    <header class="header">
+        <img src="images/hust_logo.png" alt style="height: 70px; width: 65px">
+        <a href="#" class="logo" style="text-decoration: none;">HỆ THỐNG QUẢN LÝ KÝ TÚC XÁ</a>
+    </header>
 </body>
 
 </html>
