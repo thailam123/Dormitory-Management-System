@@ -27,6 +27,14 @@
     <header class="header">
         <img src="images/hust_logo.png" alt style="height: 70px; width: 65px">
         <a href="#" class="logo" style="text-decoration: none;">HỆ THỐNG QUẢN LÝ KÝ TÚC XÁ</a>
+        <nav class="navbar">
+            <a href="#about" style=" text-decoration:none; ">Giới thiệu</a>
+            <a href="#provost" style=" text-decoration:none; ">Thông báo</a>
+            <a href="#hall" style=" text-decoration:none; ">Tòa nhà</a>
+            <a href="#Gallery" style=" text-decoration:none; ">Gallery</a>
+
+            <a href="#contact" style=" text-decoration:none; ">Liên hệ</a>
+        </nav>
     </header>
 </body>
 
