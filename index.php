@@ -34,6 +34,8 @@
             <a href="#Gallery" style=" text-decoration:none; ">Gallery</a>
 
             <a href="#contact" style=" text-decoration:none; ">Liên hệ</a>
+            <button id="admin" style="    margin-left: 7px;height: 80px;width: 80px"><a href="login.php"
+                    style=" text-decoration:none; text-align:centre" id="link1">Đăng nhập</a></button>
         </nav>
     </header>
 </body>
