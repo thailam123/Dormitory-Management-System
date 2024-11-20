@@ -37,6 +37,61 @@
             <button id="admin" style="    margin-left: 7px;height: 80px;width: 80px"><a href="login.php"
                     style=" text-decoration:none; text-align:centre" id="link1">Đăng nhập</a></button>
         </nav>
+
+        </nav>
+        <!----Login form---->
+        <div class="modal fade" id="loginModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modal-title w-100">
+                            <h4 class="text-muted">Login To Your Accout</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                    </div>
+                    <div class="modal-body ">
+                        <form action="" class="was-validated">
+                            <div class="form-group">
+                                <label for="email" class="text-info font-weight-bold">Email:</label>
+                                <input type="email" class="form-control" placeholder="Enter Your Email" required>
+                                <div class="valid-feedback">
+                                    <strong>Your email address is valid</strong>
+                                </div>
+                                <div class="invalid-feedback">
+                                    <strong>Please Enter a valid email address</strong>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd" class="text-primary font-weight-bold">Password:</label>
+                                <input type="password" class="form-control" placeholder="Enter Your Password"
+                                    minlength="6" maxlength="8" required>
+                                <div class="valid-feedback">
+                                    <strong>Your password very strong</strong>
+                                </div>
+                                <div class="invalid-feedback">
+                                    <strong>Enter your password first</strong>
+                                </div>
+                            </div>
+                            <div class="form-group form-group-check">
+                                <label for="chk" class="form-group-label text-light font-weight-bold">
+                                    <input type="checkbox" class="form-group-input"> Remember Me
+                                </label>
+                            </div>
+                            <input type="submit" class="form-control btn btn-outline-success font-weight-bold"
+                                value="LogIn">
+                        </form>
+                    </div> <!----modal body close--->
+                    <div class="modal-footer justify-content-start">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div> <!----modal content close--->
+            </div> <!----modal dialog close--->
+        </div> <!----modal close--->
+
+
+
+
+        </nav>
     </header>
 </body>
 
