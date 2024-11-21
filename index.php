@@ -184,6 +184,36 @@
         </div>
     </section>
     <!-- about section end -->
+
+    <!-- provost  start -->
+    <section class="provost" id="provost">
+
+        <center>
+            <h1 class="heading" style="margin-top: 10px;"> <span>Thông báo</span> </h1>
+        </center>
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3 align="left" style="padding: 5px 10px 5px 70px;">
+                    Dear University Hall Residents,<br>
+                    As we approach the Victory Day of Bangladesh, we would like to invite you all to join us for a
+                    special feast to commemorate this historic occasion. The feast will be held on December 16th at the
+                    dining hall, starting at 7:00 PM.
+                    <br><br> In order to participate in the feast, you will need to purchase a coupon for 30 taka from
+                    the hall office. This coupon will entitle you to a plate of delicious Bangladeshi food, including
+                    biryani, kebab, and sweets.
+                    <br><br>Please note that coupons will be available for purchase starting from December 10th and will
+                    be sold on a first-come, first-served basis. We encourage you to get your coupons early to avoid
+                    disappointment.
+                    <br><br>If you have any questions or concerns, please do not hesitate to contact the hall office. We
+                    look forward to celebrating Victory Day with you all!
+                    <br><br>Best regards,
+                    <br><br> University Hall Office Staff
+                </h3>
+            </div>
+        </div>
+    </section>
 </body>
 
 </html>
