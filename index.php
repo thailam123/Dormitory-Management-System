@@ -214,6 +214,101 @@
             </div>
         </div>
     </section>
+
+    <!-- doctors section starts  -->
+
+    <section class="hall" id="hall">
+
+        <h1 class="heading"> <span>Tòa nhà</span> </h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <img src="images/h1.jpg" alt="">
+                <h3>Mir Mosharraf Hossain Hall</h3>
+            </div>
+
+            <div class="box">
+                <img src="images/h2.jpg" alt="">
+                <h3>Shaheed Salam-Barkat Hall</h3>
+            </div>
+
+            <div class="box">
+                <img src="images/h3.jpg" alt="">
+                <h3>Bangabandhu Sheikh Mujibur Rahman Hall</h3>
+            </div>
+
+            <div class="box">
+                <img src="images/h4.jpg" alt="">
+                <h3>Al Beruni Hall</h3>
+            </div>
+
+            <div class="box">
+                <img src="images/h5.jpg" alt="">
+                <h3>Shaheed Rafiq-Jabbar Hall</h3>
+            </div>
+
+            <div class="box">
+                <img src="images/h6.jpg" alt="">
+                <h3>A F M Kamaluddin Hall</h3>
+            </div>
+
+
+            <div class="box">
+                <img src="images/h7.jpg" alt="">
+                <h3>Mowlana Bhashani Hall</h3>
+            </div>
+
+            <div class="box">
+                <img src="images/h8.jpg" alt="">
+                <h3>Bishwakabi Rabindranath Tagore Hall</h3>
+            </div>
+
+            <div class="box">
+                <img src="images/h9.jpg" alt="">
+                <h3>Jahanara Imam Hall</h3>
+            </div>
+
+            <div class="box">
+                <img src="images/h10.jpg" alt="">
+                <h3>Nawab Faizunnesa Hall</h3>
+            </div>
+
+            <div class="box">
+                <img src="images/h11.jpg" alt="">
+                <h3>Pritilata Hall</h3>
+            </div>
+
+            <div class="box">
+                <img src="images/h12.jpg" alt="">
+                <h3>Fazilatunnesa Hall</h3>
+            </div>
+
+            <div class="box">
+                <img src="images/h13.jpg" alt="">
+                <h3>Begum Khaleda Zia Hall</h3>
+            </div>
+
+            <div class="box">
+                <img src="images/h14.jpg" alt="">
+                <h3>Sheikh Hasina Hall</h3>
+            </div>
+
+            <div class="box">
+                <img src="images/h15.jpg" alt="">
+                <h3>Bangamata Begum Fazilatunnessa Mujib Hall</h3>
+            </div>
+
+            <div class="box">
+                <img src="images/h16.jpg" alt="">
+                <h3>Begum Sufia Kamal Hall</h3>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- doctors section ends -->
 </body>
 
 </html>
