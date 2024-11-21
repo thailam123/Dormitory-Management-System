@@ -93,6 +93,57 @@
 
         </nav>
     </header>
+    <!-- header end -->
+
+    <!-- main slide -->
+    <div id="pslide" class="carousel slide" data-ride="carousel" style="margin-left: 40px; margin-right:40px">
+
+        <!-- slider -->
+
+        <div class="carousel-inner" data-interval="500">
+            <!-- 1st slider -->
+            <div class="carousel-item active">
+                <!-- slider caption -->
+                <div class="carousel-caption d-none d-md-block">
+                    <!--   <h2 class="display-1 text-danger">This is my first slider</h2> -->
+                </div>
+                <img src="images/1.png" height="600px" width="100%" alt="">
+            </div>
+            <!-- 2nd slider -->
+            <div class="carousel-item">
+                <!-- slider caption -->
+                <div class="carousel-caption">
+                    <!--  <h2 class="display-1">This is my second slider</h2> -->
+                </div>
+                <img src="images/h1.jpg" height="600px" width="100%" alt="">
+            </div>
+            <!-- 3rd slider -->
+            <div class="carousel-item">
+                <!-- slider caption -->
+                <div class="carousel-caption">
+                    <!--   <h2 class="display-1">This is my third slider</h2> -->
+                </div>
+                <img src="images/h9.jpg" height="600px" width="100%" alt="">
+            </div>
+            <!-- 4th slider -->
+            <div class="carousel-item">
+                <!-- slider caption -->
+                <div class="carousel-caption">
+                    <!--    <h2 class="display-1">This is my third slider</h2> -->
+                </div>
+                <img src="images/2.jpg" height="600px" width="100%" alt="">
+            </div>
+        </div>
+
+        <!-- next and prev icon -->
+        <a href="#pslide" class="carousel-control-prev" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a href="#pslide" class="carousel-control-next" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+    <!-- slider end -->
 </body>
 
 </html>
