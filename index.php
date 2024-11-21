@@ -144,6 +144,46 @@
         </a>
     </div>
     <!-- slider end -->
+
+    <!-- about us section starts  -->
+    <center>
+        <h1 class="heading" style="margin-bottom: -50px;"> <span>Giới thiệu</span> </h1>
+    </center>
+    <section class="ftco-wrap-about">
+
+        <div class="intro" id="about">
+            <div class="container" id="sec_cond">
+                <div class="row">
+                    <div class="col">
+                        <div class="intro_content" style="width: 550px; margin-right: 172px;height: 415px;">
+                            <!-- <div class="intro_subtitle page_subtitle">About Us</div> -->
+                            <div class="intro_title">
+                                <h3>GREETINGS</h3>
+                            </div>
+                            <div class="intro_text">
+                                <p>Hey there and welcome to the university dormitory! We're thrilled to have you here as
+                                    a new resident. Our dorm is more than just a place to sleep - it's a community where
+                                    you'll make lifelong friends and memories. We've got all the amenities you need to
+                                    make your stay comfortable and enjoyable, from study lounges to laundry facilities.
+                                    And our friendly staff is always here to help with any questions or concerns you may
+                                    have. So kick back, relax, and get ready for an unforgettable college experience!
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-6.5 col-md-6 intro_col">
+                                <div class="intro_image"><img src="images/slider5.jpg" alt="intro" style="max-width: 100%;
+    border-radius: 0px 0px 10px 10px; border: 2px solid darksalmon"></div>
+                            </div>
+                            <!-- <div class="col-xl-4 col-md-4 intro_col">
+                                <div class="intro_image"><img src="images/img2.jpg" alt="intro"></div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about section end -->
 </body>
 
 </html>
