@@ -45,7 +45,7 @@ CREATE TABLE `Student` (
   `Phone_number` VARCHAR(10) NOT NULL,
   `Email` VARCHAR(100) NOT NULL,
   `R_ID` int NOT NULL,
-  PRIMARY KEY (`ID`),
+  PRIMARY KEY (`Stu_id`),
   FOREIGN KEY (`R_ID`) REFERENCES `room`(`R_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
