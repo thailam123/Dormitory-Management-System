@@ -81,8 +81,7 @@ CREATE TABLE `message_table` (
   `R_Name` varchar(20) DEFAULT NULL,
   `Messages` varchar(100) NOT NULL,
   PRIMARY KEY (`ID`),
-  FOREIGN KEY (`ID_student`) REFERENCES `student`(`Stu_ID`),
-  FOREIGN KEY (`R_ID`) REFERENCES `room`(`R_ID`)
+  FOREIGN KEY (`ID_student`) REFERENCES `student`(`Stu_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO `login` (`username`, `password`) VALUES
@@ -90,7 +89,6 @@ INSERT INTO `login` (`username`, `password`) VALUES
 
 
 
-------------------------
 
 INSERT INTO `hall` (`H_ID`, `H_Name`, `Status`) VALUES
 (NULL, 'B5', 1),
@@ -99,7 +97,7 @@ INSERT INTO `hall` (`H_ID`, `H_Name`, `Status`) VALUES
 (NULL, 'B8', 1),
 (NULL, 'B9', 1);
 
------------------------------
+
 
 INSERT INTO `floor` (`Floor_Number`, `H_ID`, `Num_of_Room`, `Status`) VALUES
 ('B5/F1', 1, 10, 1),
@@ -124,10 +122,9 @@ INSERT INTO `floor` (`Floor_Number`, `H_ID`, `Num_of_Room`, `Status`) VALUES
 ('B9/F4', 5, 10, 1);
 
 
--------------------------------
+
 
 INSERT INTO `room` (`R_Name`, `F_ID`, `Num_of_Table`, `Num_of_Bed`, `Gender`, `Status`) VALUES
--- Tòa nhà B5
 ('B5F101', 1, 2, 4, 1, 1), ('B5F102', 1, 1, 3, 0, 0), ('B5F103', 1, 2, 2, 1, 1), ('B5F104', 1, 1, 3, 0, 1), 
 ('B5F105', 1, 3, 4, 1, 1), ('B5F106', 1, 2, 3, 0, 0), ('B5F107', 1, 1, 2, 1, 1), ('B5F108', 1, 2, 3, 0, 1), 
 ('B5F109', 1, 3, 4, 1, 1), ('B5F110', 1, 1, 3, 0, 0),
@@ -140,14 +137,14 @@ INSERT INTO `room` (`R_Name`, `F_ID`, `Num_of_Table`, `Num_of_Bed`, `Gender`, `S
 ('B5F401', 4, 2, 4, 1, 1), ('B5F402', 4, 1, 3, 0, 0), ('B5F403', 4, 3, 4, 1, 1), ('B5F404', 4, 2, 3, 0, 1), 
 ('B5F405', 4, 1, 2, 1, 0), ('B5F406', 4, 2, 4, 0, 1), ('B5F407', 4, 3, 3, 1, 1), ('B5F408', 4, 1, 2, 0, 0), 
 ('B5F409', 4, 2, 4, 1, 1), ('B5F410', 4, 1, 3, 0, 1),
--- Tòa nhà B6
+
 ('B6F101', 5, 3, 4, 1, 1), ('B6F102', 5, 2, 3, 0, 1), ('B6F103', 5, 1, 2, 1, 0), ('B6F104', 5, 3, 4, 0, 1), 
 ('B6F105', 5, 2, 3, 1, 1), ('B6F106', 5, 1, 2, 0, 0), ('B6F107', 5, 3, 4, 1, 1), ('B6F108', 5, 2, 3, 0, 1), 
 ('B6F109', 5, 1, 3, 1, 1), ('B6F110', 5, 2, 4, 0, 0),
 ('B6F201', 6, 3, 4, 1, 1), ('B6F202', 6, 2, 3, 0, 1), ('B6F203', 6, 1, 2, 1, 0), ('B6F204', 6, 3, 4, 0, 1),
 ('B6F205', 6, 2, 3, 1, 1), ('B6F206', 6, 1, 2, 0, 0), ('B6F207', 6, 3, 4, 1, 1), ('B6F208', 6, 2, 3, 0, 1),
 ('B6F209', 6, 1, 3, 1, 1), ('B6F210', 6, 2, 4, 0, 0),
--- Tòa nhà B7
+
 ('B7F101', 9, 1, 3, 1, 1), ('B7F102', 9, 2, 4, 0, 1), ('B7F103', 9, 3, 2, 1, 0), ('B7F104', 9, 1, 3, 0, 1), 
 ('B7F105', 9, 2, 4, 1, 1), ('B7F106', 9, 3, 3, 0, 0), ('B7F107', 9, 1, 2, 1, 1), ('B7F108', 9, 2, 4, 0, 1), 
 ('B7F109', 9, 3, 3, 1, 1), ('B7F110', 9, 1, 2, 0, 0),
@@ -160,7 +157,7 @@ INSERT INTO `room` (`R_Name`, `F_ID`, `Num_of_Table`, `Num_of_Bed`, `Gender`, `S
 ('B7F401', 12, 1, 2, 1, 1), ('B7F402', 12, 2, 4, 0, 1), ('B7F403', 12, 3, 3, 1, 0), ('B7F404', 12, 1, 2, 0, 1), 
 ('B7F405', 12, 2, 4, 1, 1), ('B7F406', 12, 3, 3, 0, 0), ('B7F407', 12, 1, 2, 1, 1), ('B7F408', 12, 2, 4, 0, 1), 
 ('B7F409', 12, 3, 3, 1, 1), ('B7F410', 12, 1, 2, 0, 0),
--- Tòa nhà B8
+
 ('B8F101', 13, 2, 3, 1, 1), ('B8F102', 13, 3, 4, 0, 1), ('B8F103', 13, 1, 2, 1, 0), ('B8F104', 13, 2, 3, 0, 1), 
 ('B8F105', 13, 3, 4, 1, 1), ('B8F106', 13, 1, 2, 0, 0), ('B8F107', 13, 2, 3, 1, 1), ('B8F108', 13, 3, 4, 0, 1), 
 ('B8F109', 13, 1, 3, 1, 1), ('B8F110', 13, 2, 4, 0, 0),
@@ -173,7 +170,7 @@ INSERT INTO `room` (`R_Name`, `F_ID`, `Num_of_Table`, `Num_of_Bed`, `Gender`, `S
 ('B8F401', 16, 3, 4, 1, 1), ('B8F402', 16, 1, 3, 0, 1), ('B8F403', 16, 2, 4, 1, 0), ('B8F404', 16, 3, 3, 0, 1), 
 ('B8F405', 16, 1, 2, 1, 1), ('B8F406', 16, 2, 3, 0, 0), ('B8F407', 16, 3, 4, 1, 1), ('B8F408', 16, 1, 3, 0, 1), 
 ('B8F409', 16, 2, 4, 1, 0), ('B8F410', 16, 3, 3, 0, 1),
--- Tòa nhà B9
+
 ('B9F101', 17, 2, 4, 1, 1), ('B9F102', 17, 1, 3, 0, 1), ('B9F103', 17, 3, 4, 1, 0), ('B9F104', 17, 2, 3, 0, 1), 
 ('B9F105', 17, 2, 4, 1, 0), ('B9F106', 17, 1, 3, 1, 1), ('B9F107', 17, 3, 4, 0, 1), ('B9F108', 17, 2, 3, 1, 0), 
 ('B9F109', 17, 1, 4, 0, 1), ('B9F110', 17, 2, 3, 1, 1), 
@@ -190,7 +187,6 @@ INSERT INTO `room` (`R_Name`, `F_ID`, `Num_of_Table`, `Num_of_Bed`, `Gender`, `S
 ('B9F405', 20, 3, 4, 1, 1), ('B9F406', 20, 1, 4, 0, 1), ('B9F407', 20, 2, 3, 1, 0), ('B9F408', 20, 3, 4, 0, 1), 
 ('B9F409', 20, 1, 3, 0, 1), ('B9F410', 20, 2, 4, 1, 0);
 
--------------------------------
 
 INSERT INTO `student` (`Stu_id`, `Name`, `DOB`, `Phone_number`, `Email`, `R_ID`) VALUES
 (20198237, 'Thái Văn Lâm', '2000-01-01', '0123456789', 'lam@example.com', 1),
@@ -199,7 +195,6 @@ INSERT INTO `student` (`Stu_id`, `Name`, `DOB`, `Phone_number`, `Email`, `R_ID`)
 (20207644, 'Hoàng Hà My', '2001-07-10', '0978123456', 'my@example.com', 4);
 
 
--------------------------------
 
 INSERT INTO `rent_fee` (`R_ID`, `Period`, `Room_Bill`, `Elec_Bill`, `Internet_Bill`, `Water_Bill`, `Status`)
 SELECT 
@@ -228,7 +223,7 @@ WHERE
   r.Status = 1;
 
 
------------------------
+
 
 INSERT INTO `facility_problem` (`R_ID`, `Content`, `Status`) VALUES
 (1, 'Điều hòa hỏng', 0),
@@ -253,7 +248,7 @@ INSERT INTO `facility_problem` (`R_ID`, `Content`, `Status`) VALUES
 (20, 'Cửa phòng bị kẹt', 0);
 
 
-------------------------------------
+
 
 INSERT INTO `message_table` (`ID_student`, `Name`, `R_Name`, `Messages`) VALUES
 (20198237, 'Thái Văn Lâm', 'B5F101', 'Xin cấp giấy xác nhận ở KTX'),
