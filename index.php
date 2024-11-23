@@ -427,6 +427,87 @@
         </div>
     </div>
     <!-- Gallery End -->
+
+
+    <!-- Contact Start -->
+
+
+    <section id="contact" class="contact">
+        <h1 class=" heading">Contact</h1>
+        <div class="container" id="cont">
+
+            <div class="section-title" id="sec_cond">
+                <div class="row" data-aos="fade-in">
+
+                    <div class="col-lg-5 d-flex align-items-stretch">
+                        <div class="info">
+                            <div class="address">
+                                <i class="bx bx-home"></i>
+                                <h4>Vị trí:</h4>
+                                <p>Đại học Bách Khoa Hà Nội</p>
+                            </div>
+
+                            <div class="mail">
+                                <i class="bx bx-envelope"></i>
+                                <h4>mail:</h4>
+                                <p>thaivanlam@gmail.com</p>
+                            </div>
+
+                            <div class="phone">
+                                <i class="bx bxl-skype"></i>
+                                <h4>SĐT:</h4>
+                                <p>0974562318</p>
+                            </div>
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13637.794138524552!2d105.841552!3d21.005094!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ad591575f7bb%3A0x28c483c5b1697381!2zQ-G7lW5nIFBhcmFib2wgLSDEkOG6oWkgSOG7jWMgQsOhY2ggS2hvYSBIw6AgTuG7mWk!5e1!3m2!1svi!2s!4v1730363571456!5m2!1svi!2s"
+                                width="400" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+                        <form action="message/message.php" method="post" role="form" class="php-email-form">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="Stu_ID" class="message">Mã số sinh viên</label>
+                                    <input type="text" name="Stu_ID" class="form-control" id="Stu_ID"
+                                        data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <div class="validate"></div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="Name" class="message">Tên sinh viên</label>
+                                    <input type="text" class="form-control" name="Name" id="Name" data-rule="Name"
+                                        data-msg="Please enter a valid email" />
+                                    <div class="validate"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="Room_Num" class="message">Số phòng</label>
+                                <input type="text" class="form-control" name="Room_Num" id="Room_Num"
+                                    data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                <div class="validate"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="Messages" class="message">Message</label>
+                                <textarea type="text" class="form-control" name="Messages" id="Messages" rows="15"
+                                    data-rule="required" data-msg="Please write something for us"></textarea>
+                                <div class="validate"></div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="loading">Loading</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">Your message has been sent. Thank you!</div>
+                            </div>
+                            <div class="text-center" id="button_mes"><button type="submit">Send Message</button></div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact End -->
 </body>
 
 </html>
