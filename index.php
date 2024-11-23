@@ -309,6 +309,124 @@
     </section>
 
     <!-- doctors section ends -->
+
+
+    <!-- Galary section start-->
+    <div class="container-fluid pt-5 pb-3" id="Gallery" style="margin-top:20px">
+        <h1 class=" heading">Gallery</h1>
+        <div class="row">
+            <div class="col-12 text-center mb-2">
+                <ul class="list-inline mb-4" id="portfolio-flters">
+                    <li class="btn btn-sm btn-outline-info m-1 active" data-filter="*" style=" text-decoration:none; ">
+                        Tất cả</li>
+                    <li class="btn btn-sm btn-outline-info m-1" data-filter=".first"><a href="#room"
+                            style=" text-decoration:none; "> Phòng </a>
+                    </li>
+                    <li class="btn btn-sm btn-outline-info m-1" data-filter=".second"><a href="#floor"
+                            style=" text-decoration:none; ">Tầng</li>
+                    <li class="btn btn-sm btn-outline-info m-1" data-filter=".third"><a href="#canteen"
+                            style=" text-decoration:none; ">Canteen</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container" id="cont">
+            <div class="position-relative d-flex align-items-center justify-content-center" id="sec_cond1">
+                <div class="row portfolio-container" id="room">
+                    <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
+                        <div class="position-relative overflow-hidden mb-2">
+                            <img class="img-fluid rounded w-100" src="images/Room1.jpg" alt="">
+                            <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                                <a href="images/Room1.jpg" data-lightbox="portfolio">
+                                    <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4 portfolio-item second" id="room">
+                        <div class="position-relative overflow-hidden mb-2">
+                            <img class="img-fluid rounded w-100" src="images/Room2.jpg" alt="">
+                            <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                                <a href="images/Room2.jpg" data-lightbox="portfolio">
+                                    <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4 portfolio-item second" id="room">
+                        <div class="position-relative overflow-hidden mb-2">
+                            <img class="img-fluid rounded w-100" src="images/Room3.jpg" alt="">
+                            <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                                <a href="images/Room3.jpg" data-lightbox="portfolio">
+                                    <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4 portfolio-item third" id="floor">
+                        <div class="position-relative overflow-hidden mb-2">
+                            <img class="img-fluid rounded w-100" src="images/Floor1.jpg" alt="">
+                            <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                                <a href="images/Floor1.jpg" data-lightbox="portfolio">
+                                    <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4 portfolio-item first" id="floor">
+                        <div class="position-relative overflow-hidden mb-2">
+                            <img class="img-fluid rounded w-100" src="images/Floor2.jpg" alt="">
+                            <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                                <a href="images/Floor2.jpg" data-lightbox="portfolio">
+                                    <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4 portfolio-item third" id="floor">
+                        <div class="position-relative overflow-hidden mb-2">
+                            <img class="img-fluid rounded w-100" src="images/Floor3.jpg" alt="">
+                            <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                                <a href="images/Floor3.jpg" data-lightbox="portfolio">
+                                    <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4 portfolio-item second" id="canteen">
+                        <div class="position-relative overflow-hidden mb-2">
+                            <img class="img-fluid rounded w-100" src="images/canteen1.jpg" alt="">
+                            <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                                <a href="images/canteen1.jpg" data-lightbox="portfolio">
+                                    <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4 portfolio-item third" id="canteen">
+                        <div class="position-relative overflow-hidden mb-2">
+                            <img class="img-fluid rounded w-100" src="images/canteen2.jpg" alt="">
+                            <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                                <a href="images/canteen2.jpg" data-lightbox="portfolio">
+                                    <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4 portfolio-item third" id="canteen">
+                        <div class="position-relative overflow-hidden mb-2">
+                            <img class="img-fluid rounded w-100" src="images/canteen3.jpg" alt="">
+                            <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                                <a href="images/canteen3.jpg" data-lightbox="portfolio">
+                                    <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Gallery End -->
 </body>
 
 </html>
