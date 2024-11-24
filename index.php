@@ -21,6 +21,74 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="home.css" />
+
+    <style>
+        .modal-body {
+            /*background-color: rgba(11,11,11,.5);*/
+            background-color: #303841;
+        }
+
+        .carousel-inner {
+            width: 100%;
+
+        }
+
+        .bdr {
+            border-bottom: 2px solid red;
+        }
+
+        .radius {
+            border-radius: 15px;
+            transition: 0.5s all ease;
+        }
+
+        .radius:hover:after {
+
+            content: " >";
+
+        }
+
+        .slick-initialized .slick-slide {
+            outline: none;
+        }
+
+        .checked {
+            color: orange;
+        }
+
+        .img-hv {
+            transition: 0.5s all ease;
+        }
+
+        .img-hv:hover {
+            transform: scale(1.2, 1.2);
+        }
+
+        .active,
+        .menu-bar ul li:hover {
+            background: #2bab0d;
+            border-radius: 5px;
+
+        }
+
+        .sub-menu-1 {
+            display: none;
+        }
+
+        .menu-bar ul li:hover .sub-menu-1 {
+            display: block;
+            position: absolute;
+            background: rgb(0, 100, 0);
+            margin-top: 15px;
+            margin-left: -15px;
+
+        }
+
+        .menu-bar ul li:hover .sub-menu-1 ul {
+            display: block;
+            margin: 10px;
+        }
+    </style>
 </head>
 
 <body>
