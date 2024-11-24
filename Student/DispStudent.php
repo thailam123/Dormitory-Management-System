@@ -294,15 +294,18 @@
         <th>Số điện thoại</th>
         <th>Email</th>
         <th>ID phòng</th>
+        <th>Hành động</th>
 
       </tr>
       <?php
       include 'connection.php';
+
+      $search = isset($_GET['search']) ? $_GET['search'] : '';
       $limit = 10;
       $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
       $offset = ($page - 1) * $limit;
 
-      $count_sql = "SELECT COUNT(*) AS total FROM student";
+      $count_sql = "SELECT COUNT(*) AS total FROM student WHERE Name LIKE '%$search%'";
       $count_result = mysqli_query($conn, $count_sql);
       $count_row = mysqli_fetch_assoc($count_result);
       $total_rooms = $count_row['total'];
@@ -313,12 +316,12 @@
       while ($row1 = mysqli_fetch_array($query)) {
         ?>
         <tr>
-          <td><?php echo $row1['Stu_id']; ?></td>
-          <td><?php echo $row1['Name']; ?></td>
-          <td><?php echo $row1['DOB']; ?></td>
-          <td><?php echo $row1['Phone_number']; ?></td>
-          <td><?php echo $row1['Email']; ?></td>
-          <td><?php echo $row1['R_ID']; ?></td>
+          <td class="tdr"><?php echo $row1['Stu_id']; ?></td>
+          <td class="tdr"><?php echo $row1['Name']; ?></td>
+          <td class="tdr"><?php echo $row1['DOB']; ?></td>
+          <td class="tdr"><?php echo $row1['Phone_number']; ?></td>
+          <td class="tdr"><?php echo $row1['Email']; ?></td>
+          <td class="tdr"><?php echo $row1['R_ID']; ?></td>
           <td style="width: 140px;">
             <button id="delete">
               <a href="Delete.php?R_ID=<?php echo $row1['Stu_id']; ?>" id="link1" onclick="return confirmDelete()">
