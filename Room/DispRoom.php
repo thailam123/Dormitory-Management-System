@@ -73,6 +73,17 @@
       color: inherit;
     }
 
+    .slidebar ul li.active {
+      background-color: #1abc9c;
+      color: white;
+      border-radius: 10px;
+    }
+
+    .slidebar ul li.active a {
+      color: white;
+      text-decoration: none;
+    }
+
     main {
       margin-left: 20%;
       padding: 20px;
@@ -226,7 +237,7 @@
       <li><a href=""><i class="fas fa-wallet"></i> Chi phí</a></li>
       <li><a href=""><i class="fas fa-book-reader"></i> Sinh viên</a></li>
       <li><a href=""><i class="fas fa-layer-group"></i> Tầng</a></li>
-      <li><a href="../Room/DispRoom.php"><i class="fa fa-bed"></i> Phòng</a></li>
+      <li class="active"><a href="../Room/DispRoom.php"><i class="fa fa-bed"></i> Phòng</a></li>
       <li><a href=""><i class="fas fa-exclamation-triangle"></i> Vấn đề về cơ sở vật chất</a></li>
       <li><a href=""><i class="fas fa-envelope-open"></i> Messages</a></li>
     </ul>
@@ -276,7 +287,7 @@
       </tr>
       <?php
       include 'connection.php';
-      $limit = 20;
+      $limit = 10;
       $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
       $offset = ($page - 1) * $limit;
 
