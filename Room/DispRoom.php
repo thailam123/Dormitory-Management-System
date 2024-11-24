@@ -253,7 +253,7 @@
     <center>
       <div class="button-container">
         <button class="button">
-          <a href="Room.html">
+          <a href="Insert.php">
             <i class="fas fa-plus"></i> Thêm phòng
           </a>
         </button>
@@ -271,7 +271,7 @@
     </center>
     <table align="center" border="1px" style="width:1100px; line-height:40px;">
       <tr>
-        <th colspan="8">
+        <th colspan="9">
           <h2>Quản lý phòng</h2>
         </th>
       </tr>
@@ -283,6 +283,7 @@
         <th>Số lượng bàn</th>
         <th>Số lượng giường</th>
         <th>Giới tính</th>
+        <th>Trạng thái</th>
         <th>Hành động</th>
       </tr>
       <?php
@@ -302,7 +303,12 @@
                    WHEN Gender = 1 THEN 'Nam' 
                    WHEN Gender = 0 THEN 'Nữ' 
                    ELSE 'Không xác định' 
-               END AS Gender
+               END AS Gender,
+               CASE 
+                  WHEN r.Status = 1 THEN 'Mở' 
+                  WHEN r.Status = 0 THEN 'Đóng' 
+                  ELSE 'Không xác định' 
+               END AS rStatus
         FROM room r
         INNER JOIN floor f ON r.F_ID = f.F_ID
         INNER JOIN hall h ON f.H_ID = h.H_ID
@@ -319,6 +325,7 @@
           <td class="tdr"><?php echo $row1['Num_of_Table']; ?></td>
           <td class="tdr"><?php echo $row1['Num_of_Bed']; ?></td>
           <td class="tdr"><?php echo $row1['Gender']; ?></td>
+          <td class="tdr"><?php echo $row1['rStatus']; ?></td>
           <td style="width: 140px;">
             <button id="delete">
               <a href="Delete.php?R_ID=<?php echo $row1['R_ID']; ?>" id="link1" onclick="return confirmDelete()">

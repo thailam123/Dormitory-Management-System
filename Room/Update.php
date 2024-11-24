@@ -5,7 +5,8 @@ if (count($_POST) > 0) {
                      SET R_Name='" . $_POST['R_Name'] . "',
                          Num_of_Table='" . $_POST['Num_of_Table'] . "',
                          Num_of_Bed='" . $_POST['Num_of_Bed'] . "',
-                         Gender='" . $_POST['Gender'] . "' 
+                         Gender='" . $_POST['Gender'] . "',
+                         Status='" . $_POST['rStatus'] . "'
                      WHERE R_ID='" . $_POST['R_ID'] . "'");
 
   if ($result) {
@@ -21,7 +22,12 @@ $result = mysqli_query($conn, "SELECT R_ID, R_Name, f.Floor_Number, h.H_Name, Nu
                                          WHEN Gender = 1 THEN 'Nam' 
                                          WHEN Gender = 0 THEN 'Nữ' 
                                           ELSE 'Không xác định' 
-                                      END AS Gender
+                                      END AS Gender,
+                                      CASE 
+                                         WHEN r.Status = 1 THEN 'Mở' 
+                                         WHEN r.Status = 0 THEN 'Đóng' 
+                                          ELSE 'Không xác định' 
+                                      END AS rStatus
                               FROM room r
                               INNER JOIN floor f ON r.F_ID = f.F_ID
                               INNER JOIN hall h ON f.H_ID = h.H_ID
@@ -47,13 +53,15 @@ $row = mysqli_fetch_array($result);
     }
 
     .form-container {
-      width: 60%;
+      width: 45%;
       max-width: 800px;
+      max-height: 600px;
       background-color: #fff;
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
+      overflow: auto;
+      margin-right: 10px;
     }
 
     .form-container h2 {
@@ -142,6 +150,12 @@ $row = mysqli_fetch_array($result);
 
       <label for="Num_of_Bed">Số giường:</label>
       <input type="number" name="Num_of_Bed" value="<?php echo $row['Num_of_Bed']; ?>" required>
+
+      <label for="rStatus">Trạng thái:</label>
+      <select name="rStatus" required>
+        <option value="1" <?php if ($row['rStatus'] == 'Mở') echo 'selected'; ?>>Mở</option>
+        <option value="0" <?php if ($row['rStatus'] == 'Đóng') echo 'selected'; ?>>Đóng</option>
+      </select>
 
       <input type="submit" name="submit" value="Cập nhật">
     </form>
