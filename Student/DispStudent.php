@@ -311,7 +311,7 @@
       $total_rooms = $count_row['total'];
       $total_pages = ceil($total_rooms / $limit);
 
-      $sql = "SELECT Stu_id, Name, DOB, Phone_number, Email, R_ID FROM student ORDER BY Name LIMIT $limit OFFSET $offset";
+      $sql = "SELECT Stu_id, Name, DOB, Phone_number, Email, R_ID FROM student WHERE Name LIKE '%$search%' ORDER BY Name LIMIT $limit OFFSET $offset";
       $query = mysqli_query($conn, $sql);
       while ($row1 = mysqli_fetch_array($query)) {
         ?>
@@ -343,7 +343,7 @@
       <?php
       if ($total_pages > 1) {
         if ($page > 2) {
-          echo "<a href='?page=1'>1</a>";
+          echo "<a href='?page=1&search=$search'>1</a>";
           if ($page > 3) {
             echo "<span>...</span>";
           }
@@ -352,23 +352,19 @@
           if ($i == $page) {
             echo "<a class='active'>$i</a>";
           } else {
-            echo "<a href='?page=$i'>$i</a>";
+            echo "<a href='?page=$i&search=$search'>$i</a>";
           }
         }
         if ($page < $total_pages - 1) {
           echo "<span>...</span>";
-          echo "<a href='?page=$total_pages'>$total_pages</a>";
+          echo "<a href='?page=$total_pages&search=$search'>$total_pages</a>";
         }
       }
       ?>
     </div>
   </main>
 
-  <script>
-    function confirmDelete() {
-      return confirm("Bạn có chắc chắn muốn xóa phòng này?");
-    }
-  </script>
+
 </body>
 
 </html>
