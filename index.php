@@ -508,6 +508,79 @@
         </div>
     </section>
     <!-- Contact End -->
+
+    <!-- footer start -->
+
+    <section class="footer" id="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="#" style="text-decoration: none;"> <i class="fas fa-chevron-right"></i> home </a>
+                <a href="#provost" style="text-decoration: none;"> <i class="fas fa-chevron-right"></i> Provost </a>
+                <a href="#about" style="text-decoration: none;"> <i class="fas fa-chevron-right"></i> Student </a>
+                <a href="#Gallery" style="text-decoration: none;"> <i class="fas fa-chevron-right"></i> Gallery </a>
+                <a href="#contact" style="text-decoration: none;"> <i class="fas fa-chevron-right"></i> Contact</a>
+            </div>
+
+            <div class="box">
+                <h3>Useful Links</h3>
+                <a href="#" style="text-decoration: none;"> <i class="fas fa-chevron-right"></i> NOC &GO </a>
+                <a href="#" style="text-decoration: none;"> <i class="fas fa-chevron-right"></i> Download Form </a>
+                <a href="#" style="text-decoration: none;"> <i class="fas fa-chevron-right"></i> Result </a>
+                <a href="#" style="text-decoration: none;"> <i class="fas fa-chevron-right"></i> Reaserch Work </a>
+                <a href="#" style="text-decoration: none;"> <i class="fas fa-chevron-right"></i> Office </a>
+            </div>
+
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#" style="text-decoration: none;"> <i class="fas fa-phone" style="text-decoration: none;"></i>
+                    1324 </a>
+                <a href="#" style="text-decoration: none;"> <i class="fas fa-phone" style="text-decoration: none;"></i>
+                    02224491045-51 </a>
+                <a href="#" style="text-decoration: none;"> <i class="fas fa-envelope"></i> ssbhall@gmail.com </a>
+                <a href="https://www.google.com/maps/place/Shaheed+Salam+Barkat+Hall/@23.8823987,90.2620247,17z/data=!3m1!4b1!4m5!3m4!1s0x3755e9a02b7f1e89:0x6d20e40f3a231f37!8m2!3d23.8823987!4d90.2642134"
+                    style="text-decoration: none;"> <i class="fas fa-map-marker-alt"></i> Jahangirnagar University,
+                    Savar, Dhaka-1342, Bangladesh. </a>
+            </div>
+
+            <div class="box">
+                <h3>follow us</h3>
+                <a target="_blank" href="https://www.facebook.com/ctsv.hust.edu.vn" target="_blank"
+                    style="text-decoration: none;"> <i class="fab fa-facebook-f"></i> facebook </a>
+                <a href="#" style="text-decoration: none;"> <i class="fab fa-twitter"></i> twitter </a>
+                <a href="#" style="text-decoration: none;"> <i class="fab fa-instagram"></i> instagram </a>
+                <a href="#" style="text-decoration: none;"> <i class="fab fa-linkedin"></i> linkedin </a>
+                <a href="#" style="text-decoration: none;"> <i class="fab fa-pinterest"></i> pinterest </a>
+            </div>
+
+        </div>
+
+
+
+    </section>
+
+
+
+    <!-- footer end -->
+    <!-- footer -->
+    <div class="container-fluid bg-dark text-white mt-5 py-1 px-sm-1 px-md-5" style="height: 150px;">
+        <div class="container text-center py-5">
+            <div class="d-flex justify-content-center mb-4" style="margin-top: 5px;">
+                <a class="btn btn-light btn-social mr-2" href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-light btn-social mr-2" href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-light btn-social mr-2" href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-light btn-social" href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="credit">
+                <h2>created by <span>Group 1</span> | @all rights reserved</h2>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+
+
 </body>
 
 </html>
