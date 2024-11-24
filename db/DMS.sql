@@ -15,7 +15,7 @@ CREATE TABLE `floor` (
   `Status` boolean NOT NULL,
   PRIMARY KEY (`F_ID`),
   FOREIGN KEY (`H_ID`) REFERENCES `hall`(`H_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
 -- Table structure for `login`
 CREATE TABLE `login` (
@@ -35,7 +35,7 @@ CREATE TABLE `room` (
   `Status` boolean NOT NULL,
   PRIMARY KEY (`R_ID`),
   FOREIGN KEY (`F_ID`) REFERENCES `floor`(`F_ID`)  
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Table structure for `student`
 CREATE TABLE `Student` (
@@ -47,7 +47,7 @@ CREATE TABLE `Student` (
   `R_ID` int NOT NULL,
   PRIMARY KEY (`Stu_id`),
   FOREIGN KEY (`R_ID`) REFERENCES `room`(`R_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Table structure for `rent_fee`
 CREATE TABLE `rent_fee` (
@@ -61,7 +61,7 @@ CREATE TABLE `rent_fee` (
   `Status` boolean NOT NULL,
   PRIMARY KEY (`ID`),
   FOREIGN KEY (`R_ID`) REFERENCES `room`(`R_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Table structure for `facility_problem`
 CREATE TABLE `facility_problem` (
@@ -71,7 +71,7 @@ CREATE TABLE `facility_problem` (
   `Status` boolean NOT NULL,
   PRIMARY KEY (`ID`),
   FOREIGN KEY (`R_ID`) REFERENCES `room`(`R_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Table structure for `message_table`
 CREATE TABLE `message_table` (
@@ -82,7 +82,7 @@ CREATE TABLE `message_table` (
   `Messages` varchar(100) NOT NULL,
   PRIMARY KEY (`ID`),
   FOREIGN KEY (`ID_student`) REFERENCES `student`(`Stu_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `login` (`username`, `password`) VALUES
 ('admin', 'admin');
@@ -246,8 +246,6 @@ INSERT INTO `facility_problem` (`R_ID`, `Content`, `Status`) VALUES
 (18, 'Cần sửa bồn rửa', 0),
 (19, 'Thang máy không hoạt động', 1),
 (20, 'Cửa phòng bị kẹt', 0);
-
-
 
 
 INSERT INTO `message_table` (`ID_student`, `Name`, `R_Name`, `Messages`) VALUES
