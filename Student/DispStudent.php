@@ -144,6 +144,7 @@
 
     table {
       width: 90%;
+      max-width: 1020px;
       margin: 20px auto;
       border-collapse: collapse;
     }
@@ -168,6 +169,12 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+
+    }
+
+    .pagination {
+      text-align: center;
+      margin: 20px 0;
     }
 
     .pagination a {
@@ -252,15 +259,11 @@
   <!-- Main content -->
   <main>
     <center>
-      <div class="button-container">
+      <div class="button-container"
+        style="display: flex; justify-content: center; align-items: center; gap: 20px; margin-bottom: 20px;">
         <button class="button">
-          <a href="Room.html">
+          <a href="Insert.php">
             <i class="fas fa-plus"></i> Thêm Sinh viên
-          </a>
-        </button>
-        <button class="button">
-          <a href="index.html">
-            <i class="fas fa-search"></i> Tìm kiếm
           </a>
         </button>
         <button class="button">
@@ -268,11 +271,19 @@
             <i class="fas fa-home"></i> Trang chủ
           </a>
         </button>
+
+        <form method="GET" action="" style="display: flex; align-items: center; gap: 10px;">
+          <input type="text" name="search" placeholder="Nhập tên sinh viên..."
+            value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>"
+            style="padding: 8px; font-size: 16px; width: 250px; border-radius: 5px; border: 1px solid #ddd;">
+          <button type="submit" class="button" style="padding: 8px 16px; font-size: 16px;">Tìm kiếm</button>
+        </form>
+
       </div>
     </center>
     <table align="center" border="1px" style="width:1100px; line-height:40px;">
       <tr>
-        <th colspan="8">
+        <th colspan="7">
           <h2>Quản lý Sinh viên</h2>
         </th>
       </tr>
