@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quản lý phòng</title>
+  <title>Quản lý Sinh viên</title>
   <link rel="shortcut icon" href="https://juniv.edu/images/favicon.ico">
 
   <!-- Fonts -->
@@ -236,9 +236,9 @@
     <ul>
       <li><a href=""><i class="fas fa-building"></i> Tòa nhà</a></li>
       <li><a href=""><i class="fas fa-wallet"></i> Chi phí</a></li>
-      <li><a href=""><i class="fas fa-book-reader"></i> Sinh viên</a></li>
+      <li class="active"><a href="../Student/DispStudent.php"><i class="fas fa-book-reader"></i> Sinh viên</a></li>
       <li><a href=""><i class="fas fa-layer-group"></i> Tầng</a></li>
-      <li class="active"><a href="../Room/DispRoom.php"><i class="fa fa-bed"></i> Phòng</a></li>
+      <li><a href=""><i class="fa fa-bed"></i> Phòng</a></li>
       <li><a href=""><i class="fas fa-exclamation-triangle"></i> Vấn đề về cơ sở vật chất</a></li>
       <li><a href=""><i class="fas fa-envelope-open"></i> Messages</a></li>
     </ul>
@@ -315,7 +315,7 @@
               </a>
             </button>
             <button id="update">
-              <a href="Update.php?R_ID=<?php echo $row1['Stu_id']; ?>" id="link1">
+              <a href="Update.php?Stu_id=<?php echo $row1['Stu_id']; ?>" id="link1">
                 <i class="fas fa-edit"></i> Sửa
               </a>
             </button>
