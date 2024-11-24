@@ -172,8 +172,8 @@
     }
 
     .pagination {
-    text-align: center; 
-    margin: 20px 0; 
+      text-align: center;
+      margin: 20px 0;
     }
 
     .pagination a {
@@ -258,15 +258,10 @@
   <!-- Main content -->
   <main>
     <center>
-      <div class="button-container">
+      <div class="button-container" style="display: flex; justify-content: center; align-items: center; gap: 20px; margin-bottom: 20px;">
         <button class="button">
           <a href="Insert.php">
             <i class="fas fa-plus"></i> Thêm phòng
-          </a>
-        </button>
-        <button class="button">
-          <a href="index.html">
-            <i class="fas fa-search"></i> Tìm kiếm
           </a>
         </button>
         <button class="button">
@@ -274,8 +269,13 @@
             <i class="fas fa-home"></i> Trang chủ
           </a>
         </button>
+        <form method="GET" action="" style="display: flex; align-items: center; gap: 10px;">
+          <input type="text" name="search" placeholder="Nhập tên phòng..." value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>" style="padding: 8px; font-size: 16px; width: 250px; border-radius: 5px; border: 1px solid #ddd;">
+          <button type="submit" class="button" style="padding: 8px 16px; font-size: 16px;">Tìm kiếm</button>
+        </form>
       </div>
     </center>
+
     <table align="center" border="1px" style="width:1100px; line-height:40px;">
       <tr>
         <th colspan="9">
@@ -295,35 +295,41 @@
       </tr>
       <?php
       include 'connection.php';
+
+      $search = isset($_GET['search']) ? $_GET['search'] : '';
+
       $limit = 10;
       $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
       $offset = ($page - 1) * $limit;
 
-      $count_sql = "SELECT COUNT(*) AS total FROM room";
+      $count_sql = "SELECT COUNT(*) AS total FROM room WHERE R_Name LIKE '%$search%'";
       $count_result = mysqli_query($conn, $count_sql);
       $count_row = mysqli_fetch_assoc($count_result);
       $total_rooms = $count_row['total'];
       $total_pages = ceil($total_rooms / $limit);
 
       $sql = "SELECT R_ID, R_Name, Floor_Number, H_Name, Num_of_Table, Num_of_Bed, 
-               CASE 
-                   WHEN Gender = 1 THEN 'Nam' 
-                   WHEN Gender = 0 THEN 'Nữ' 
-                   ELSE 'Không xác định' 
-               END AS Gender,
-               CASE 
-                  WHEN r.Status = 1 THEN 'Mở' 
-                  WHEN r.Status = 0 THEN 'Đóng' 
-                  ELSE 'Không xác định' 
-               END AS rStatus
+                 CASE 
+                     WHEN Gender = 1 THEN 'Nam' 
+                     WHEN Gender = 0 THEN 'Nữ' 
+                     ELSE 'Không xác định' 
+                 END AS Gender,
+                 CASE 
+                    WHEN r.Status = 1 THEN 'Mở' 
+                    WHEN r.Status = 0 THEN 'Đóng' 
+                    ELSE 'Không xác định' 
+                 END AS rStatus
         FROM room r
         INNER JOIN floor f ON r.F_ID = f.F_ID
         INNER JOIN hall h ON f.H_ID = h.H_ID
+        WHERE R_Name LIKE '%$search%'  
         ORDER BY R_Name
         LIMIT $limit OFFSET $offset";
+
       $query = mysqli_query($conn, $sql);
+
       while ($row1 = mysqli_fetch_array($query)) {
-        ?>
+      ?>
         <tr>
           <td class="tdr"><?php echo $row1['R_ID']; ?></td>
           <td class="tdr"><?php echo $row1['R_Name']; ?></td>
@@ -346,15 +352,16 @@
             </button>
           </td>
         </tr>
-        <?php
+      <?php
       }
       ?>
     </table>
+
     <div class="pagination">
       <?php
       if ($total_pages > 1) {
         if ($page > 2) {
-          echo "<a href='?page=1'>1</a>";
+          echo "<a href='?page=1&search=$search'>1</a>";
           if ($page > 3) {
             echo "<span>...</span>";
           }
@@ -363,23 +370,17 @@
           if ($i == $page) {
             echo "<a class='active'>$i</a>";
           } else {
-            echo "<a href='?page=$i'>$i</a>";
+            echo "<a href='?page=$i&search=$search'>$i</a>";
           }
         }
         if ($page < $total_pages - 1) {
           echo "<span>...</span>";
-          echo "<a href='?page=$total_pages'>$total_pages</a>";
+          echo "<a href='?page=$total_pages&search=$search'>$total_pages</a>";
         }
       }
       ?>
     </div>
   </main>
-
-  <script>
-    function confirmDelete() {
-      return confirm("Bạn có chắc chắn muốn xóa phòng này?");
-    }
-  </script>
 </body>
 
 </html>
