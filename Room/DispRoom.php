@@ -144,6 +144,7 @@
 
     table {
       width: 90%;
+      max-width: 1020px;
       margin: 20px auto;
       border-collapse: collapse;
     }
@@ -168,6 +169,11 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+
+    .pagination {
+    text-align: center; 
+    margin: 20px 0; 
     }
 
     .pagination a {
