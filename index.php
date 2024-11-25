@@ -21,6 +21,74 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="home.css" />
+
+    <style>
+        .modal-body {
+            /*background-color: rgba(11,11,11,.5);*/
+            background-color: #303841;
+        }
+
+        .carousel-inner {
+            width: 100%;
+
+        }
+
+        .bdr {
+            border-bottom: 2px solid red;
+        }
+
+        .radius {
+            border-radius: 15px;
+            transition: 0.5s all ease;
+        }
+
+        .radius:hover:after {
+
+            content: " >";
+
+        }
+
+        .slick-initialized .slick-slide {
+            outline: none;
+        }
+
+        .checked {
+            color: orange;
+        }
+
+        .img-hv {
+            transition: 0.5s all ease;
+        }
+
+        .img-hv:hover {
+            transform: scale(1.2, 1.2);
+        }
+
+        .active,
+        .menu-bar ul li:hover {
+            background: #2bab0d;
+            border-radius: 5px;
+
+        }
+
+        .sub-menu-1 {
+            display: none;
+        }
+
+        .menu-bar ul li:hover .sub-menu-1 {
+            display: block;
+            position: absolute;
+            background: rgb(0, 100, 0);
+            margin-top: 15px;
+            margin-left: -15px;
+
+        }
+
+        .menu-bar ul li:hover .sub-menu-1 ul {
+            display: block;
+            margin: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -309,6 +377,337 @@
     </section>
 
     <!-- doctors section ends -->
+
+
+    <!-- Galary section start-->
+    <div class="container-fluid pt-5 pb-3" id="Gallery" style="margin-top:20px">
+        <h1 class=" heading">Gallery</h1>
+        <div class="row">
+            <div class="col-12 text-center mb-2">
+                <ul class="list-inline mb-4" id="portfolio-flters">
+                    <li class="btn btn-sm btn-outline-info m-1 active" data-filter="*" style=" text-decoration:none; ">
+                        Tất cả</li>
+                    <li class="btn btn-sm btn-outline-info m-1" data-filter=".first"><a href="#room"
+                            style=" text-decoration:none; "> Phòng </a>
+                    </li>
+                    <li class="btn btn-sm btn-outline-info m-1" data-filter=".second"><a href="#floor"
+                            style=" text-decoration:none; ">Tầng</li>
+                    <li class="btn btn-sm btn-outline-info m-1" data-filter=".third"><a href="#canteen"
+                            style=" text-decoration:none; ">Canteen</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container" id="cont">
+            <div class="position-relative d-flex align-items-center justify-content-center" id="sec_cond1">
+                <div class="row portfolio-container" id="room">
+                    <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
+                        <div class="position-relative overflow-hidden mb-2">
+                            <img class="img-fluid rounded w-100" src="images/Room1.jpg" alt="">
+                            <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                                <a href="images/Room1.jpg" data-lightbox="portfolio">
+                                    <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4 portfolio-item second" id="room">
+                        <div class="position-relative overflow-hidden mb-2">
+                            <img class="img-fluid rounded w-100" src="images/Room2.jpg" alt="">
+                            <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                                <a href="images/Room2.jpg" data-lightbox="portfolio">
+                                    <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4 portfolio-item second" id="room">
+                        <div class="position-relative overflow-hidden mb-2">
+                            <img class="img-fluid rounded w-100" src="images/Room3.jpg" alt="">
+                            <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                                <a href="images/Room3.jpg" data-lightbox="portfolio">
+                                    <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4 portfolio-item third" id="floor">
+                        <div class="position-relative overflow-hidden mb-2">
+                            <img class="img-fluid rounded w-100" src="images/Floor1.jpg" alt="">
+                            <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                                <a href="images/Floor1.jpg" data-lightbox="portfolio">
+                                    <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4 portfolio-item first" id="floor">
+                        <div class="position-relative overflow-hidden mb-2">
+                            <img class="img-fluid rounded w-100" src="images/Floor2.jpg" alt="">
+                            <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                                <a href="images/Floor2.jpg" data-lightbox="portfolio">
+                                    <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4 portfolio-item third" id="floor">
+                        <div class="position-relative overflow-hidden mb-2">
+                            <img class="img-fluid rounded w-100" src="images/Floor3.jpg" alt="">
+                            <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                                <a href="images/Floor3.jpg" data-lightbox="portfolio">
+                                    <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4 portfolio-item second" id="canteen">
+                        <div class="position-relative overflow-hidden mb-2">
+                            <img class="img-fluid rounded w-100" src="images/canteen1.jpg" alt="">
+                            <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                                <a href="images/canteen1.jpg" data-lightbox="portfolio">
+                                    <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4 portfolio-item third" id="canteen">
+                        <div class="position-relative overflow-hidden mb-2">
+                            <img class="img-fluid rounded w-100" src="images/canteen2.jpg" alt="">
+                            <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                                <a href="images/canteen2.jpg" data-lightbox="portfolio">
+                                    <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4 portfolio-item third" id="canteen">
+                        <div class="position-relative overflow-hidden mb-2">
+                            <img class="img-fluid rounded w-100" src="images/canteen3.jpg" alt="">
+                            <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                                <a href="images/canteen3.jpg" data-lightbox="portfolio">
+                                    <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Gallery End -->
+
+
+    <!-- Contact Start -->
+
+
+    <section id="contact" class="contact">
+        <h1 class=" heading">Contact</h1>
+        <div class="container" id="cont">
+
+            <div class="section-title" id="sec_cond">
+                <div class="row" data-aos="fade-in">
+
+                    <div class="col-lg-5 d-flex align-items-stretch">
+                        <div class="info">
+                            <div class="address">
+                                <i class="bx bx-home"></i>
+                                <h4>Vị trí:</h4>
+                                <p>Đại học Bách Khoa Hà Nội</p>
+                            </div>
+
+                            <div class="mail">
+                                <i class="bx bx-envelope"></i>
+                                <h4>mail:</h4>
+                                <p>thaivanlam@gmail.com</p>
+                            </div>
+
+                            <div class="phone">
+                                <i class="bx bxl-skype"></i>
+                                <h4>SĐT:</h4>
+                                <p>0974562318</p>
+                            </div>
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13637.794138524552!2d105.841552!3d21.005094!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ad591575f7bb%3A0x28c483c5b1697381!2zQ-G7lW5nIFBhcmFib2wgLSDEkOG6oWkgSOG7jWMgQsOhY2ggS2hvYSBIw6AgTuG7mWk!5e1!3m2!1svi!2s!4v1730363571456!5m2!1svi!2s"
+                                width="400" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+                        <form action="message/message.php" method="post" role="form" class="php-email-form">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="Stu_ID" class="message">Mã số sinh viên</label>
+                                    <input type="text" name="Stu_ID" class="form-control" id="Stu_ID"
+                                        data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <div class="validate"></div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="Name" class="message">Tên sinh viên</label>
+                                    <input type="text" class="form-control" name="Name" id="Name" data-rule="Name"
+                                        data-msg="Please enter a valid email" />
+                                    <div class="validate"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="Room_Num" class="message">Số phòng</label>
+                                <input type="text" class="form-control" name="Room_Num" id="Room_Num"
+                                    data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                <div class="validate"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="Messages" class="message">Message</label>
+                                <textarea type="text" class="form-control" name="Messages" id="Messages" rows="15"
+                                    data-rule="required" data-msg="Please write something for us"></textarea>
+                                <div class="validate"></div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="loading">Loading</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">Your message has been sent. Thank you!</div>
+                            </div>
+                            <div class="text-center" id="button_mes"><button type="submit">Send Message</button></div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact End -->
+
+    <!-- footer start -->
+
+    <section class="footer" id="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="#" style="text-decoration: none;"> <i class="fas fa-chevron-right"></i> home </a>
+                <a href="#provost" style="text-decoration: none;"> <i class="fas fa-chevron-right"></i> Provost </a>
+                <a href="#about" style="text-decoration: none;"> <i class="fas fa-chevron-right"></i> Student </a>
+                <a href="#Gallery" style="text-decoration: none;"> <i class="fas fa-chevron-right"></i> Gallery </a>
+                <a href="#contact" style="text-decoration: none;"> <i class="fas fa-chevron-right"></i> Contact</a>
+            </div>
+
+            <div class="box">
+                <h3>Useful Links</h3>
+                <a href="#" style="text-decoration: none;"> <i class="fas fa-chevron-right"></i> NOC &GO </a>
+                <a href="#" style="text-decoration: none;"> <i class="fas fa-chevron-right"></i> Download Form </a>
+                <a href="#" style="text-decoration: none;"> <i class="fas fa-chevron-right"></i> Result </a>
+                <a href="#" style="text-decoration: none;"> <i class="fas fa-chevron-right"></i> Reaserch Work </a>
+                <a href="#" style="text-decoration: none;"> <i class="fas fa-chevron-right"></i> Office </a>
+            </div>
+
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#" style="text-decoration: none;"> <i class="fas fa-phone" style="text-decoration: none;"></i>
+                    1324 </a>
+                <a href="#" style="text-decoration: none;"> <i class="fas fa-phone" style="text-decoration: none;"></i>
+                    02224491045-51 </a>
+                <a href="#" style="text-decoration: none;"> <i class="fas fa-envelope"></i> ssbhall@gmail.com </a>
+                <a href="https://www.google.com/maps/place/Shaheed+Salam+Barkat+Hall/@23.8823987,90.2620247,17z/data=!3m1!4b1!4m5!3m4!1s0x3755e9a02b7f1e89:0x6d20e40f3a231f37!8m2!3d23.8823987!4d90.2642134"
+                    style="text-decoration: none;"> <i class="fas fa-map-marker-alt"></i> Jahangirnagar University,
+                    Savar, Dhaka-1342, Bangladesh. </a>
+            </div>
+
+            <div class="box">
+                <h3>follow us</h3>
+                <a target="_blank" href="https://www.facebook.com/ctsv.hust.edu.vn" target="_blank"
+                    style="text-decoration: none;"> <i class="fab fa-facebook-f"></i> facebook </a>
+                <a href="#" style="text-decoration: none;"> <i class="fab fa-twitter"></i> twitter </a>
+                <a href="#" style="text-decoration: none;"> <i class="fab fa-instagram"></i> instagram </a>
+                <a href="#" style="text-decoration: none;"> <i class="fab fa-linkedin"></i> linkedin </a>
+                <a href="#" style="text-decoration: none;"> <i class="fab fa-pinterest"></i> pinterest </a>
+            </div>
+
+        </div>
+
+
+
+    </section>
+
+
+
+    <!-- footer end -->
+    <!-- footer -->
+    <div class="container-fluid bg-dark text-white mt-5 py-1 px-sm-1 px-md-5" style="height: 150px;">
+        <div class="container text-center py-5">
+            <div class="d-flex justify-content-center mb-4" style="margin-top: 5px;">
+                <a class="btn btn-light btn-social mr-2" href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-light btn-social mr-2" href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-light btn-social mr-2" href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-light btn-social" href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="credit">
+                <h2>created by <span>Group 1</span> | @all rights reserved</h2>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+    <!--  smooth scroll -->
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+
+    <!-- jquery -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- slick slider js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+        integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+        crossorigin="anonymous"></script>
+    <script src="../js/main.js"></script>
+
+    <script>
+        $('.pslick').slick({
+            dots: false,
+            infinite: true,
+            speed: 300,
+            autoplay: true,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            responsive: [{
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    arrows: false,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    arrows: false,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+
+            ]
+        });
+    </script>
 </body>
 
 </html>

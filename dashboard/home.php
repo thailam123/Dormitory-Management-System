@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dormitory Management System</title>
@@ -82,7 +82,6 @@
         /* Main Part */
         .mainpart {
             margin-left: 20%;
-            background-image: url('../images/images.jpg');
             background-size: cover;
             height: 100vh;
             display: flex;
@@ -185,7 +184,7 @@
             <li><a href=""><i class="fas fa-wallet"></i> Chi phí</a></li>
             <li><a href=""><i class="fas fa-book-reader"></i> Sinh viên</a></li>
             <li><a href=""><i class="fas fa-layer-group"></i> Tầng</a></li>
-            <li><a href=""><i class="fa fa-bed"></i> Phòng</a></li>
+            <li><a href="../Room/DispRoom.php"><i class="fa fa-bed"></i> Phòng</a></li>
             <li><a href=""><i class="fas fa-exclamation-triangle"></i> Vấn đề về cơ sở vật chất</a></li>
             <li><a href=""><i class="fas fa-envelope-open"></i> Messages</a></li>
         </ul>
@@ -232,7 +231,7 @@
             </a>
 
             <!-- Phòng -->
-            <a href="" style="text-decoration:none">
+            <a href="../Room/DispRoom.php" style="text-decoration:none">
                 <div class="cardspecific">
                     Phòng
                     <div class="number">
