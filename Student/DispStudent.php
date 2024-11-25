@@ -324,7 +324,7 @@
           <td class="tdr"><?php echo $row1['R_ID']; ?></td>
           <td style="width: 140px;">
             <button id="delete">
-              <a href="Delete.php?R_ID=<?php echo $row1['Stu_id']; ?>" id="link1" onclick="return confirmDelete()">
+              <a href="Delete.php?Stu_id=<?php echo $row1['Stu_id']; ?>" id="link1" onclick="return confirmDelete()">
                 <i class="fas fa-trash"></i> Xóa
               </a>
             </button>
