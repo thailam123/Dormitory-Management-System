@@ -3,7 +3,7 @@ include_once 'connection.php';
 
 if (count($_POST) > 0) {
     $result = mysqli_query($conn, "INSERT INTO room (R_Name, F_ID, Num_of_Table, Num_of_Bed, Gender, Status) 
-                         VALUES ('" . $_POST['R_Name'] . "', '" . $_POST['F_ID'] . "', '" . $_POST['Num_of_Table'] . "', '" . $_POST['Num_of_Bed'] . "', '" . $_POST['Gender'] . "', '" . $_POST['Status']. "')");
+                         VALUES ('" . $_POST['R_Name'] . "', '" . $_POST['F_ID'] . "', '" . $_POST['Num_of_Table'] . "', '" . $_POST['Num_of_Bed'] . "', '" . $_POST['Gender'] . "', '" . $_POST['Status'] . "')");
 
     if ($result) {
         header("Location: DispRoom.php");
@@ -137,7 +137,7 @@ if (count($_POST) > 0) {
             <script>
                 function loadFloors(hallId) {
                     var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function() {
+                    xhttp.onreadystatechange = function () {
                         if (this.readyState == 4 && this.status == 200) {
                             document.getElementById("F_ID").innerHTML = this.responseText;
                         }
