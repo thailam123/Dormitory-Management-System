@@ -10,7 +10,7 @@ if (count($_POST) > 0) {
                      WHERE R_ID='" . $_POST['R_ID'] . "'");
 
   if ($result) {
-    header("Location: DispRoom.php");
+    header("Location: DispRentFee.php");
     exit;
   } else {
     echo "Error: " . mysqli_error($conn);
