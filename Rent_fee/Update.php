@@ -1,7 +1,7 @@
 <?php
 include_once 'connection.php';
 if (count($_POST) > 0) {
-  $result = mysqli_query($conn, "UPDATE room 
+  $result = mysqli_query($conn, "UPDATE rent_fee 
                      SET R_Name='" . $_POST['R_Name'] . "',
                          Num_of_Table='" . $_POST['Num_of_Table'] . "',
                          Num_of_Bed='" . $_POST['Num_of_Bed'] . "',
@@ -38,7 +38,7 @@ $row = mysqli_fetch_array($result);
 <html>
 
 <head>
-  <title>Cập nhật thông tin phòng</title>
+  <title>Cập nhật thông tin chi phí</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <style>
@@ -126,7 +126,7 @@ $row = mysqli_fetch_array($result);
 
 <body>
   <div class="form-container">
-    <h2>Cập nhật thông tin phòng</h2>
+    <h2>Cập nhật thông tin chi phí</h2>
     <form name="frmUser" method="post" action="" onsubmit="return confirmUpdate();">
       <input type="hidden" name="R_ID" value="<?php echo $row['R_ID']; ?>">
 
@@ -141,8 +141,10 @@ $row = mysqli_fetch_array($result);
 
       <label for="Gender">Giới tính:</label>
       <select name="Gender" required>
-        <option value="1" <?php if ($row['Gender'] == 'Nam') echo 'selected'; ?>>Nam</option>
-        <option value="0" <?php if ($row['Gender'] == 'Nữ') echo 'selected'; ?>>Nữ</option>
+        <option value="1" <?php if ($row['Gender'] == 'Nam')
+          echo 'selected'; ?>>Nam</option>
+        <option value="0" <?php if ($row['Gender'] == 'Nữ')
+          echo 'selected'; ?>>Nữ</option>
       </select>
 
       <label for="Num_of_Table">Số bàn:</label>
@@ -153,15 +155,17 @@ $row = mysqli_fetch_array($result);
 
       <label for="rStatus">Trạng thái:</label>
       <select name="rStatus" required>
-        <option value="1" <?php if ($row['rStatus'] == 'Mở') echo 'selected'; ?>>Mở</option>
-        <option value="0" <?php if ($row['rStatus'] == 'Đóng') echo 'selected'; ?>>Đóng</option>
+        <option value="1" <?php if ($row['rStatus'] == 'Mở')
+          echo 'selected'; ?>>Mở</option>
+        <option value="0" <?php if ($row['rStatus'] == 'Đóng')
+          echo 'selected'; ?>>Đóng</option>
       </select>
 
       <input type="submit" name="submit" value="Cập nhật">
     </form>
 
     <div class="button-container">
-      <a href="DispRoom.php">Trở về danh sách phòng</a>
+      <a href="DispRoom.php">Trở về danh sách chi phí</a>
     </div>
   </div>
 
