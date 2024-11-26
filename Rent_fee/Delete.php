@@ -2,7 +2,7 @@
 include_once 'connection.php';
 
 if (isset($_GET["ID"])) {
-    $R_ID = $_GET["ID"];
+    $ID = $_GET["ID"];
 
     $sql = "DELETE FROM rent_fee WHERE ID = ?";
 
