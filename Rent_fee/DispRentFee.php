@@ -241,10 +241,10 @@
     </header>
     <ul>
       <li><a href=""><i class="fas fa-building"></i> Tòa nhà</a></li>
-      <li><a href="../Rent_fee/DispRentFee.php"><i class="fas fa-wallet"></i> Chi phí</a></li>
+      <li class="active"><a href="../Rent_fee/DispRentFee.php"><i class="fas fa-wallet"></i> Chi phí</a></li>
       <li><a href=""><i class="fas fa-book-reader"></i> Sinh viên</a></li>
       <li><a href=""><i class="fas fa-layer-group"></i> Tầng</a></li>
-      <li class="active"><a href="../Room/DispRoom.php"><i class="fa fa-bed"></i> Phòng</a></li>
+      <li><a href="../Room/DispRoom.php"><i class="fa fa-bed"></i> Phòng</a></li>
       <li><a href=""><i class="fas fa-exclamation-triangle"></i> Vấn đề về cơ sở vật chất</a></li>
       <li><a href=""><i class="fas fa-envelope-open"></i> Messages</a></li>
     </ul>
@@ -262,7 +262,7 @@
         style="display: flex; justify-content: center; align-items: center; gap: 20px; margin-bottom: 20px;">
         <button class="button">
           <a href="Insert.php">
-            <i class="fas fa-plus"></i> Thêm phòng
+            <i class="fas fa-plus"></i> Thêm chi phí
           </a>
         </button>
         <button class="button">
@@ -282,17 +282,17 @@
     <table align="center" border="1px" style="width:1100px; line-height:40px;">
       <tr>
         <th colspan="9">
-          <h2>Quản lý phòng</h2>
+          <h2>Quản lý chi phí</h2>
         </th>
       </tr>
       <tr>
+        <th>ID chi phí</th>
         <th>ID phòng</th>
-        <th>Tên phòng</th>
-        <th>Tầng</th>
-        <th>Tòa nhà</th>
-        <th>Số lượng bàn</th>
-        <th>Số lượng giường</th>
-        <th>Giới tính</th>
+        <th>Kỳ hạn</th>
+        <th>Giá tiền phòng</th>
+        <th>Giá tiền điện</th>
+        <th>Giá tiền mạng</th>
+        <th>Giá tiền nước</th>
         <th>Trạng thái</th>
         <th>Hành động</th>
       </tr>
