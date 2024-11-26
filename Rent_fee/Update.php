@@ -19,21 +19,16 @@ if (count($_POST) > 0) {
   }
 }
 
-$result = mysqli_query($conn, "SELECT R_ID, R_Name, f.Floor_Number, h.H_Name, Num_of_Table, Num_of_Bed,
-                                      CASE 
-                                         WHEN Gender = 1 THEN 'Nam' 
-                                         WHEN Gender = 0 THEN 'Nữ' 
-                                          ELSE 'Không xác định' 
-                                      END AS Gender,
-                                      CASE 
-                                         WHEN r.Status = 1 THEN 'Mở' 
-                                         WHEN r.Status = 0 THEN 'Đóng' 
-                                          ELSE 'Không xác định' 
-                                      END AS rStatus
-                              FROM room r
-                              INNER JOIN floor f ON r.F_ID = f.F_ID
-                              INNER JOIN hall h ON f.H_ID = h.H_ID
-                              WHERE r.R_ID='" . $_GET['R_ID'] . "'");
+$result = mysqli_query($conn, "SELECT ID, R_Name, Period, Room_Bill, Elec_Bill, Internet_Bill, 
+                 Water_Bill,
+                 CASE 
+                    WHEN rf.Status = 1 THEN 'Đã thanh toán' 
+                    WHEN rf.Status = 0 THEN 'Chưa thanh toán' 
+                    ELSE 'Không xác định' 
+                 END AS rfStatus
+        FROM rent_fee rf
+        INNER JOIN room r ON rf.R_ID = r.R_ID
+                              WHERE rf.ID='" . $_GET['ID'] . "'");
 $row = mysqli_fetch_array($result);
 ?>
 
