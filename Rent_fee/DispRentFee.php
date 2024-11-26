@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quản lý Sinh viên</title>
+  <title>Quản lý chi phí</title>
   <link rel="shortcut icon" href="https://juniv.edu/images/favicon.ico">
 
   <!-- Fonts -->
@@ -169,7 +169,6 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-
     }
 
     .pagination {
@@ -242,8 +241,8 @@
     </header>
     <ul>
       <li><a href=""><i class="fas fa-building"></i> Tòa nhà</a></li>
-      <li><a href=""><i class="fas fa-wallet"></i> Chi phí</a></li>
-      <li class="active"><a href="../Student/DispStudent.php"><i class="fas fa-book-reader"></i> Sinh viên</a></li>
+      <li class="active"><a href="../Rent_fee/DispRentFee.php"><i class="fas fa-wallet"></i> Chi phí</a></li>
+      <li><a href=""><i class="fas fa-book-reader"></i> Sinh viên</a></li>
       <li><a href=""><i class="fas fa-layer-group"></i> Tầng</a></li>
       <li><a href="../Room/DispRoom.php"><i class="fa fa-bed"></i> Phòng</a></li>
       <li><a href=""><i class="fas fa-exclamation-triangle"></i> Vấn đề về cơ sở vật chất</a></li>
@@ -263,7 +262,7 @@
         style="display: flex; justify-content: center; align-items: center; gap: 20px; margin-bottom: 20px;">
         <button class="button">
           <a href="Insert.php">
-            <i class="fas fa-plus"></i> Thêm Sinh viên
+            <i class="fas fa-plus"></i> Thêm chi phí
           </a>
         </button>
         <button class="button">
@@ -271,65 +270,86 @@
             <i class="fas fa-home"></i> Trang chủ
           </a>
         </button>
-
         <form method="GET" action="" style="display: flex; align-items: center; gap: 10px;">
-          <input type="text" name="search" placeholder="Nhập tên sinh viên..."
+          <input type="text" name="search" placeholder="Nhập tên phòng..."
             value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>"
             style="padding: 8px; font-size: 16px; width: 250px; border-radius: 5px; border: 1px solid #ddd;">
           <button type="submit" class="button" style="padding: 8px 16px; font-size: 16px;">Tìm kiếm</button>
         </form>
-
       </div>
     </center>
+
     <table align="center" border="1px" style="width:1100px; line-height:40px;">
       <tr>
-        <th colspan="7">
-          <h2>Quản lý Sinh viên</h2>
+        <th colspan="9">
+          <h2>Quản lý chi phí</h2>
         </th>
       </tr>
       <tr>
-        <th>Mã số sinh viên</th>
-        <th>Tên Sinh viên</th>
-        <th>DOB</th>
-        <th>Số điện thoại</th>
-        <th>Email</th>
+        <th>ID chi phí</th>
         <th>ID phòng</th>
+        <th>Kỳ hạn</th>
+        <th>Giá tiền phòng</th>
+        <th>Giá tiền điện</th>
+        <th>Giá tiền mạng</th>
+        <th>Giá tiền nước</th>
+        <th>Trạng thái</th>
         <th>Hành động</th>
-
       </tr>
       <?php
       include 'connection.php';
 
       $search = isset($_GET['search']) ? $_GET['search'] : '';
+
       $limit = 10;
       $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
       $offset = ($page - 1) * $limit;
 
-      $count_sql = "SELECT COUNT(*) AS total FROM student WHERE Name LIKE '%$search%'";
+      $count_sql = "SELECT COUNT(*) AS total FROM room WHERE R_Name LIKE '%$search%'";
       $count_result = mysqli_query($conn, $count_sql);
       $count_row = mysqli_fetch_assoc($count_result);
       $total_rooms = $count_row['total'];
       $total_pages = ceil($total_rooms / $limit);
 
-      $sql = "SELECT Stu_id, Name, DOB, Phone_number, Email, R_ID FROM student WHERE Name LIKE '%$search%' ORDER BY Name LIMIT $limit OFFSET $offset";
+      $sql = "SELECT R_ID, R_Name, Floor_Number, H_Name, Num_of_Table, Num_of_Bed, 
+                 CASE 
+                     WHEN Gender = 1 THEN 'Nam' 
+                     WHEN Gender = 0 THEN 'Nữ' 
+                     ELSE 'Không xác định' 
+                 END AS Gender,
+                 CASE 
+                    WHEN r.Status = 1 THEN 'Mở' 
+                    WHEN r.Status = 0 THEN 'Đóng' 
+                    ELSE 'Không xác định' 
+                 END AS rStatus
+        FROM room r
+        INNER JOIN floor f ON r.F_ID = f.F_ID
+        INNER JOIN hall h ON f.H_ID = h.H_ID
+        WHERE R_Name LIKE '%$search%'  
+        ORDER BY R_Name
+        LIMIT $limit OFFSET $offset";
+
       $query = mysqli_query($conn, $sql);
+
       while ($row1 = mysqli_fetch_array($query)) {
         ?>
         <tr>
-          <td class="tdr"><?php echo $row1['Stu_id']; ?></td>
-          <td class="tdr"><?php echo $row1['Name']; ?></td>
-          <td class="tdr"><?php echo $row1['DOB']; ?></td>
-          <td class="tdr"><?php echo $row1['Phone_number']; ?></td>
-          <td class="tdr"><?php echo $row1['Email']; ?></td>
           <td class="tdr"><?php echo $row1['R_ID']; ?></td>
+          <td class="tdr"><?php echo $row1['R_Name']; ?></td>
+          <td class="tdr"><?php echo $row1['Floor_Number']; ?></td>
+          <td class="tdr"><?php echo $row1['H_Name']; ?></td>
+          <td class="tdr"><?php echo $row1['Num_of_Table']; ?></td>
+          <td class="tdr"><?php echo $row1['Num_of_Bed']; ?></td>
+          <td class="tdr"><?php echo $row1['Gender']; ?></td>
+          <td class="tdr"><?php echo $row1['rStatus']; ?></td>
           <td style="width: 140px;">
             <button id="delete">
-              <a href="Delete.php?Stu_id=<?php echo $row1['Stu_id']; ?>" id="link1" onclick="return confirmDelete()">
+              <a href="Delete.php?R_ID=<?php echo $row1['R_ID']; ?>" id="link1" onclick="return confirmDelete()">
                 <i class="fas fa-trash"></i> Xóa
               </a>
             </button>
             <button id="update">
-              <a href="Update.php?Stu_id=<?php echo $row1['Stu_id']; ?>" id="link1">
+              <a href="Update.php?R_ID=<?php echo $row1['R_ID']; ?>" id="link1">
                 <i class="fas fa-edit"></i> Sửa
               </a>
             </button>
@@ -339,6 +359,7 @@
       }
       ?>
     </table>
+
     <div class="pagination">
       <?php
       if ($total_pages > 1) {
@@ -363,8 +384,6 @@
       ?>
     </div>
   </main>
-
-
 </body>
 
 </html>

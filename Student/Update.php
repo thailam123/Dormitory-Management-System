@@ -121,7 +121,7 @@ $row = mysqli_fetch_array($result);
       <input type="text" name="Name" value="<?php echo $row['Name']; ?>" required>
 
       <label for="DOB">DOB:</label>
-      <input type="text" name="DOB" value="<?php echo $row['DOB']; ?>" readonly>
+      <input type="date" name="DOB" value="<?php echo $row['DOB']; ?>" required>
 
       <label for="Phone_number">Số điện thoại:</label>
       <input type="text" name="Phone_number" value="<?php echo $row['Phone_number']; ?>" required>
