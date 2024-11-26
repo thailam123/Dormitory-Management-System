@@ -344,7 +344,7 @@
               </a>
             </button>
             <button id="update">
-              <a href="Update.php?R_ID=<?php echo $row1['R_ID']; ?>" id="link1">
+              <a href="Update.php?ID=<?php echo $row1['ID']; ?>" id="link1">
                 <i class="fas fa-edit"></i> Sửa
               </a>
             </button>
