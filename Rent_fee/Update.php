@@ -3,11 +3,13 @@ include_once 'connection.php';
 if (count($_POST) > 0) {
   $result = mysqli_query($conn, "UPDATE rent_fee 
                      SET R_Name='" . $_POST['R_Name'] . "',
-                         Num_of_Table='" . $_POST['Num_of_Table'] . "',
-                         Num_of_Bed='" . $_POST['Num_of_Bed'] . "',
-                         Gender='" . $_POST['Gender'] . "',
-                         Status='" . $_POST['rStatus'] . "'
-                     WHERE R_ID='" . $_POST['R_ID'] . "'");
+                         Period='" . $_POST['Period'] . "',
+                         Room_Bill='" . $_POST['Room_Bill'] . "',
+                         Elec_Bill='" . $_POST['Elec_Bill'] . "',
+                         Internet_Bill='" . $_POST['Internet_Bill'] . "',
+                         Water_Bill='" . $_POST['Water_Bill'] . "',
+                         rfStatus='" . $_POST['rfStatus'] . "'
+                     WHERE ID='" . $_POST['ID'] . "'");
 
   if ($result) {
     header("Location: DispRentFee.php");
