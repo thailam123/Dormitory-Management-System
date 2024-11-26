@@ -287,7 +287,7 @@
       </tr>
       <tr>
         <th>ID chi phí</th>
-        <th>ID phòng</th>
+        <th>Tên phòng</th>
         <th>Kỳ hạn</th>
         <th>Giá tiền phòng</th>
         <th>Giá tiền điện</th>
@@ -305,26 +305,21 @@
       $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
       $offset = ($page - 1) * $limit;
 
-      $count_sql = "SELECT COUNT(*) AS total FROM room WHERE R_Name LIKE '%$search%'";
+      $count_sql = "SELECT COUNT(*) AS total FROM rent_fee rf INNER JOIN room r ON rf.R_ID = r.R_ID WHERE R_Name LIKE '%$search%'";
       $count_result = mysqli_query($conn, $count_sql);
       $count_row = mysqli_fetch_assoc($count_result);
       $total_rooms = $count_row['total'];
       $total_pages = ceil($total_rooms / $limit);
 
-      $sql = "SELECT R_ID, R_Name, Floor_Number, H_Name, Num_of_Table, Num_of_Bed, 
+      $sql = "SELECT ID, R_Name, Period, Room_Bill, Elec_Bill, Internet_Bill, 
+                 Water_Bill,
                  CASE 
-                     WHEN Gender = 1 THEN 'Nam' 
-                     WHEN Gender = 0 THEN 'Nữ' 
-                     ELSE 'Không xác định' 
-                 END AS Gender,
-                 CASE 
-                    WHEN r.Status = 1 THEN 'Mở' 
-                    WHEN r.Status = 0 THEN 'Đóng' 
+                    WHEN rf.Status = 1 THEN 'Đã thanh toán' 
+                    WHEN rf.Status = 0 THEN 'Chưa thanh toán' 
                     ELSE 'Không xác định' 
-                 END AS rStatus
-        FROM room r
-        INNER JOIN floor f ON r.F_ID = f.F_ID
-        INNER JOIN hall h ON f.H_ID = h.H_ID
+                 END AS rfStatus
+        FROM rent_fee rf
+        INNER JOIN room r ON rf.R_ID = r.R_ID
         WHERE R_Name LIKE '%$search%'  
         ORDER BY R_Name
         LIMIT $limit OFFSET $offset";
@@ -334,14 +329,14 @@
       while ($row1 = mysqli_fetch_array($query)) {
         ?>
         <tr>
-          <td class="tdr"><?php echo $row1['R_ID']; ?></td>
+          <td class="tdr"><?php echo $row1['ID']; ?></td>
           <td class="tdr"><?php echo $row1['R_Name']; ?></td>
-          <td class="tdr"><?php echo $row1['Floor_Number']; ?></td>
-          <td class="tdr"><?php echo $row1['H_Name']; ?></td>
-          <td class="tdr"><?php echo $row1['Num_of_Table']; ?></td>
-          <td class="tdr"><?php echo $row1['Num_of_Bed']; ?></td>
-          <td class="tdr"><?php echo $row1['Gender']; ?></td>
-          <td class="tdr"><?php echo $row1['rStatus']; ?></td>
+          <td class="tdr"><?php echo $row1['Period']; ?></td>
+          <td class="tdr"><?php echo $row1['Room_Bill']; ?></td>
+          <td class="tdr"><?php echo $row1['Elec_Bill']; ?></td>
+          <td class="tdr"><?php echo $row1['Internet_Bill']; ?></td>
+          <td class="tdr"><?php echo $row1['Water_Bill']; ?></td>
+          <td class="tdr"><?php echo $row1['rfStatus']; ?></td>
           <td style="width: 140px;">
             <button id="delete">
               <a href="Delete.php?R_ID=<?php echo $row1['R_ID']; ?>" id="link1" onclick="return confirmDelete()">
