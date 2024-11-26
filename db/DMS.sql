@@ -14,7 +14,7 @@ CREATE TABLE `floor` (
   `Num_of_Room` int NOT NULL,
   `Status` boolean NOT NULL,
   PRIMARY KEY (`F_ID`),
-  FOREIGN KEY (`H_ID`) REFERENCES `hall`(`H_ID`)
+  FOREIGN KEY (`H_ID`) REFERENCES `hall`(`H_ID`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
 -- Table structure for `login`
@@ -33,8 +33,8 @@ CREATE TABLE `room` (
   `Num_of_Bed` int NOT NULL,
   `Gender` boolean NOT NULL,
   `Status` boolean NOT NULL,
-  PRIMARY KEY (`R_ID`),
-  FOREIGN KEY (`F_ID`) REFERENCES `floor`(`F_ID`)  
+  PRIMARY KEY (`R_ID`), 
+  FOREIGN KEY (`F_ID`) REFERENCES `floor`(`F_ID`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Table structure for `student`
@@ -46,7 +46,7 @@ CREATE TABLE `Student` (
   `Email` VARCHAR(100) NOT NULL,
   `R_ID` int NOT NULL,
   PRIMARY KEY (`Stu_id`),
-  FOREIGN KEY (`R_ID`) REFERENCES `room`(`R_ID`)
+  FOREIGN KEY (`R_ID`) REFERENCES `room`(`R_ID`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Table structure for `rent_fee`
@@ -60,7 +60,7 @@ CREATE TABLE `rent_fee` (
   `Water_Bill` float NOT NULL,
   `Status` boolean NOT NULL,
   PRIMARY KEY (`ID`),
-  FOREIGN KEY (`R_ID`) REFERENCES `room`(`R_ID`)
+  FOREIGN KEY (`R_ID`) REFERENCES `room`(`R_ID`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Table structure for `facility_problem`
@@ -70,7 +70,7 @@ CREATE TABLE `facility_problem` (
   `Content` varchar(100) NOT NULL,
   `Status` boolean NOT NULL,
   PRIMARY KEY (`ID`),
-  FOREIGN KEY (`R_ID`) REFERENCES `room`(`R_ID`)
+  FOREIGN KEY (`R_ID`) REFERENCES `room`(`R_ID`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Table structure for `message_table`
@@ -81,7 +81,7 @@ CREATE TABLE `message_table` (
   `R_Name` varchar(20) DEFAULT NULL,
   `Messages` varchar(100) NOT NULL,
   PRIMARY KEY (`ID`),
-  FOREIGN KEY (`ID_student`) REFERENCES `student`(`Stu_ID`)
+  FOREIGN KEY (`ID_student`) REFERENCES `student`(`Stu_ID`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `login` (`username`, `password`) VALUES
