@@ -125,13 +125,13 @@ $row = mysqli_fetch_array($result);
   <div class="form-container">
     <h2>Cập nhật thông tin chi phí</h2>
     <form name="frmUser" method="post" action="" onsubmit="return confirmUpdate();">
-      <input type="hidden" name="R_ID" value="<?php echo $row['R_ID']; ?>">
+      <input type="hidden" name="ID" value="<?php echo $row['ID']; ?>">
 
       <label for="R_Name">Tên phòng:</label>
       <input type="text" name="R_Name" value="<?php echo $row['R_Name']; ?>" required>
 
-      <label for="Floor_Number">Tầng:</label>
-      <input type="text" name="Floor_Number" value="<?php echo $row['Floor_Number']; ?>" readonly>
+      <label for="Period">Kỳ hạn:</label>
+      <input type="text" name="Period" value="<?php echo $row['Period']; ?>" required>
 
       <label for="H_Name">Tòa nhà:</label>
       <input type="text" name="H_Name" value="<?php echo $row['H_Name']; ?>" readonly>
