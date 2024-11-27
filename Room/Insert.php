@@ -116,7 +116,7 @@ if (count($_POST) > 0) {
             <select name="H_ID" id="H_ID" required onchange="loadFloors(this.value)">
                 <option value="">Chọn tòa nhà</option>
                 <?php
-                $sql = "SELECT H_ID, H_Name FROM hall";
+                $sql = "SELECT H_ID, H_Name FROM hall WHERE Status=1";
                 $result = mysqli_query($conn, $sql);
                 if (!$result) {
                     echo "Lỗi truy vấn: " . mysqli_error($conn);
