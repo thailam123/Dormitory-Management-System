@@ -283,7 +283,6 @@
 				</th>
 			</tr>
 			<tr>
-				<th>ID</th>
 				<th>Tên phòng</th>
 				<th>Tầng</th>
 				<th>Tòa nhà</th>
@@ -317,7 +316,7 @@
         INNER JOIN hall h ON f.H_ID = h.H_ID
 		INNER JOIN facility_problem fp ON fp.R_ID = r.R_ID 
         WHERE R_Name LIKE '%$search%'  
-        ORDER BY R_Name
+        ORDER BY fpStatus, R_Name
         LIMIT $limit OFFSET $offset";
 
 			$query = mysqli_query($conn, $sql);
@@ -325,7 +324,6 @@
 			while ($row1 = mysqli_fetch_array($query)) {
 			?>
 				<tr>
-					<td class="tdr"><?php echo $row1['ID']; ?></td>
 					<td class="tdr"><?php echo $row1['R_Name']; ?></td>
 					<td class="tdr"><?php echo $row1['Floor_Number']; ?></td>
 					<td class="tdr"><?php echo $row1['H_Name']; ?></td>
