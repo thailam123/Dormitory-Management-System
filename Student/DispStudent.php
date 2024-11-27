@@ -311,7 +311,7 @@
       $total_rooms = $count_row['total'];
       $total_pages = ceil($total_rooms / $limit);
 
-      $sql = "SELECT Stu_id, Name, DOB, Phone_number, Email, R_Name FROM student s INNER JOIN room r ON s.R_ID = r.R_ID WHERE Name LIKE '%$search%' ORDER BY Name LIMIT $limit OFFSET $offset";
+      $sql = "SELECT Stu_id, Name, DOB, Phone_number, Email, R_Name FROM student s INNER JOIN room r ON s.R_ID = r.R_ID WHERE Name LIKE '%$search%' ORDER BY SUBSTRING_INDEX(Name, ' ', -1) LIMIT $limit OFFSET $offset";
       $query = mysqli_query($conn, $sql);
       while ($row1 = mysqli_fetch_array($query)) {
         ?>
