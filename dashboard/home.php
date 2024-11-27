@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dormitory Management System</title>
@@ -170,8 +171,14 @@
             color: #16a085;
             margin-bottom: 30px;
         }
+
+        .status-text {
+            font-size: 18px;
+            color: #7f8c8d;
+        }
     </style>
 </head>
+
 <body>
     <!-- Sidebar -->
     <div class="slidebar">
@@ -204,11 +211,11 @@
                     Tòa nhà
                     <div class="number">
                         <?php
-                            include '../CommonMethods/connection.php';
-                            $sql = "SELECT count(*) as total FROM hall";
-                            $result = mysqli_query($conn, $sql);
-                            $data = mysqli_fetch_assoc($result);
-                            echo $data['total'];
+                        include '../CommonMethods/connection.php';
+                        $sql = "SELECT count(*) as total FROM hall";
+                        $result = mysqli_query($conn, $sql);
+                        $data = mysqli_fetch_assoc($result);
+                        echo $data['total'];
                         ?>
                     </div>
                 </div>
@@ -220,11 +227,11 @@
                     Tầng
                     <div class="number">
                         <?php
-                            include '../CommonMethods/connection.php';
-                            $sql = "SELECT count(*) as total FROM floor";
-                            $result = mysqli_query($conn, $sql);
-                            $data = mysqli_fetch_assoc($result);
-                            echo $data['total'];
+                        include '../CommonMethods/connection.php';
+                        $sql = "SELECT count(*) as total FROM floor";
+                        $result = mysqli_query($conn, $sql);
+                        $data = mysqli_fetch_assoc($result);
+                        echo $data['total'];
                         ?>
                     </div>
                 </div>
@@ -236,11 +243,19 @@
                     Phòng
                     <div class="number">
                         <?php
-                            include '../CommonMethods/connection.php';
-                            $sql = "SELECT count(*) as total FROM room";
-                            $result = mysqli_query($conn, $sql);
-                            $data = mysqli_fetch_assoc($result);
-                            echo $data['total'];
+                        include '../CommonMethods/connection.php';
+
+                        $sql_male = "SELECT count(*) as total_male FROM room WHERE Gender = 1";
+                        $result_male = mysqli_query($conn, $sql_male);
+                        $data_male = mysqli_fetch_assoc($result_male);
+                        $male_rooms = $data_male['total_male'];
+                        echo "<span class='status-text'>Nam: </span> " . $male_rooms . "<br>";
+
+                        $sql_female = "SELECT count(*) as total_female FROM room WHERE Gender = 'Female'";
+                        $result_female = mysqli_query($conn, $sql_female);
+                        $data_female = mysqli_fetch_assoc($result_female);
+                        $female_rooms = $data_female['total_female'];
+                        echo "<span class='status-text'>Nữ: </span> " . $female_rooms . "<br>";
                         ?>
                     </div>
                 </div>
@@ -252,11 +267,17 @@
                     Chi phí
                     <div class="number">
                         <?php
-                            include '../CommonMethods/connection.php';
-                            $sql = "SELECT count(*) as total FROM rent_fee";
-                            $result = mysqli_query($conn, $sql);
-                            $data = mysqli_fetch_assoc($result);
-                            echo $data['total'];
+                        $sql_uncompleted = "SELECT count(*) as total_uncompleted FROM rent_fee WHERE Status=0";
+                        $result_uncompleted = mysqli_query($conn, $sql_uncompleted);
+                        $data_uncompleted = mysqli_fetch_assoc($result_uncompleted);
+                        $uncompleted = $data_uncompleted['total_uncompleted'];
+                        echo "<span class='status-text'>Chưa hoàn thành:</span> " . $uncompleted . "<br>";
+
+                        $sql_completed = "SELECT count(*) as total_completed FROM rent_fee WHERE Status=1";
+                        $result_completed = mysqli_query($conn, $sql_completed);
+                        $data_completed = mysqli_fetch_assoc($result_completed);
+                        $completed = $data_completed['total_completed'];
+                        echo "<span class='status-text'>Đã hoàn thành:</span> " . $completed . "<br>";
                         ?>
                     </div>
                 </div>
@@ -268,27 +289,34 @@
                     Sinh viên
                     <div class="number">
                         <?php
-                            include '../CommonMethods/connection.php';
-                            $sql = "SELECT count(*) as total FROM student";
-                            $result = mysqli_query($conn, $sql);
-                            $data = mysqli_fetch_assoc($result);
-                            echo $data['total'];
+                        include '../CommonMethods/connection.php';
+                        $sql = "SELECT count(*) as total FROM student";
+                        $result = mysqli_query($conn, $sql);
+                        $data = mysqli_fetch_assoc($result);
+                        echo $data['total'];
                         ?>
                     </div>
                 </div>
             </a>
 
-            <!-- Vấn đề về cơ sở vật chất -->
+            <!-- Vấn đề về cơ sở vật chất chưa xử lý -->
             <a href="../FacilitiesProblem/DispFP.php" style="text-decoration:none">
                 <div class="cardspecific">
                     Vấn đề về cơ sở vật chất
                     <div class="number">
                         <?php
-                            include '../CommonMethods/connection.php';
-                            $sql = "SELECT count(*) as total FROM facility_problem";
-                            $result = mysqli_query($conn, $sql);
-                            $data = mysqli_fetch_assoc($result);
-                            echo $data['total'];
+                        include '../CommonMethods/connection.php';
+                        $sql_uncompleted = "SELECT count(*) as total_uncompleted FROM facility_problem WHERE Status=0";
+                        $result_uncompleted = mysqli_query($conn, $sql_uncompleted);
+                        $data_uncompleted = mysqli_fetch_assoc($result_uncompleted);
+                        $uncompleted = $data_uncompleted['total_uncompleted'];
+                        echo "<span class='status-text'>Chưa xử lý:</span> " . $uncompleted . "<br>";
+
+                        $sql_completed = "SELECT count(*) as total_completed FROM facility_problem WHERE Status=1";
+                        $result_completed = mysqli_query($conn, $sql_completed);
+                        $data_completed = mysqli_fetch_assoc($result_completed);
+                        $completed = $data_completed['total_completed'];
+                        echo "<span class='status-text'>Đã xử lý:</span> " . $completed . "<br>";
                         ?>
                     </div>
                 </div>
@@ -296,4 +324,5 @@
         </div>
     </div>
 </body>
+
 </html>
