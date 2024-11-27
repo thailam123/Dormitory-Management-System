@@ -187,7 +187,7 @@
             ADMIN
         </header>
         <ul>
-            <li><a href=""><i class="fas fa-building"></i> Tòa nhà</a></li>
+            <li><a href="../Hall/DispHall.php"><i class="fas fa-building"></i> Tòa nhà</a></li>
             <li><a href=""><i class="fas fa-wallet"></i> Chi phí</a></li>
             <li><a href="../Student/DispStudent.php"><i class="fas fa-book-reader"></i> Sinh viên</a></li>
             <li><a href=""><i class="fas fa-layer-group"></i> Tầng</a></li>
@@ -206,7 +206,7 @@
     <div class="mainpart">
         <div class="infocard">
             <!-- Tòa nhà -->
-            <a href="" style="text-decoration:none">
+            <a href="../Hall/DispHall.php" style="text-decoration:none">
                 <div class="cardspecific">
                     Tòa nhà
                     <div class="number">
@@ -299,7 +299,7 @@
                 </div>
             </a>
 
-            <!-- Vấn đề về cơ sở vật chất chưa xử lý -->
+            <!-- Vấn đề về cơ sở vật chất -->
             <a href="../FacilitiesProblem/DispFP.php" style="text-decoration:none">
                 <div class="cardspecific">
                     Vấn đề về cơ sở vật chất
