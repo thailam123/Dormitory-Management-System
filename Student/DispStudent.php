@@ -321,7 +321,7 @@
           <td class="tdr"><?php echo $row1['DOB']; ?></td>
           <td class="tdr"><?php echo $row1['Phone_number']; ?></td>
           <td class="tdr"><?php echo $row1['Email']; ?></td>
-          <td class="tdr"><?php echo $row1['R_ID']; ?></td>
+          <td class="tdr"><?php echo $row1['R_Name']; ?></td>
           <td style="width: 140px;">
             <button id="delete">
               <a href="Delete.php?Stu_id=<?php echo $row1['Stu_id']; ?>" id="link1" onclick="return confirmDelete()">
