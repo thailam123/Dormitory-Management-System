@@ -4,7 +4,7 @@ include_once 'connection.php';
 if (isset($_GET['H_ID'])) {
     $H_ID = $_GET['H_ID'];
 
-    $sql = "SELECT F_ID, Floor_Number FROM floor WHERE H_ID = '$H_ID' ORDER BY Floor_Number";
+    $sql = "SELECT F_ID, Floor_Number FROM floor WHERE H_ID = '$H_ID' AND Status = 1 ORDER BY Floor_Number";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
