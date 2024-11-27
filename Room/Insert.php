@@ -1,5 +1,5 @@
 <?php
-include_once 'connection.php';
+include_once '../CommonMethods/connection.php';
 
 if (count($_POST) > 0) {
     $result = mysqli_query($conn, "INSERT INTO room (R_Name, F_ID, Num_of_Table, Num_of_Bed, Gender, Status) 
@@ -141,8 +141,8 @@ if (count($_POST) > 0) {
                         if (this.readyState == 4 && this.status == 200) {
                             document.getElementById("F_ID").innerHTML = this.responseText;
                         }
-                    };
-                    xhttp.open("GET", "getFloors.php?H_ID=" + hallId, true);
+                    }; 
+                    xhttp.open("GET", "../CommonMethods/getFloorsByHallID.php?H_ID=" + hallId, true);
                     xhttp.send();
                 }
             </script>

@@ -294,7 +294,7 @@
         <th>Hành động</th>
       </tr>
       <?php
-      include 'connection.php';
+      include '../CommonMethods/connection.php';
 
       $search = isset($_GET['search']) ? $_GET['search'] : '';
 

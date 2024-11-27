@@ -1,5 +1,5 @@
 <?php
-include_once 'connection.php';
+include_once '../CommonMethods/connection.php';
 if (count($_POST) > 0) {
   $result = mysqli_query($conn, "UPDATE room 
                      SET R_Name='" . $_POST['R_Name'] . "',

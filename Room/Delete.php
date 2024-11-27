@@ -1,5 +1,5 @@
 <?php
-include_once 'connection.php';
+include_once '../CommonMethods/connection.php';
 
 if (isset($_GET["R_ID"])) {
     $R_ID = $_GET["R_ID"];

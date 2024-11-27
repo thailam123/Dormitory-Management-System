@@ -204,7 +204,7 @@
                     Tòa nhà
                     <div class="number">
                         <?php
-                            include 'connection.php';
+                            include '../CommonMethods/connection.php';
                             $sql = "SELECT count(*) as total FROM hall";
                             $result = mysqli_query($conn, $sql);
                             $data = mysqli_fetch_assoc($result);
@@ -220,7 +220,7 @@
                     Tầng
                     <div class="number">
                         <?php
-                            include 'connection.php';
+                            include '../CommonMethods/connection.php';
                             $sql = "SELECT count(*) as total FROM floor";
                             $result = mysqli_query($conn, $sql);
                             $data = mysqli_fetch_assoc($result);
@@ -236,7 +236,7 @@
                     Phòng
                     <div class="number">
                         <?php
-                            include 'connection.php';
+                            include '../CommonMethods/connection.php';
                             $sql = "SELECT count(*) as total FROM room";
                             $result = mysqli_query($conn, $sql);
                             $data = mysqli_fetch_assoc($result);
@@ -252,7 +252,7 @@
                     Chi phí
                     <div class="number">
                         <?php
-                            include 'connection.php';
+                            include '../CommonMethods/connection.php';
                             $sql = "SELECT count(*) as total FROM rent_fee";
                             $result = mysqli_query($conn, $sql);
                             $data = mysqli_fetch_assoc($result);
@@ -268,7 +268,7 @@
                     Sinh viên
                     <div class="number">
                         <?php
-                            include 'connection.php';
+                            include '../CommonMethods/connection.php';
                             $sql = "SELECT count(*) as total FROM student";
                             $result = mysqli_query($conn, $sql);
                             $data = mysqli_fetch_assoc($result);
@@ -284,7 +284,7 @@
                     Vấn đề về cơ sở vật chất
                     <div class="number">
                         <?php
-                            include 'connection.php';
+                            include '../CommonMethods/connection.php';
                             $sql = "SELECT count(*) as total FROM facility_problem";
                             $result = mysqli_query($conn, $sql);
                             $data = mysqli_fetch_assoc($result);
