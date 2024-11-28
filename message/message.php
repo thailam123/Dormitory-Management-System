@@ -7,30 +7,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-    .button {
-        background-color: #4CAF50;
-        /* Green */
-        border: none;
-        color: white;
-        padding: 10px 25px;
-        text-align: center;
-        margin-top: 60px;
-        border-radius: 5px;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-    }
+        .button {
+            background-color: #4CAF50;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 10px 25px;
+            text-align: center;
+            margin-top: 60px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
 
-    #update {
-        background-color: lightblue;
-        color: black;
-        border-radius: 9px 9px;
-    }
+        #update {
+            background-color: lightblue;
+            color: black;
+            border-radius: 9px 9px;
+        }
 
-    .record {
-        border: white solid 1px;
+        .record {
+            border: white solid 1px;
 
-    }
+        }
     </style>
 </head>
 
@@ -42,7 +42,7 @@
     $Messages = $_POST['Messages'];
 
     // Database connection
-    $conn = new mysqli(hostname: 'localhost', username: 'root', password: '', database: 'final_dbms');
+    $conn = new mysqli(hostname: 'db', username: 'root', password: '', database: 'DMS');
     if ($conn->connect_error) {
         echo "$conn->connect_error";
         die("Connection Failed : " . $conn->connect_error);
