@@ -18,7 +18,7 @@ if (count($_POST) > 0) {
   }
 }
 
-$result = mysqli_query($conn, "SELECT Stu_id, Name, DOB, Phone_number, Email, R_ID FROM student s WHERE s.Stu_id='" . $_GET['Stu_id'] . "'");
+$result = mysqli_query($conn, "SELECT Stu_id, Name, DOB, Phone_number, Email, R_Name FROM student s INNER JOIN room r ON s.R_ID = r.R_ID WHERE s.Stu_id='" . $_GET['Stu_id'] . "'");
 $row = mysqli_fetch_array($result);
 ?>
 
@@ -129,7 +129,7 @@ $row = mysqli_fetch_array($result);
       <label for="Email">Email:</label>
       <input type="text" name="Email" value="<?php echo $row['Email']; ?>" required>
 
-      <label for="R_ID">ID phòng:</label>
+      <label for="R_ID">Tên phòng:</label>
       <input type="number" name="R_ID" value="<?php echo $row['R_ID']; ?>" required>
 
       <input type="submit" name="submit" value="Cập nhật">
