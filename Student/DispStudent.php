@@ -293,7 +293,7 @@
         <th>DOB</th>
         <th>Số điện thoại</th>
         <th>Email</th>
-        <th>ID phòng</th>
+        <th>Tên phòng</th>
         <th>Hành động</th>
 
       </tr>
