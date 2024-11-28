@@ -129,8 +129,10 @@ $row = mysqli_fetch_array($result);
       <label for="Email">Email:</label>
       <input type="text" name="Email" value="<?php echo $row['Email']; ?>" required>
 
-      <label for="R_ID">Tên phòng:</label>
-      <input type="number" name="R_ID" value="<?php echo $row['R_ID']; ?>" required>
+      <label for="R_Name">Tên phòng:</label>
+      <select name="R_Name" required>
+
+      </select>
 
       <input type="submit" name="submit" value="Cập nhật">
     </form>
