@@ -20,6 +20,9 @@ if (count($_POST) > 0) {
 
 $result = mysqli_query($conn, "SELECT Stu_id, Name, DOB, Phone_number, Email, R_Name FROM student s INNER JOIN room r ON s.R_ID = r.R_ID WHERE s.Stu_id='" . $_GET['Stu_id'] . "'");
 $row = mysqli_fetch_array($result);
+
+// Fetch all room names and IDs for the dropdown
+$roomsResult = mysqli_query($conn, "SELECT R_ID, R_Name FROM room");
 ?>
 
 <html>
@@ -130,8 +133,15 @@ $row = mysqli_fetch_array($result);
       <input type="text" name="Email" value="<?php echo $row['Email']; ?>" required>
 
       <label for="R_Name">Tên phòng:</label>
-      <select name="R_Name" required>
-
+      <select name="R_ID" required>
+        <!-- Option mặc định -->
+        <option value="">-- Chọn phòng --</option>
+        <?php
+        while ($room = mysqli_fetch_assoc($roomsResult)) {
+          $selected = ($room['R_ID'] == $row['R_ID']) ? "selected" : "";
+          echo "<option value='" . $room['R_ID'] . "' $selected>" . htmlspecialchars($room['R_Name']) . "</option>";
+        }
+        ?>
       </select>
 
       <input type="submit" name="submit" value="Cập nhật">
