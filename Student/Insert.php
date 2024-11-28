@@ -125,9 +125,9 @@ if (count($_POST) > 0) {
             <label for="Email">Email:</label>
             <input type="text" name="Email" required>
 
-            <label for="R_ID">ID phòng:</label>
+            <label for="R_Name">Tên phòng:</label>
             <select name="R_ID" id="H_ID" required>
-                <option value="">Chọn ID phòng</option>
+                <option value="">Chọn Tên phòng</option>
                 <?php
                 $sql = "SELECT R_ID FROM room";
                 $result = mysqli_query($conn, $sql);
