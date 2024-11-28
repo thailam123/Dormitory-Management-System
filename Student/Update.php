@@ -121,7 +121,7 @@ $roomsResult = mysqli_query($conn, "SELECT R_ID, R_Name FROM room");
       <input type="hidden" name="Stu_id" value="<?php echo $row['Stu_id']; ?>">
 
       <label for="Name">Tên Sinh viên:</label>
-      <input type="text" name="Name" value="<?php echo $row['Name']; ?>" required>
+      <input type="text" name="Name" value="<?php echo $row['Name']; ?>" readonly>
 
       <label for="DOB">DOB:</label>
       <input type="date" name="DOB" value="<?php echo $row['DOB']; ?>" required>
