@@ -241,7 +241,7 @@
       ADMIN
     </header>
     <ul>
-      <li><a href=""><i class="fas fa-building"></i> Tòa nhà</a></li>
+      <li><a href="../Hall/DispHall.php"><i class="fas fa-building"></i> Tòa nhà</a></li>
       <li><a href="../Rent_fee/DispRentFee.php"><i class="fas fa-wallet"></i> Chi phí</a></li>
       <li class="active"><a href="../Student/DispStudent.php"><i class="fas fa-book-reader"></i> Sinh viên</a></li>
       <li><a href=""><i class="fas fa-layer-group"></i> Tầng</a></li>
