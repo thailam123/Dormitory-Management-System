@@ -1,16 +1,16 @@
 <?php
 include_once '../CommonMethods/connection.php';
 
-if (isset($_GET["ID"])) {
-    $ID = $_GET["ID"];
+if (isset($_GET["H_ID"])) {
+    $H_ID = $_GET["H_ID"];
 
-    $sql = "DELETE FROM rent_fee WHERE ID = ?";
-
+    $sql = "DELETE FROM hall WHERE H_ID = ?";
+    
     if ($stmt = mysqli_prepare($conn, $sql)) {
-        mysqli_stmt_bind_param($stmt, "s", $ID);
-
+        mysqli_stmt_bind_param($stmt, "s", $H_ID); 
+        
         if (mysqli_stmt_execute($stmt)) {
-            header("Location: DispRentFee.php");
+            header("Location: DispHall.php");
             exit();
         } else {
             echo "Error deleting record: " . mysqli_error($conn);
@@ -22,7 +22,7 @@ if (isset($_GET["ID"])) {
     }
 
 } else {
-    echo "No Rent fee ID specified. " . $ID;
+    echo "No Hall ID specified. " .$ID;
 }
 mysqli_close($conn);
 ?>

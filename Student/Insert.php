@@ -125,11 +125,11 @@ if (count($_POST) > 0) {
             <label for="Email">Email:</label>
             <input type="text" name="Email" required>
 
-            <label for="R_ID">ID phòng:</label>
+            <label for="R_Name">Tên phòng:</label>
             <select name="R_ID" id="H_ID" required>
-                <option value="">Chọn ID phòng</option>
+                <option value="">Chọn Tên phòng</option>
                 <?php
-                $sql = "SELECT R_ID FROM room";
+                $sql = "SELECT R_ID,R_Name FROM room";
                 $result = mysqli_query($conn, $sql);
                 if (!$result) {
                     echo "Lỗi truy vấn: " . mysqli_error($conn);
@@ -137,7 +137,7 @@ if (count($_POST) > 0) {
                 }
 
                 while ($row = mysqli_fetch_array($result)) {
-                    echo "<option value='" . $row['R_ID'] . "'>" . $row['R_ID'] . "</option>";
+                    echo "<option value='" . $row['R_ID'] . "'>" . $row['R_Name'] . "</option>";
                 }
                 ?>
             </select>

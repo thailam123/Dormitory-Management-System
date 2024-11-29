@@ -241,12 +241,13 @@
       ADMIN
     </header>
     <ul>
-      <li><a href=""><i class="fas fa-building"></i> Tòa nhà</a></li>
-      <li><a href=""><i class="fas fa-wallet"></i> Chi phí</a></li>
+      <li><a href="../Hall/DispHall.php"><i class="fas fa-building"></i> Tòa nhà</a></li>
+      <li><a href="../Rent_fee/DispRentFee.php"><i class="fas fa-wallet"></i> Chi phí</a></li>
       <li class="active"><a href="../Student/DispStudent.php"><i class="fas fa-book-reader"></i> Sinh viên</a></li>
       <li><a href=""><i class="fas fa-layer-group"></i> Tầng</a></li>
       <li><a href="../Room/DispRoom.php"><i class="fa fa-bed"></i> Phòng</a></li>
-      <li><a href=""><i class="fas fa-exclamation-triangle"></i> Vấn đề về cơ sở vật chất</a></li>
+      <li><a href="../FacilitiesProblem/DispFP.php"><i class="fas fa-exclamation-triangle"></i> Vấn đề về cơ sở vật
+          chất</a></li>
       <li><a href=""><i class="fas fa-envelope-open"></i> Messages</a></li>
     </ul>
     <div class="logout-container">
@@ -283,7 +284,7 @@
     </center>
     <table align="center" border="1px" style="width:1100px; line-height:40px;">
       <tr>
-        <th colspan="7">
+        <th colspan="8">
           <h2>Quản lý Sinh viên</h2>
         </th>
       </tr>
@@ -293,7 +294,8 @@
         <th>DOB</th>
         <th>Số điện thoại</th>
         <th>Email</th>
-        <th>ID phòng</th>
+        <th>Giới tính</th>
+        <th>Tên phòng</th>
         <th>Hành động</th>
 
       </tr>
@@ -311,7 +313,13 @@
       $total_rooms = $count_row['total'];
       $total_pages = ceil($total_rooms / $limit);
 
-      $sql = "SELECT Stu_id, Name, DOB, Phone_number, Email, R_Name FROM student s INNER JOIN room r ON s.R_ID = r.R_ID WHERE Name LIKE '%$search%' ORDER BY SUBSTRING_INDEX(Name, ' ', -1) LIMIT $limit OFFSET $offset";
+      $sql = "SELECT Stu_id, Name, DOB, Phone_number, Email,
+                 CASE 
+                     WHEN s.Gender = 1 THEN 'Nam' 
+                     WHEN s.Gender = 0 THEN 'Nữ' 
+                     ELSE 'Không xác định' 
+                 END AS sGender, R_Name 
+                 FROM student s INNER JOIN room r ON s.R_ID = r.R_ID WHERE Name LIKE '%$search%' ORDER BY SUBSTRING_INDEX(Name, ' ', -1) LIMIT $limit OFFSET $offset";
       $query = mysqli_query($conn, $sql);
       while ($row1 = mysqli_fetch_array($query)) {
         ?>
@@ -321,6 +329,7 @@
           <td class="tdr"><?php echo $row1['DOB']; ?></td>
           <td class="tdr"><?php echo $row1['Phone_number']; ?></td>
           <td class="tdr"><?php echo $row1['Email']; ?></td>
+          <td class="tdr"><?php echo $row1['sGender']; ?></td>
           <td class="tdr"><?php echo $row1['R_Name']; ?></td>
           <td style="width: 140px;">
             <button id="delete">

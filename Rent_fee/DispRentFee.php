@@ -240,12 +240,13 @@
       ADMIN
     </header>
     <ul>
-      <li><a href=""><i class="fas fa-building"></i> Tòa nhà</a></li>
+      <li><a href="../Hall/DispHall.php"><i class="fas fa-building"></i> Tòa nhà</a></li>
       <li class="active"><a href="../Rent_fee/DispRentFee.php"><i class="fas fa-wallet"></i> Chi phí</a></li>
-      <li><a href=""><i class="fas fa-book-reader"></i> Sinh viên</a></li>
+      <li><a href="../Student/DispStudent.php"><i class="fas fa-book-reader"></i> Sinh viên</a></li>
       <li><a href=""><i class="fas fa-layer-group"></i> Tầng</a></li>
       <li><a href="../Room/DispRoom.php"><i class="fa fa-bed"></i> Phòng</a></li>
-      <li><a href=""><i class="fas fa-exclamation-triangle"></i> Vấn đề về cơ sở vật chất</a></li>
+      <li><a href="../FacilitiesProblem/DispFP.php"><i class="fas fa-exclamation-triangle"></i> Vấn đề về cơ sở vật
+          chất</a></li>
       <li><a href=""><i class="fas fa-envelope-open"></i> Messages</a></li>
     </ul>
     <div class="logout-container">
@@ -297,7 +298,7 @@
         <th>Hành động</th>
       </tr>
       <?php
-      include 'connection.php';
+      include '../CommonMethods/connection.php';
 
       $search = isset($_GET['search']) ? $_GET['search'] : '';
 

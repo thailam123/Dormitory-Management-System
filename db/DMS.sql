@@ -44,6 +44,7 @@ CREATE TABLE `Student` (
   `DOB` date NOT NULL,
   `Phone_number` VARCHAR(10) NOT NULL,
   `Email` VARCHAR(100) NOT NULL,
+  `Gender` boolean NOT NULL,
   `R_ID` int NOT NULL,
   PRIMARY KEY (`Stu_id`),
   FOREIGN KEY (`R_ID`) REFERENCES `room`(`R_ID`) ON DELETE CASCADE
@@ -188,11 +189,11 @@ INSERT INTO `room` (`R_Name`, `F_ID`, `Num_of_Table`, `Num_of_Bed`, `Gender`, `S
 ('B9F409', 20, 1, 3, 0, 1), ('B9F410', 20, 2, 4, 1, 0);
 
 
-INSERT INTO `student` (`Stu_id`, `Name`, `DOB`, `Phone_number`, `Email`, `R_ID`) VALUES
-(20198237, 'Thái Văn Lâm', '2000-01-01', '0123456789', 'lam@example.com', 1),
-(20207592, 'Nguyễn Minh Đức', '2000-05-15', '0987654321', 'duc@example.com', 2),
-(20207586, 'Lê Kỳ Anh', '2001-03-22', '0912345678', 'kyanh@example.com', 3),
-(20207644, 'Hoàng Hà My', '2001-07-10', '0978123456', 'my@example.com', 4);
+INSERT INTO `student` (`Stu_id`, `Name`, `DOB`, `Phone_number`, `Email`, `Gender`, `R_ID`) VALUES
+(20198237, 'Thái Văn Lâm', '2000-01-01', '0123456789', 'lam@example.com', 1, 1),
+(20207592, 'Nguyễn Minh Đức', '2000-05-15', '0987654321', 'duc@example.com', 1, 2),
+(20207586, 'Lê Kỳ Anh', '2001-03-22', '0912345678', 'kyanh@example.com', 1, 3),
+(20207644, 'Hoàng Hà My', '2001-07-10', '0978123456', 'my@example.com', 1, 4);
 
 
 

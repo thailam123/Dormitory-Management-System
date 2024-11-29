@@ -2,11 +2,11 @@
 include_once '../CommonMethods/connection.php';
 
 if (count($_POST) > 0) {
-    $result = mysqli_query($conn, "INSERT INTO room (R_Name, F_ID, Num_of_Table, Num_of_Bed, Gender, Status) 
-                         VALUES ('" . $_POST['R_Name'] . "', '" . $_POST['F_ID'] . "', '" . $_POST['Num_of_Table'] . "', '" . $_POST['Num_of_Bed'] . "', '" . $_POST['Gender'] . "', '" . $_POST['Status'] . "')");
+    $result = mysqli_query($conn, "INSERT INTO rent_fee (ID, R_ID, Period, Room_Bill, Elec_Bill, Internet_Bill,Water_Bill,Status) 
+                         VALUES ('" . $_POST['ID'] . "', '" . $_POST['R_ID'] . "', '" . $_POST['Period'] . "', '" . $_POST['Room_Bill'] . "', '" . $_POST['Elec_Bill'] . "', '" . $_POST['Internet_Bill'] . "', '" . $_POST['Water_Bill'] . "', '" . $_POST['Status'] . "')");
 
     if ($result) {
-        header("Location: DispRoom.php");
+        header("Location: DispRentFee.php");
         exit;
     } else {
         echo "Error: " . mysqli_error($conn);
@@ -19,7 +19,7 @@ if (count($_POST) > 0) {
 <html>
 
 <head>
-    <title>Thêm phòng</title>
+    <title>Thêm Chi phí</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
@@ -107,7 +107,7 @@ if (count($_POST) > 0) {
 
 <body>
     <div class="form-container">
-        <h2>Thêm thông tin phòng</h2>
+        <h2>Thêm thông tin chi phí</h2>
         <form name="frmAddRoom" method="post" action="" onsubmit="return confirmAdd();">
             <label for="R_Name">Tên phòng:</label>
             <input type="text" name="R_Name" required>
@@ -141,7 +141,7 @@ if (count($_POST) > 0) {
                         if (this.readyState == 4 && this.status == 200) {
                             document.getElementById("F_ID").innerHTML = this.responseText;
                         }
-                    }; 
+                    };
                     xhttp.open("GET", "../CommonMethods/getFloorsByHallID.php?H_ID=" + hallId, true);
                     xhttp.send();
                 }

@@ -1,34 +1,34 @@
 <?php
 include_once '../CommonMethods/connection.php';
 if (count($_POST) > 0) {
-  $result = mysqli_query($conn, "UPDATE student 
-                     SET Stu_id='" . $_POST['Stu_id'] . "',
-                         Name='" . $_POST['Name'] . "',
-                         DOB='" . $_POST['DOB'] . "',
-                         Phone_number='" . $_POST['Phone_number'] . "',
-                         Email='" . $_POST['Email'] . "',
-                         R_ID='" . $_POST['R_ID'] . "'
-                     WHERE Stu_id='" . $_POST['Stu_id'] . "'");
+  $result = mysqli_query($conn, "UPDATE hall 
+                     SET H_Name='" . $_POST['H_Name'] . "',
+                         Status='" . $_POST['hStatus'] . "'
+                     WHERE H_ID='" . $_POST['H_ID']);
 
   if ($result) {
-    header("Location: DispStudent.php");
+    header("Location: DispHall.php");
     exit;
   } else {
     echo "Error: " . mysqli_error($conn);
   }
 }
 
-$result = mysqli_query($conn, "SELECT Stu_id, Name, DOB, Phone_number, Email, R_Name FROM student s INNER JOIN room r ON s.R_ID = r.R_ID WHERE s.Stu_id='" . $_GET['Stu_id'] . "'");
+$result = mysqli_query($conn, "SELECT H_ID, H_Name,
+                                      CASE 
+                                         WHEN h.Status = 1 THEN 'Mở' 
+                                         WHEN h.Status = 0 THEN 'Đóng' 
+                                          ELSE 'Không xác định' 
+                                      END AS hStatus
+                              FROM hall h
+                              WHERE H_ID='" . $_GET['H_ID'] . "'");
 $row = mysqli_fetch_array($result);
-
-// Fetch all room names and IDs for the dropdown
-$roomsResult = mysqli_query($conn, "SELECT R_ID, R_Name FROM room");
 ?>
 
 <html>
 
 <head>
-  <title>Cập nhật thông tin Sinh viên</title>
+  <title>Cập nhật thông tin tòa nhà</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <style>
@@ -116,39 +116,24 @@ $roomsResult = mysqli_query($conn, "SELECT R_ID, R_Name FROM room");
 
 <body>
   <div class="form-container">
-    <h2>Cập nhật thông tin Sinh viên</h2>
+    <h2>Cập nhật thông tin tòa nhà</h2>
     <form name="frmUser" method="post" action="" onsubmit="return confirmUpdate();">
-      <input type="hidden" name="Stu_id" value="<?php echo $row['Stu_id']; ?>">
+      <input type="hidden" name="H_ID" value="<?php echo $row['H_ID']; ?>">
 
-      <label for="Name">Tên Sinh viên:</label>
-      <input type="text" name="Name" value="<?php echo $row['Name']; ?>" readonly>
+      <label for="H_Name">Tên phòng:</label>
+      <input type="text" name="H_Name" value="<?php echo $row['H_Name']; ?>" readonly>
 
-      <label for="DOB">DOB:</label>
-      <input type="date" name="DOB" value="<?php echo $row['DOB']; ?>" required>
-
-      <label for="Phone_number">Số điện thoại:</label>
-      <input type="text" name="Phone_number" value="<?php echo $row['Phone_number']; ?>" required>
-
-      <label for="Email">Email:</label>
-      <input type="text" name="Email" value="<?php echo $row['Email']; ?>" required>
-
-      <label for="R_Name">Tên phòng:</label>
-      <select name="R_ID" required>
-        <!-- Option mặc định -->
-        <option value="">-- Chọn phòng --</option>
-        <?php
-        while ($room = mysqli_fetch_assoc($roomsResult)) {
-          $selected = ($room['R_ID'] == $row['R_ID']) ? "selected" : "";
-          echo "<option value='" . $room['R_ID'] . "' $selected>" . htmlspecialchars($room['R_Name']) . "</option>";
-        }
-        ?>
+      <label for="hStatus">Trạng thái:</label>
+      <select name="hStatus" required>
+        <option value="1" <?php if ($row['hStatus'] == 'Mở') echo 'selected'; ?>>Mở</option>
+        <option value="0" <?php if ($row['hStatus'] == 'Đóng') echo 'selected'; ?>>Đóng</option>
       </select>
 
       <input type="submit" name="submit" value="Cập nhật">
     </form>
 
     <div class="button-container">
-      <a href="DispStudent.php">Trở về danh sách Sinh viên</a>
+      <a href="DispHall.php">Trở về danh sách</a>
     </div>
   </div>
 

@@ -245,7 +245,8 @@
       <li><a href="../Student/DispStudent.php"><i class="fas fa-book-reader"></i> Sinh viên</a></li>
       <li><a href=""><i class="fas fa-layer-group"></i> Tầng</a></li>
       <li class="active"><a href="../Room/DispRoom.php"><i class="fa fa-bed"></i> Phòng</a></li>
-      <li><a href="../FacilitiesProblem/DispFP.php"><i class="fas fa-exclamation-triangle"></i> Vấn đề về cơ sở vật chất</a></li>
+      <li><a href="../FacilitiesProblem/DispFP.php"><i class="fas fa-exclamation-triangle"></i> Vấn đề về cơ sở vật
+          chất</a></li>
       <li><a href=""><i class="fas fa-envelope-open"></i> Messages</a></li>
     </ul>
     <div class="logout-container">
@@ -258,7 +259,8 @@
   <!-- Main content -->
   <main>
     <center>
-      <div class="button-container" style="display: flex; justify-content: center; align-items: center; gap: 20px; margin-bottom: 20px;">
+      <div class="button-container"
+        style="display: flex; justify-content: center; align-items: center; gap: 20px; margin-bottom: 20px;">
         <button class="button">
           <a href="Insert.php">
             <i class="fas fa-plus"></i> Thêm phòng
@@ -270,7 +272,9 @@
           </a>
         </button>
         <form method="GET" action="" style="display: flex; align-items: center; gap: 10px;">
-          <input type="text" name="search" placeholder="Nhập tên phòng..." value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>" style="padding: 8px; font-size: 16px; width: 250px; border-radius: 5px; border: 1px solid #ddd;">
+          <input type="text" name="search" placeholder="Nhập tên phòng..."
+            value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>"
+            style="padding: 8px; font-size: 16px; width: 250px; border-radius: 5px; border: 1px solid #ddd;">
           <button type="submit" class="button" style="padding: 8px 16px; font-size: 16px;">Tìm kiếm</button>
         </form>
       </div>
@@ -329,7 +333,7 @@
       $query = mysqli_query($conn, $sql);
 
       while ($row1 = mysqli_fetch_array($query)) {
-      ?>
+        ?>
         <tr>
           <td class="tdr"><?php echo $row1['R_ID']; ?></td>
           <td class="tdr"><?php echo $row1['R_Name']; ?></td>
@@ -352,7 +356,7 @@
             </button>
           </td>
         </tr>
-      <?php
+        <?php
       }
       ?>
     </table>
