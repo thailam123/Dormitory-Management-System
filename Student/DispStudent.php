@@ -284,7 +284,7 @@
     </center>
     <table align="center" border="1px" style="width:1100px; line-height:40px;">
       <tr>
-        <th colspan="7">
+        <th colspan="8">
           <h2>Quản lý Sinh viên</h2>
         </th>
       </tr>
@@ -294,6 +294,7 @@
         <th>DOB</th>
         <th>Số điện thoại</th>
         <th>Email</th>
+        <th>Giới tính</th>
         <th>Tên phòng</th>
         <th>Hành động</th>
 
