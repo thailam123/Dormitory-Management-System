@@ -19,7 +19,7 @@ if (count($_POST) > 0) {
 <html>
 
 <head>
-    <title>Thêm phòng</title>
+    <title>Thêm Chi phí</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
@@ -107,7 +107,7 @@ if (count($_POST) > 0) {
 
 <body>
     <div class="form-container">
-        <h2>Thêm thông tin phòng</h2>
+        <h2>Thêm thông tin chi phí</h2>
         <form name="frmAddRoom" method="post" action="" onsubmit="return confirmAdd();">
             <label for="R_Name">Tên phòng:</label>
             <input type="text" name="R_Name" required>
