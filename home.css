@@ -82,3 +82,46 @@ section:nth-child(even){
     background:#fff;
     margin-left: 1rem;
 }
+
+.header{
+    padding:2rem 9%;
+    position: fixed;
+    top:0; left: 0; right: 0;
+    z-index: 1000;
+    box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+}
+
+.header .logo{
+    font-size: 2.5rem;
+    color: var(--black);
+    width: 100;
+    margin-left: -100px;
+}
+
+.header .logo i{
+    color: var(--green);
+}
+
+.header .navbar a{
+    font-size: 1.7rem;
+    color: var(--light-color);
+    margin-left: 2rem;
+}
+
+.header .navbar a:hover{
+    color: var(--green);
+}
+
+#menu-btn{
+    font-size: 2.5rem;
+    border-radius: .5rem;
+    background: #eee;
+    color:var(--green);
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    display: none;
+}
