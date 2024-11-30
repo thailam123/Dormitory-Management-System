@@ -126,25 +126,14 @@ if (count($_POST) > 0) {
             <input type="text" name="Email" required>
 
             <label for="Gender">Giới tính:</label>
-            <select name="Gender" id="Gender" required onchange="loadFloors(this.value)">
-                <option value="">Chọn Giới tính</option>
-                <?php
-                $sql = "SELECT H_ID, H_Name FROM hall WHERE Status=1";
-                $result = mysqli_query($conn, $sql);
-                if (!$result) {
-                    echo "Lỗi truy vấn: " . mysqli_error($conn);
-                    exit;
-                }
-
-                while ($row = mysqli_fetch_array($result)) {
-                    echo "<option value='" . $row['H_ID'] . "'>" . $row['H_Name'] . "</option>";
-                }
-                ?>
+            <select name="Gender" required onchange="loadFloors(this.value)">
+                <option value="1">Nam</option>
+                <option value="0">Nữ</option>
             </select>
 
-            <label for="Floor_Number">Tầng:</label>
-            <select name="F_ID" id="F_ID" required>
-                <option value="">Chọn tầng</option>
+            <label for="R_Name">Tên phòng:</label>
+            <select name="R_ID" id="R_ID" required>
+                <option value="">Chọn phòng</option>
             </select>
 
             <script>
