@@ -137,14 +137,14 @@ if (count($_POST) > 0) {
             </select>
 
             <script>
-                function loadFloors(hallId) {
+                function loadFloors(genderStatus) {
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {
                         if (this.readyState == 4 && this.status == 200) {
-                            document.getElementById("F_ID").innerHTML = this.responseText;
+                            document.getElementById("R_ID").innerHTML = this.responseText;
                         }
                     };
-                    xhttp.open("GET", "../CommonMethods/getFloorsByHallID.php?H_ID=" + hallId, true);
+                    xhttp.open("GET", "../CommonMethods/getFloorsByHallID.php?H_ID=" + genderStatus, true);
                     xhttp.send();
                 }
             </script>
