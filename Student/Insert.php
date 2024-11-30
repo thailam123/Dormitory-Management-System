@@ -2,8 +2,8 @@
 include_once '../CommonMethods/connection.php';
 
 if (count($_POST) > 0) {
-    $result = mysqli_query($conn, "INSERT INTO student (Stu_id , Name, DOB, Phone_number, Email, R_ID) 
-                         VALUES ('" . $_POST['Stu_id'] . "', '" . $_POST['Name'] . "', '" . $_POST['DOB'] . "', '" . $_POST['Phone_number'] . "', '" . $_POST['Email'] . "', '" . $_POST['R_ID'] . "')");
+    $result = mysqli_query($conn, "INSERT INTO student (Stu_id , Name, DOB, Phone_number, Email, R_ID, Gender) 
+                         VALUES ('" . $_POST['Stu_id'] . "', '" . $_POST['Name'] . "', '" . $_POST['DOB'] . "', '" . $_POST['Phone_number'] . "', '" . $_POST['Email'] . "', '" . $_POST['Gender'] . "', '" . $_POST['R_ID'] . "')");
 
     if ($result) {
         header("Location: DispStudent.php");
@@ -125,11 +125,11 @@ if (count($_POST) > 0) {
             <label for="Email">Email:</label>
             <input type="text" name="Email" required>
 
-            <label for="R_Name">Tên phòng:</label>
-            <select name="R_ID" id="H_ID" required>
-                <option value="">Chọn Tên phòng</option>
+            <label for="Gender">Giới tính:</label>
+            <select name="Gender" id="Gender" required onchange="loadFloors(this.value)">
+                <option value="">Chọn Giới tính</option>
                 <?php
-                $sql = "SELECT R_ID,R_Name FROM room";
+                $sql = "SELECT H_ID, H_Name FROM hall WHERE Status=1";
                 $result = mysqli_query($conn, $sql);
                 if (!$result) {
                     echo "Lỗi truy vấn: " . mysqli_error($conn);
@@ -137,10 +137,29 @@ if (count($_POST) > 0) {
                 }
 
                 while ($row = mysqli_fetch_array($result)) {
-                    echo "<option value='" . $row['R_ID'] . "'>" . $row['R_Name'] . "</option>";
+                    echo "<option value='" . $row['H_ID'] . "'>" . $row['H_Name'] . "</option>";
                 }
                 ?>
             </select>
+
+            <label for="Floor_Number">Tầng:</label>
+            <select name="F_ID" id="F_ID" required>
+                <option value="">Chọn tầng</option>
+            </select>
+
+            <script>
+                function loadFloors(hallId) {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            document.getElementById("F_ID").innerHTML = this.responseText;
+                        }
+                    };
+                    xhttp.open("GET", "../CommonMethods/getFloorsByHallID.php?H_ID=" + hallId, true);
+                    xhttp.send();
+                }
+            </script>
+
             <input type="submit" name="submit" value="Thêm sinh viên">
         </form>
 
