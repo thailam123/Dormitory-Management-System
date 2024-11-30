@@ -127,6 +127,7 @@ if (count($_POST) > 0) {
 
             <label for="Gender">Giới tính:</label>
             <select name="Gender" required onchange="loadFloors(this.value)">
+                <option value="">Chọn giới tính</option>
                 <option value="1">Nam</option>
                 <option value="0">Nữ</option>
             </select>
@@ -144,7 +145,7 @@ if (count($_POST) > 0) {
                             document.getElementById("R_ID").innerHTML = this.responseText;
                         }
                     };
-                    xhttp.open("GET", "../CommonMethods/getFloorsByHallID.php?H_ID=" + genderStatus, true);
+                    xhttp.open("GET", "../CommonMethods/getRoomByGenderStatus.php?Gender=" + genderStatus, true);
                     xhttp.send();
                 }
             </script>
