@@ -2,14 +2,27 @@
 include_once '../CommonMethods/connection.php';
 
 if (count($_POST) > 0) {
-    $result = mysqli_query($conn, "INSERT INTO student (Stu_id , Name, DOB, Phone_number, Email, R_ID, Gender) 
-                         VALUES ('" . $_POST['Stu_id'] . "', '" . $_POST['Name'] . "', '" . $_POST['DOB'] . "', '" . $_POST['Phone_number'] . "', '" . $_POST['Email'] . "', '" . $_POST['Gender'] . "', '" . $_POST['R_ID'] . "')");
+    // Insert into student table
+    $studentInsert = mysqli_query($conn, "INSERT INTO student (Stu_id, Name, DOB, Phone_number, Email, R_ID, Gender) 
+                         VALUES ('" . $_POST['Stu_id'] . "', '" . $_POST['Name'] . "', '" . $_POST['DOB'] . "', '" . $_POST['Phone_number'] . "', '" . $_POST['Email'] . "', '" . $_POST['R_ID'] . "', '" . $_POST['Gender'] . "')");
 
-    if ($result) {
-        header("Location: DispStudent.php");
-        exit;
+    if ($studentInsert) {
+        // Generate a random password
+        $randomPassword = bin2hex(random_bytes(4)); // Generates an 8-character random string
+
+        // Insert into login table
+        $loginInsert = mysqli_query($conn, "INSERT INTO login (username, password) 
+                            VALUES ('" . $_POST['Email'] . "', '$randomPassword')");
+
+        if ($loginInsert) {
+            // Redirect to student display page
+            header("Location: DispStudent.php");
+            exit;
+        } else {
+            echo "Error inserting into login table: " . mysqli_error($conn);
+        }
     } else {
-        echo "Error: " . mysqli_error($conn);
+        echo "Error inserting into student table: " . mysqli_error($conn);
     }
 }
 
