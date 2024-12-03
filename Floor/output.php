@@ -44,8 +44,8 @@
         <?php
         include 'connection.php';
         $sql = "select * from floor";
-        $query = mysqli_query($conn, $sql);
-        while ($row1 = mysqli_fetch_array($query)) {
+        $query = mysqli_query(mysql: $conn, query: $sql);
+        while ($row1 = mysqli_fetch_array(result: $query)) {
             ?>
             <tr>
                 <td class="tdr"><?php echo $row1['Floor_Number']; ?></td>
@@ -58,7 +58,7 @@
     <button><a href="Update.php?Floor_Number=<?php echo $row1["Floor_Number"]; ?>"style=" text-decoration:none; ">Update</a></button>
                             </td> -->
             </tr>
-        <?php
+            <?php
         }
         ?>
 
