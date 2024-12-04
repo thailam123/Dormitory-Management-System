@@ -1,62 +1,145 @@
 <?php
-include_once 'connection.php';
+include_once '../CommonMethods/connection.php';
 if (count(value: $_POST) > 0) {
-    mysqli_query(mysql: $conn, query: "UPDATE message_table set Stu_ID='" . $_POST['Stu_ID'] . "', Name='" . $_POST['Name'] . "', Room_Num='" . $_POST['Room_Num'] . "', Messages='" . $_POST['Messages'] . "' WHERE Stu_ID='" . $_POST['Stu_ID'] . "'");
+    $result = mysqli_query(mysql: $conn, query: "UPDATE message_table 
+                     SET 
+                         Messages='" . $_POST['Messages'] . "'
+                     WHERE ID='" . $_POST['ID'] . "'");
 
-    include "disp.php";
-
+    if ($result) {
+        header(header: "Location: DispMessage.php");
+        exit;
+    } else {
+        echo "Error: " . mysqli_error(mysql: $conn);
+    }
 }
-$result = mysqli_query(mysql: $conn, query: "SELECT * FROM message_table WHERE Stu_ID='" . $_GET['Stu_ID'] . "'");
+
+$result = mysqli_query(mysql: $conn, query: "SELECT ID, ID_student, Name, R_Name, Messages
+                                            FROM message_table
+                                            WHERE ID='" . $_GET['ID'] . "'");
 $row = mysqli_fetch_array(result: $result);
 ?>
+
 <html>
 
 <head>
-    <title>Update Message Record</title>
+    <title>Cập nhật Message</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
-    body {
-        background-image: url(../images/sea2.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-    .sec {
-        margin: 50px 500px;
-        align-items: center;
-        line-height: 30px;
-    }
+        .form-container {
+            width: 45%;
+            max-width: 800px;
+            max-height: 600px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: auto;
+            margin-right: 10px;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .form-container label {
+            display: block;
+            margin: 10px 0;
+            color: #34495e;
+            font-weight: bold;
+        }
+
+        .form-container input,
+        .form-container select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .form-container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .form-container input[readonly],
+        .form-container select[readonly] {
+            background-color: #e9e9e9;
+        }
+
+        .button-container {
+            text-align: center;
+        }
+
+        .button-container a {
+            text-decoration: none;
+            color: white;
+            background-color: #1abc9c;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .button-container a:hover {
+            background-color: #16a085;
+        }
     </style>
 </head>
 
 <body>
-    <form name="frmUser" method="post" action="">
-        <div><?php if (isset($message)) {
-            echo $message;
-        } ?>
-        </div>
-        <section class="sec">
-            Student ID: <br>
-            <input style="width: 50%; height:30px; " type="hidden" name="Stu_ID" class="txtField"
-                value="<?php echo $row['Stu_ID']; ?>">
-            <input style="width: 50%; height:30x; " type="text" name="Name" value="<?php echo $row['Stu_ID']; ?>">
-            <br>
-            Name: <br>
-            <input style="width: 50%; height:30px; " type="text" name="Name" class="txtField"
-                value="<?php echo $row['Name']; ?>">
-            <br>
-            Room Number:<br>
-            <input style="width: 50%; height:30px; " type="text" name="Room_Num" class="txtField"
-                value="<?php echo $row['Room_Num']; ?>">
-            <br>
-            Messages:<br>
-            <input style="width: 50%; height:30px; " type="text" name="Messages" class="txtField"
-                value="<?php echo $row['Messages']; ?>">
-            <br>
-            <input style="width: 50%; height:30px; margin-top:30px " type="submit" name="submit" value="Submit"
-                class="buttom">
-        </section>
+    <div class="form-container">
+        <h2>Cập nhật Message</h2>
+        <form name="frmUser" method="post" action="" onsubmit="return confirmUpdate();">
+            <input type="hidden" name="ID" value="<?php echo $row['ID']; ?>">
 
-    </form>
+            <label for="ID_student">Mã số sinh viên:</label>
+            <input type="text" name="ID_student" value="<?php echo $row['ID_student']; ?>" readonly>
+
+            <label for="Name">Tên sinh viên:</label>
+            <input type="text" name="Name" value="<?php echo $row['Name']; ?>" readonly>
+
+            <label for="R_Name">Tên phòng:</label>
+            <input type="text" name="R_Name" value="<?php echo $row['R_Name']; ?>" readonly>
+
+            <label for="Messages">Message:</label>
+            <input type="text" name="Messages" value="<?php echo $row['Messages']; ?>" require>
+
+            <input type="submit" name="submit" value="Cập nhật">
+        </form>
+
+        <div class="button-container">
+            <a href="DispMessage.php">Trở về trang trước</a>
+        </div>
+    </div>
+
+    <script>
+        function confirmUpdate() {
+            return confirm("Bạn có chắc chắn muốn cập nhật?");
+        }
+    </script>
 </body>
 
 </html>
