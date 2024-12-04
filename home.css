@@ -729,3 +729,48 @@ section:nth-child(even){
     }
 
 }
+
+.message{
+    padding: 0 0 0 60px;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: #050d18;
+  }
+  #button_mes{
+    padding: 0 0 0 60px;
+      font-size: 18px;
+      font-weight: 400;
+      margin-bottom: 5px;
+  }
+  
+  /*====================== Back to buttom ==================*/
+  
+  .scroll-to-bottom {
+      position: fixed;
+      width: 20px;
+      left: calc(50% - 10px);
+      bottom: 30px;
+      z-index: 11;
+      animation: action 1s infinite alternate;
+    }
+    
+    .back-to-top {
+      position: fixed;
+      display: none;
+      width: 30px;
+      text-align: center;
+      right: 30px;
+      bottom: 30px;
+      z-index: 11;
+      animation: action 1s infinite alternate;
+    }
+    
+    @keyframes action {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-15px);
+      }
+    }
