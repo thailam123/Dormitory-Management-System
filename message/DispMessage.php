@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản lý tầng</title>
+    <title>Quản lý Message</title>
     <link rel="shortcut icon" href="https://juniv.edu/images/favicon.ico">
 
     <!-- Fonts -->
@@ -243,11 +243,12 @@
             <li><a href="../Hall/DispHall.php"><i class="fas fa-building"></i> Tòa nhà</a></li>
             <li><a href="../Rent_fee/DispRentFee.php"><i class="fas fa-wallet"></i> Chi phí</a></li>
             <li><a href="../Student/DispStudent.php"><i class="fas fa-book-reader"></i> Sinh viên</a></li>
-            <li class="active"><a href="../Floor/DispFloor.php"><i class="fas fa-layer-group"></i> Tầng</a></li>
+            <li><a href="../Floor/DispFloor.php"><i class="fas fa-layer-group"></i> Tầng</a></li>
             <li><a href="../Room/DispRoom.php"><i class="fa fa-bed"></i> Phòng</a></li>
             <li><a href="../FacilitiesProblem/DispFP.php"><i class="fas fa-exclamation-triangle"></i> Vấn đề về cơ sở
                     vật chất</a></li>
-            <li><a href="../message/DispMessage.php"><i class="fas fa-envelope-open"></i> Messages</a></li>
+            <li class="active"><a href="../message/DispMessage.php"><i class="fas fa-envelope-open"></i> Messages</a>
+            </li>
         </ul>
         <div class="logout-container">
             <a style="text-decoration: none;" href="../index.php">
@@ -263,7 +264,7 @@
                 style="display: flex; justify-content: center; align-items: center; gap: 20px; margin-bottom: 20px;">
                 <button class="button">
                     <a href="Insert.php">
-                        <i class="fas fa-plus"></i> Thêm tầng
+                        <i class="fas fa-plus"></i> Thêm Message
                     </a>
                 </button>
                 <button class="button">
@@ -272,7 +273,7 @@
                     </a>
                 </button>
                 <form method="GET" action="" style="display: flex; align-items: center; gap: 10px;">
-                    <input type="text" name="search" placeholder="Nhập tên tầng..."
+                    <input type="text" name="search" placeholder="Nhập tên phòng..."
                         value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>"
                         style="padding: 8px; font-size: 16px; width: 250px; border-radius: 5px; border: 1px solid #ddd;">
                     <button type="submit" class="button" style="padding: 8px 16px; font-size: 16px;">Tìm kiếm</button>
@@ -283,14 +284,14 @@
         <table align="center" border="1px" style="width:1100px; line-height:40px;">
             <tr>
                 <th colspan="5">
-                    <h2>Quản lý tầng</h2>
+                    <h2>Quản lý Message</h2>
                 </th>
             </tr>
             <tr>
-                <th>Tên tầng</th>
-                <th>Tòa nhà</th>
-                <th>Số phòng</th>
-                <th>Trạng thái</th>
+                <th>Mã số sinh viên</th>
+                <th>Tên sinh viên</th>
+                <th>Tên phòng</th>
+                <th>Message</th>
                 <th>Hành động</th>
             </tr>
             <?php
@@ -302,42 +303,34 @@
             $page = isset($_GET['page']) ? intval(value: $_GET['page']) : 1;
             $offset = ($page - 1) * $limit;
 
-            $count_sql = "SELECT COUNT(*) AS total FROM floor WHERE Floor_Number LIKE '%$search%'";
+            $count_sql = "SELECT COUNT(*) AS total FROM message_table WHERE R_Name LIKE '%$search%'";
             $count_result = mysqli_query(mysql: $conn, query: $count_sql);
             $count_row = mysqli_fetch_assoc(result: $count_result);
             $total_rooms = $count_row['total'];
             $total_pages = ceil(num: $total_rooms / $limit);
 
-            $sql = "SELECT F_ID, Floor_Number, H_Name, Num_of_Room, 
-                 CASE 
-                    WHEN f.Status = 1 THEN 'Mở' 
-                    WHEN f.Status = 0 THEN 'Đóng' 
-                    ELSE 'Không xác định' 
-                 END AS fStatus
-        FROM floor f
-        INNER JOIN hall h ON f.H_ID = h.H_ID
-        WHERE Floor_Number LIKE '%$search%'  
-        ORDER BY H_Name
-        LIMIT $limit OFFSET $offset";
+            $sql = "SELECT ID, ID_student, Name, R_Name, Messages 
+            FROM message_table
+            WHERE R_Name LIKE '%$search%' 
+            LIMIT $limit OFFSET $offset";
 
             $query = mysqli_query(mysql: $conn, query: $sql);
 
             while ($row1 = mysqli_fetch_array(result: $query)) {
                 ?>
                 <tr>
-                    <td class="tdr"><?php echo $row1['Floor_Number']; ?></td>
-                    <td class="tdr"><?php echo $row1['H_Name']; ?></td>
-                    <td class="tdr"><?php echo $row1['Num_of_Room']; ?></td>
-                    <td class="tdr"><?php echo $row1['fStatus']; ?></td>
+                    <td class="tdr"><?php echo $row1['ID_student']; ?></td>
+                    <td class="tdr"><?php echo $row1['Name']; ?></td>
+                    <td class="tdr"><?php echo $row1['R_Name']; ?></td>
+                    <td class="tdr"><?php echo $row1['Messages']; ?></td>
                     <td style="width: 140px;">
                         <button id="delete">
-                            <a href="Delete.php?F_ID=<?php echo $row1['F_ID']; ?>" id="link1"
-                                onclick="return confirmDelete()">
+                            <a href="Delete.php?ID=<?php echo $row1['ID']; ?>" id="link1" onclick="return confirmDelete()">
                                 <i class="fas fa-trash"></i> Xóa
                             </a>
                         </button>
                         <button id="update">
-                            <a href="Update.php?F_ID=<?php echo $row1['F_ID']; ?>" id="link1">
+                            <a href="Update.php?ID=<?php echo $row1['ID']; ?>" id="link1">
                                 <i class="fas fa-edit"></i> Sửa
                             </a>
                         </button>
@@ -357,7 +350,7 @@
                         echo "<span>...</span>";
                     }
                 }
-                for ($i = max(1, $page - 1); $i <= min($total_pages, $page + 1); $i++)  {
+                for ($i = max(value: 1, values: $page - 1); $i <= min(value: $total_pages, values: $page + 1); $i++) {
                     if ($i == $page) {
                         echo "<a class='active'>$i</a>";
                     } else {
