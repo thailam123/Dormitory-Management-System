@@ -193,7 +193,7 @@
             <li><a href="../Floor/DispFloor.php"><i class="fas fa-layer-group"></i> Tầng</a></li>
             <li><a href="../Room/DispRoom.php"><i class="fa fa-bed"></i> Phòng</a></li>
             <li><a href="../FacilitiesProblem/DispFP.php"><i class="fas fa-exclamation-triangle"></i> Vấn đề về cơ sở vật chất</a></li>
-            <li><a href=""><i class="fas fa-envelope-open"></i> Messages</a></li>
+            <li><a href="../message/DispMessage.php"><i class="fas fa-envelope-open"></i> Messages</a></li>
         </ul>
         <div class="logout-container">
             <a style="text-decoration: none;" href="../index.php">
@@ -222,7 +222,7 @@
             </a>
 
             <!-- Tầng -->
-            <a href="" style="text-decoration:none">
+            <a href="../Floor/DispFloor.php" style="text-decoration:none">
                 <div class="cardspecific">
                     Tầng
                     <div class="number">
@@ -262,7 +262,7 @@
             </a>
 
             <!-- Chi phí -->
-            <a href="" style="text-decoration:none">
+            <a href="../Rent_fee/DispRentFee.php" style="text-decoration:none">
                 <div class="cardspecific">
                     Chi phí
                     <div class="number">

@@ -357,7 +357,7 @@
                         echo "<span>...</span>";
                     }
                 }
-                for ($i = max(value: 1, values: $page - 1); $i <= min(value: $total_pages, values: $page + 1); $i++) {
+                for ($i = max(1, $page - 1); $i <= min($total_pages, $page + 1); $i++)  {
                     if ($i == $page) {
                         echo "<a class='active'>$i</a>";
                     } else {
