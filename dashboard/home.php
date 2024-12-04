@@ -222,7 +222,7 @@
             </a>
 
             <!-- Tầng -->
-            <a href="" style="text-decoration:none">
+            <a href="../Floor/DispFloor.php" style="text-decoration:none">
                 <div class="cardspecific">
                     Tầng
                     <div class="number">
@@ -262,7 +262,7 @@
             </a>
 
             <!-- Chi phí -->
-            <a href="" style="text-decoration:none">
+            <a href="../Rent_fee/DispRentFee.php" style="text-decoration:none">
                 <div class="cardspecific">
                     Chi phí
                     <div class="number">
