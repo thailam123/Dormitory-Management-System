@@ -214,44 +214,36 @@
     <!-- slider end -->
 
     <!-- about us section starts  -->
-    <center>
-        <h1 class="heading" style="margin-bottom: -50px;"> <span>Giới thiệu</span> </h1>
-    </center>
-    <section class="ftco-wrap-about">
+    <section class="provost" id="provost">
 
-        <div class="intro" id="about">
-            <div class="container" id="sec_cond">
-                <div class="row">
-                    <div class="col">
-                        <div class="intro_content" style="width: 550px; margin-right: 172px;height: 415px;">
-                            <!-- <div class="intro_subtitle page_subtitle">About Us</div> -->
-                            <div class="intro_title">
-                                <h3>GREETINGS</h3>
-                            </div>
-                            <div class="intro_text">
-                                <p>Hey there and welcome to the university dormitory! We're thrilled to have you here as
-                                    a new resident. Our dorm is more than just a place to sleep - it's a community where
-                                    you'll make lifelong friends and memories. We've got all the amenities you need to
-                                    make your stay comfortable and enjoyable, from study lounges to laundry facilities.
-                                    And our friendly staff is always here to help with any questions or concerns you may
-                                    have. So kick back, relax, and get ready for an unforgettable college experience!
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xl-6.5 col-md-6 intro_col">
-                                <div class="intro_image"><img src="images/slider5.jpg" alt="intro" style="max-width: 100%;
-    border-radius: 0px 0px 10px 10px; border: 2px solid darksalmon"></div>
-                            </div>
-                            <!-- <div class="col-xl-4 col-md-4 intro_col">
-                                <div class="intro_image"><img src="images/img2.jpg" alt="intro"></div>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
+        <center>
+            <h1 class="heading" style="margin-top: 10px;"> <span>Giới thiệu</span> </h1>
+        </center>
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3 align="left" style="padding: 5px 10px 5px 70px;">
+                    <p><strong>Những điều cần biết về Ký túc xá Sinh viên trường ĐH Bách khoa Hà Nội:</strong></p>
+                    <p><strong>🏣 CƠ SỞ VẬT CHẤT KTX:</strong></p>
+                    <p>
+                        Bên cạnh những công tác sinh viên như học tập, nghiên cứu khoa học, Trường ĐHBK Hà Nội đặc biệt quan tâm đến đời sống sinh viên nói chung, trong đó có sinh viên nội trú.
+                        Ký túc xá sinh viên Bách Khoa hiện nay là một trong những khu ký túc xá được đầu tư đồng bộ và hiện đại.
+                        Ký túc xá bao gồm 10 dãy nhà, trong đó có 8 dãy nhà 4-5 tầng, 2 dãy nhà 1 tầng với tổng cộng 435 phòng ở bố trí 8-12 người mỗi phòng, có thể đón nhận 4200 sinh viên, trong đó có các sinh viên thuộc diện chính sách và sinh viên có hoàn cảnh khó khăn vào ở nội trú.
+                    </p>
+                    <hr>
+                    <p><strong>🔐 AN NINH, VỆ SINH:</strong></p>
+                    <p>
+                        Được sự đồng ý của Ban Giám hiệu Nhà trường, Ban quản lý Ký túc xá hợp đồng với lực lượng bảo vệ và công ty cung cấp dịch vụ vệ sinh chuyên nghiệp, góp phần duy trì Ký túc xá vào nề nếp an ninh chính trị và trật tự an toàn xã hội luôn được bảo đảm.
+                        Vệ sinh khuôn viên và vệ sinh trong phòng ở tạo ra môi trường sống an toàn, lành mạnh cho sinh viên nội trú.
+                    </p>
+                </h3>
             </div>
         </div>
     </section>
-    <!-- about section end -->
+
+
+
 
     <!-- provost  start -->
     <section class="provost" id="provost">
@@ -264,20 +256,10 @@
 
             <div class="box">
                 <h3 align="left" style="padding: 5px 10px 5px 70px;">
-                    Dear University Hall Residents,<br>
-                    As we approach the Victory Day of Bangladesh, we would like to invite you all to join us for a
-                    special feast to commemorate this historic occasion. The feast will be held on December 16th at the
-                    dining hall, starting at 7:00 PM.
-                    <br><br> In order to participate in the feast, you will need to purchase a coupon for 30 taka from
-                    the hall office. This coupon will entitle you to a plate of delicious Bangladeshi food, including
-                    biryani, kebab, and sweets.
-                    <br><br>Please note that coupons will be available for purchase starting from December 10th and will
-                    be sold on a first-come, first-served basis. We encourage you to get your coupons early to avoid
-                    disappointment.
-                    <br><br>If you have any questions or concerns, please do not hesitate to contact the hall office. We
-                    look forward to celebrating Victory Day with you all!
-                    <br><br>Best regards,
-                    <br><br> University Hall Office Staff
+                    Cảnh báo lừa đảo
+                    Trung tâm Dịch vụ và Hỗ trợ Bách khoa xin cảnh báo lừa đảo đăng ký trước KTX.
+                    Trung tâm DVHT Bách khoa không nhận bất cứ trường hợp đăng ký nào trước theo quy định.
+                    Sinh viên phụ huynh vui lòng không đưa tiền cho bất kỳ ai nhận đăng ký hộ ở KTX Đại học Bách khoa Hà Nội.
                 </h3>
             </div>
         </div>
@@ -293,83 +275,38 @@
 
             <div class="box">
                 <img src="images/h1.jpg" alt="">
-                <h3>Mir Mosharraf Hossain Hall</h3>
+                <h3>B6</h3>
             </div>
 
             <div class="box">
                 <img src="images/h2.jpg" alt="">
-                <h3>Shaheed Salam-Barkat Hall</h3>
+                <h3>B7</h3>
             </div>
 
             <div class="box">
                 <img src="images/h3.jpg" alt="">
-                <h3>Bangabandhu Sheikh Mujibur Rahman Hall</h3>
+                <h3>B8</h3>
             </div>
 
             <div class="box">
                 <img src="images/h4.jpg" alt="">
-                <h3>Al Beruni Hall</h3>
+                <h3>B9</h3>
             </div>
 
             <div class="box">
                 <img src="images/h5.jpg" alt="">
-                <h3>Shaheed Rafiq-Jabbar Hall</h3>
+                <h3>B10</h3>
             </div>
 
             <div class="box">
                 <img src="images/h6.jpg" alt="">
-                <h3>A F M Kamaluddin Hall</h3>
+                <h3>B11</h3>
             </div>
 
 
             <div class="box">
                 <img src="images/h7.jpg" alt="">
-                <h3>Mowlana Bhashani Hall</h3>
-            </div>
-
-            <div class="box">
-                <img src="images/h8.jpg" alt="">
-                <h3>Bishwakabi Rabindranath Tagore Hall</h3>
-            </div>
-
-            <div class="box">
-                <img src="images/h9.jpg" alt="">
-                <h3>Jahanara Imam Hall</h3>
-            </div>
-
-            <div class="box">
-                <img src="images/h10.jpg" alt="">
-                <h3>Nawab Faizunnesa Hall</h3>
-            </div>
-
-            <div class="box">
-                <img src="images/h11.jpg" alt="">
-                <h3>Pritilata Hall</h3>
-            </div>
-
-            <div class="box">
-                <img src="images/h12.jpg" alt="">
-                <h3>Fazilatunnesa Hall</h3>
-            </div>
-
-            <div class="box">
-                <img src="images/h13.jpg" alt="">
-                <h3>Begum Khaleda Zia Hall</h3>
-            </div>
-
-            <div class="box">
-                <img src="images/h14.jpg" alt="">
-                <h3>Sheikh Hasina Hall</h3>
-            </div>
-
-            <div class="box">
-                <img src="images/h15.jpg" alt="">
-                <h3>Bangamata Begum Fazilatunnessa Mujib Hall</h3>
-            </div>
-
-            <div class="box">
-                <img src="images/h16.jpg" alt="">
-                <h3>Begum Sufia Kamal Hall</h3>
+                <h3>B12</h3>
             </div>
 
         </div>
@@ -381,19 +318,17 @@
 
     <!-- Galary section start-->
     <div class="container-fluid pt-5 pb-3" id="Gallery" style="margin-top:20px">
-        <h1 class=" heading">Gallery</h1>
+        <h1 class=" heading">Thư viện ảnh</h1>
         <div class="row">
             <div class="col-12 text-center mb-2">
                 <ul class="list-inline mb-4" id="portfolio-flters">
                     <li class="btn btn-sm btn-outline-info m-1 active" data-filter="*" style=" text-decoration:none; ">
                         Tất cả</li>
                     <li class="btn btn-sm btn-outline-info m-1" data-filter=".first"><a href="#room"
-                            style=" text-decoration:none; "> Phòng </a>
+                            style=" text-decoration:none; "> Tòa nhà </a>
                     </li>
                     <li class="btn btn-sm btn-outline-info m-1" data-filter=".second"><a href="#floor"
-                            style=" text-decoration:none; ">Tầng</li>
-                    <li class="btn btn-sm btn-outline-info m-1" data-filter=".third"><a href="#canteen"
-                            style=" text-decoration:none; ">Canteen</li>
+                            style=" text-decoration:none; ">Phòng</li>
                 </ul>
             </div>
         </div>
@@ -680,30 +615,30 @@
             slidesToShow: 3,
             slidesToScroll: 1,
             responsive: [{
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    infinite: true,
-                    dots: true
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        arrows: false,
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        arrows: false,
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
                 }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
 
             ]
         });
