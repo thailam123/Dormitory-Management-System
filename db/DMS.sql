@@ -38,7 +38,7 @@ CREATE TABLE `room` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Table structure for `student`
-CREATE TABLE `Student` (
+CREATE TABLE `student` (
   `Stu_id` int NOT NULL,
   `Name` varchar(40) NOT NULL,
   `DOB` date NOT NULL,
