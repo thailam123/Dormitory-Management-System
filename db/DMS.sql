@@ -86,9 +86,11 @@ CREATE TABLE `message_table` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `login` (`username`, `password`) VALUES
-('admin', 'admin');
-
-
+('admin', 'admin'),
+('lam@example.com', '12345678'),
+('duc@example.com', '12345678'),
+('kyanh@example.com', '12345678'),
+('my@example.com', '12345678');
 
 
 INSERT INTO `hall` (`H_ID`, `H_Name`, `Status`) VALUES

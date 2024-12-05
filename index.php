@@ -227,15 +227,22 @@
                     <p><strong>Những điều cần biết về Ký túc xá Sinh viên trường ĐH Bách khoa Hà Nội:</strong></p>
                     <p><strong>🏣 CƠ SỞ VẬT CHẤT KTX:</strong></p>
                     <p>
-                        Bên cạnh những công tác sinh viên như học tập, nghiên cứu khoa học, Trường ĐHBK Hà Nội đặc biệt quan tâm đến đời sống sinh viên nói chung, trong đó có sinh viên nội trú.
-                        Ký túc xá sinh viên Bách Khoa hiện nay là một trong những khu ký túc xá được đầu tư đồng bộ và hiện đại.
-                        Ký túc xá bao gồm 10 dãy nhà, trong đó có 8 dãy nhà 4-5 tầng, 2 dãy nhà 1 tầng với tổng cộng 435 phòng ở bố trí 8-12 người mỗi phòng, có thể đón nhận 4200 sinh viên, trong đó có các sinh viên thuộc diện chính sách và sinh viên có hoàn cảnh khó khăn vào ở nội trú.
+                        Bên cạnh những công tác sinh viên như học tập, nghiên cứu khoa học, Trường ĐHBK Hà Nội đặc biệt
+                        quan tâm đến đời sống sinh viên nói chung, trong đó có sinh viên nội trú.
+                        Ký túc xá sinh viên Bách Khoa hiện nay là một trong những khu ký túc xá được đầu tư đồng bộ và
+                        hiện đại.
+                        Ký túc xá bao gồm 10 dãy nhà, trong đó có 8 dãy nhà 4-5 tầng, 2 dãy nhà 1 tầng với tổng cộng 435
+                        phòng ở bố trí 8-12 người mỗi phòng, có thể đón nhận 4200 sinh viên, trong đó có các sinh viên
+                        thuộc diện chính sách và sinh viên có hoàn cảnh khó khăn vào ở nội trú.
                     </p>
                     <hr>
                     <p><strong>🔐 AN NINH, VỆ SINH:</strong></p>
                     <p>
-                        Được sự đồng ý của Ban Giám hiệu Nhà trường, Ban quản lý Ký túc xá hợp đồng với lực lượng bảo vệ và công ty cung cấp dịch vụ vệ sinh chuyên nghiệp, góp phần duy trì Ký túc xá vào nề nếp an ninh chính trị và trật tự an toàn xã hội luôn được bảo đảm.
-                        Vệ sinh khuôn viên và vệ sinh trong phòng ở tạo ra môi trường sống an toàn, lành mạnh cho sinh viên nội trú.
+                        Được sự đồng ý của Ban Giám hiệu Nhà trường, Ban quản lý Ký túc xá hợp đồng với lực lượng bảo vệ
+                        và công ty cung cấp dịch vụ vệ sinh chuyên nghiệp, góp phần duy trì Ký túc xá vào nề nếp an ninh
+                        chính trị và trật tự an toàn xã hội luôn được bảo đảm.
+                        Vệ sinh khuôn viên và vệ sinh trong phòng ở tạo ra môi trường sống an toàn, lành mạnh cho sinh
+                        viên nội trú.
                     </p>
                 </h3>
             </div>
@@ -259,7 +266,8 @@
                     Cảnh báo lừa đảo
                     Trung tâm Dịch vụ và Hỗ trợ Bách khoa xin cảnh báo lừa đảo đăng ký trước KTX.
                     Trung tâm DVHT Bách khoa không nhận bất cứ trường hợp đăng ký nào trước theo quy định.
-                    Sinh viên phụ huynh vui lòng không đưa tiền cho bất kỳ ai nhận đăng ký hộ ở KTX Đại học Bách khoa Hà Nội.
+                    Sinh viên phụ huynh vui lòng không đưa tiền cho bất kỳ ai nhận đăng ký hộ ở KTX Đại học Bách khoa Hà
+                    Nội.
                 </h3>
             </div>
         </div>
@@ -615,30 +623,30 @@
             slidesToShow: 3,
             slidesToScroll: 1,
             responsive: [{
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 3,
-                        infinite: true,
-                        dots: true
-                    }
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        arrows: false,
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        arrows: false,
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
                 }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    arrows: false,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    arrows: false,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
 
             ]
         });
