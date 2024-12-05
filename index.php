@@ -530,7 +530,8 @@
         <div class="container text-center py-5">
             <div class="d-flex justify-content-center mb-4" style="margin-top: 5px;">
                 <a class="btn btn-light btn-social mr-2" href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-light btn-social mr-2" href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-light btn-social mr-2" href="https://www.facebook.com/ctsv.hust.edu.vn"
+                    target="_blank"><i class="fab fa-facebook-f"></i></a>
                 <a class="btn btn-light btn-social mr-2" href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                 <a class="btn btn-light btn-social" href="#" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
