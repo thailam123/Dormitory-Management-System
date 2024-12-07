@@ -2,13 +2,12 @@
 include_once '../CommonMethods/connection.php';
 if (count($_POST) > 0) {
   $result = mysqli_query($conn, "UPDATE rent_fee 
-                     SET R_Name='" . $_POST['R_Name'] . "',
-                         Period='" . $_POST['Period'] . "',
+                     SET Period='" . $_POST['Period'] . "',
                          Room_Bill='" . $_POST['Room_Bill'] . "',
                          Elec_Bill='" . $_POST['Elec_Bill'] . "',
                          Internet_Bill='" . $_POST['Internet_Bill'] . "',
                          Water_Bill='" . $_POST['Water_Bill'] . "',
-                         rfStatus='" . $_POST['rfStatus'] . "'
+                         Status='" . $_POST['Status'] . "'
                      WHERE ID='" . $_POST['ID'] . "'");
 
   if ($result) {
