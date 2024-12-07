@@ -1,5 +1,5 @@
 <?php
-include_once 'connection.php';
+include_once '../CommonMethods/connection.php';
 if (count($_POST) > 0) {
   $result = mysqli_query($conn, "UPDATE rent_fee 
                      SET R_Name='" . $_POST['R_Name'] . "',
@@ -162,7 +162,7 @@ $row = mysqli_fetch_array($result);
     </form>
 
     <div class="button-container">
-      <a href="DispRoom.php">Trở về danh sách chi phí</a>
+      <a href="DispRentFee.php">Trở về danh sách chi phí</a>
     </div>
   </div>
 
