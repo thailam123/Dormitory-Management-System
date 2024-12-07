@@ -132,16 +132,16 @@ $row = mysqli_fetch_array($result);
       <label for="Period">Kỳ hạn:</label>
       <input type="text" name="Period" value="<?php echo $row['Period']; ?>" required>
 
-      <label for="Room_Bill">Giá tiền phòng:</label>
+      <label for="Room_Bill">Giá tiền phòng(VND):</label>
       <input type="number" step="any" name="Room_Bill" value="<?php echo $row['Room_Bill']; ?>" required>
 
-      <label for="Elec_Bill">Giá tiền điện:</label>
+      <label for="Elec_Bill">Giá tiền điện(VND):</label>
       <input type="number" step="any" name="Elec_Bill" value="<?php echo $row['Elec_Bill']; ?>" required>
 
-      <label for="Internet_Bill">Giá tiền mạng:</label>
+      <label for="Internet_Bill">Giá tiền mạng(VND):</label>
       <input type="number" step="any" name="Internet_Bill" value="<?php echo $row['Internet_Bill']; ?>" required>
 
-      <label for="Water_Bill">Giá tiền nước:</label>
+      <label for="Water_Bill">Giá tiền nước(VND):</label>
       <input type="number" step="any" name="Water_Bill" value="<?php echo $row['Water_Bill']; ?>" required>
 
       <label for="rfStatus">Trạng thái:</label>

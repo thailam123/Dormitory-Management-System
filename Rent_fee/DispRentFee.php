@@ -291,10 +291,10 @@
         <th>ID chi phí</th>
         <th>Tên phòng</th>
         <th>Kỳ hạn</th>
-        <th>Giá tiền phòng</th>
-        <th>Giá tiền điện</th>
-        <th>Giá tiền mạng</th>
-        <th>Giá tiền nước</th>
+        <th>Giá tiền phòng(VND)</th>
+        <th>Giá tiền điện(VND)</th>
+        <th>Giá tiền mạng(VND)</th>
+        <th>Giá tiền nước(VND)</th>
         <th>Trạng thái</th>
         <th>Hành động</th>
       </tr>
