@@ -133,16 +133,16 @@ $row = mysqli_fetch_array($result);
       <input type="text" name="Period" value="<?php echo $row['Period']; ?>" required>
 
       <label for="Room_Bill">Giá tiền phòng:</label>
-      <input type="number" name="Room_Bill" value="<?php echo $row['Room_Bill']; ?>" required>
+      <input type="number" step="any" name="Room_Bill" value="<?php echo $row['Room_Bill']; ?>" required>
 
       <label for="Elec_Bill">Giá tiền điện:</label>
-      <input type="number" name="Elec_Bill" value="<?php echo $row['Elec_Bill']; ?>" required>
+      <input type="number" step="any" name="Elec_Bill" value="<?php echo $row['Elec_Bill']; ?>" required>
 
       <label for="Internet_Bill">Giá tiền mạng:</label>
-      <input type="number" name="Internet_Bill" value="<?php echo $row['Internet_Bill']; ?>" required>
+      <input type="number" step="any" name="Internet_Bill" value="<?php echo $row['Internet_Bill']; ?>" required>
 
       <label for="Water_Bill">Giá tiền nước:</label>
-      <input type="number" name="Water_Bill" value="<?php echo $row['Water_Bill']; ?>" required>
+      <input type="number" step="any" name="Water_Bill" value="<?php echo $row['Water_Bill']; ?>" required>
 
       <label for="rfStatus">Trạng thái:</label>
       <select name="rfStatus" required>
