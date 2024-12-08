@@ -283,12 +283,12 @@
 
     <table align="center" border="1px" style="width:1100px; line-height:40px;">
       <tr>
-        <th colspan="9">
+        <th colspan="8">
           <h2>Quản lý chi phí</h2>
         </th>
       </tr>
       <tr>
-        <th>ID chi phí</th>
+
         <th>Tên phòng</th>
         <th>Kỳ hạn</th>
         <th>Giá tiền phòng(VND)</th>
@@ -331,7 +331,7 @@
       while ($row1 = mysqli_fetch_array($query)) {
         ?>
         <tr>
-          <td class="tdr"><?php echo $row1['ID']; ?></td>
+
           <td class="tdr"><?php echo $row1['R_Name']; ?></td>
           <td class="tdr"><?php echo $row1['Period']; ?></td>
           <td class="tdr"><?php echo $row1['Room_Bill']; ?></td>
