@@ -96,8 +96,8 @@
         <img src="images/hust_logo.png" alt style="height: 70px; width: 65px">
         <a href="#" class="logo" style="text-decoration: none;">HỆ THỐNG QUẢN LÝ KÝ TÚC XÁ</a>
         <nav class="navbar">
-            <a href="#about" style=" text-decoration:none; ">Giới thiệu</a>
-            <a href="#provost" style=" text-decoration:none; ">Thông báo</a>
+            <a href="#provost" style=" text-decoration:none; ">Giới thiệu</a>
+            <a href="#Notify" style=" text-decoration:none; ">Thông báo</a>
             <a href="#hall" style=" text-decoration:none; ">Tòa nhà</a>
             <a href="#Gallery" style=" text-decoration:none; ">Gallery</a>
 
@@ -253,7 +253,7 @@
 
 
     <!-- provost  start -->
-    <section class="provost" id="provost">
+    <section class="provost" id="Notify">
 
         <center>
             <h1 class="heading" style="margin-top: 10px;"> <span>Thông báo</span> </h1>
