@@ -110,67 +110,48 @@ if (count($_POST) > 0) {
         <h2>Thêm thông tin chi phí</h2>
         <form name="frmAddRoom" method="post" action="" onsubmit="return confirmAdd();">
             <label for="R_Name">Tên phòng:</label>
-            <input type="text" name="R_Name" required>
-
-            <label for="H_Name">Tòa nhà:</label>
-            <select name="H_ID" id="H_ID" required onchange="loadFloors(this.value)">
-                <option value="">Chọn tòa nhà</option>
+            <select name="R_ID" id="R_ID" required>
+                <option value="">Chọn phòng</option>
                 <?php
-                $sql = "SELECT H_ID, H_Name FROM hall WHERE Status=1";
-                $result = mysqli_query($conn, $sql);
+                $sql = "SELECT R_ID, R_Name FROM room";
+                $result = mysqli_query(mysql: $conn, query: $sql);
                 if (!$result) {
-                    echo "Lỗi truy vấn: " . mysqli_error($conn);
+                    echo "Lỗi truy vấn: " . mysqli_error(mysql: $conn);
                     exit;
                 }
 
-                while ($row = mysqli_fetch_array($result)) {
-                    echo "<option value='" . $row['H_ID'] . "'>" . $row['H_Name'] . "</option>";
+                while ($row = mysqli_fetch_array(result: $result)) {
+                    echo "<option value='" . $row['R_ID'] . "'>" . $row['R_Name'] . "</option>";
                 }
                 ?>
             </select>
 
-            <label for="Floor_Number">Tầng:</label>
-            <select name="F_ID" id="F_ID" required>
-                <option value="">Chọn tầng</option>
-            </select>
+            <label for="Period">Kỳ hạn:</label>
+            <input type="text" name="Period" required>
 
-            <script>
-                function loadFloors(hallId) {
-                    var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function () {
-                        if (this.readyState == 4 && this.status == 200) {
-                            document.getElementById("F_ID").innerHTML = this.responseText;
-                        }
-                    };
-                    xhttp.open("GET", "../CommonMethods/getFloorsByHallID.php?H_ID=" + hallId, true);
-                    xhttp.send();
-                }
-            </script>
+            <label for="Room_Bill">Giá tiền phòng(VND):</label>
+            <input type="number" step="any" name="Room_Bill" required>
 
+            <label for="Elec_Bill">Giá tiền điện(VND):</label>
+            <input type="number" step="any" name="Elec_Bill" required>
 
-            <label for="Num_of_Table">Số bàn:</label>
-            <input type="number" name="Num_of_Table" required>
+            <label for="Internet_Bill">Giá tiền mạng(VND):</label>
+            <input type="number" step="any" name="Internet_Bill" required>
 
-            <label for="Num_of_Bed">Số giường:</label>
-            <input type="number" name="Num_of_Bed" required>
-
-            <label for="Gender">Giới tính:</label>
-            <select name="Gender" required>
-                <option value="1">Nam</option>
-                <option value="0">Nữ</option>
-            </select>
+            <label for="Water_Bill">Giá tiền nước(VND):</label>
+            <input type="number" step="any" name="Water_Bill" required>
 
             <label for="Status">Trạng thái:</label>
             <select name="Status" required>
-                <option value="1">Mở</option>
-                <option value="0">Đóng</option>
+                <option value="1">Đã thanh toán</option>
+                <option value="0">Chưa thanh toán</option>
             </select>
 
-            <input type="submit" name="submit" value="Thêm phòng">
+            <input type="submit" name="submit" value="Thêm chi phí">
         </form>
 
         <div class="button-container">
-            <a href="DispRoom.php">Trở về danh sách phòng</a>
+            <a href="DispRentFee.php">Trở về danh sách chi phí</a>
         </div>
     </div>
 
