@@ -212,10 +212,17 @@
                     <div class="number">
                         <?php
                         include '../CommonMethods/connection.php';
-                        $sql = "SELECT count(*) as total FROM hall";
-                        $result = mysqli_query($conn, $sql);
-                        $data = mysqli_fetch_assoc($result);
-                        echo $data['total'];
+                        $sql_opened = "SELECT count(*) as total_opened FROM hall WHERE Status=1";
+                        $result_opened = mysqli_query($conn, $sql_opened);
+                        $data_opened = mysqli_fetch_assoc($result_opened);
+                        $opened = $data_opened['total_opened'];
+                        echo "<span class='status-text'>Đang mở:</span> " . $opened . "<br>";
+
+                        $sql_closed = "SELECT count(*) as total_closed FROM hall WHERE Status=0";
+                        $result_closed = mysqli_query($conn, $sql_closed);
+                        $data_closed = mysqli_fetch_assoc($result_closed);
+                        $closed = $data_closed['total_closed'];
+                        echo "<span class='status-text'>Đóng cửa:</span> " . $closed . "<br>";
                         ?>
                     </div>
                 </div>

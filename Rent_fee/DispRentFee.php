@@ -243,7 +243,7 @@
       <li><a href="../Hall/DispHall.php"><i class="fas fa-building"></i> Tòa nhà</a></li>
       <li class="active"><a href="../Rent_fee/DispRentFee.php"><i class="fas fa-wallet"></i> Chi phí</a></li>
       <li><a href="../Student/DispStudent.php"><i class="fas fa-book-reader"></i> Sinh viên</a></li>
-      <li><a href=""><i class="fas fa-layer-group"></i> Tầng</a></li>
+      <li><a href="../Floor/DispFloor.php"><i class="fas fa-layer-group"></i> Tầng</a></li>
       <li><a href="../Room/DispRoom.php"><i class="fa fa-bed"></i> Phòng</a></li>
       <li><a href="../FacilitiesProblem/DispFP.php"><i class="fas fa-exclamation-triangle"></i> Vấn đề về cơ sở
           vật
@@ -283,18 +283,18 @@
 
     <table align="center" border="1px" style="width:1100px; line-height:40px;">
       <tr>
-        <th colspan="9">
+        <th colspan="8">
           <h2>Quản lý chi phí</h2>
         </th>
       </tr>
       <tr>
-        <th>ID chi phí</th>
+
         <th>Tên phòng</th>
         <th>Kỳ hạn</th>
-        <th>Giá tiền phòng</th>
-        <th>Giá tiền điện</th>
-        <th>Giá tiền mạng</th>
-        <th>Giá tiền nước</th>
+        <th>Giá tiền phòng(VND)</th>
+        <th>Giá tiền điện(VND)</th>
+        <th>Giá tiền mạng(VND)</th>
+        <th>Giá tiền nước(VND)</th>
         <th>Trạng thái</th>
         <th>Hành động</th>
       </tr>
@@ -331,7 +331,7 @@
       while ($row1 = mysqli_fetch_array($query)) {
         ?>
         <tr>
-          <td class="tdr"><?php echo $row1['ID']; ?></td>
+
           <td class="tdr"><?php echo $row1['R_Name']; ?></td>
           <td class="tdr"><?php echo $row1['Period']; ?></td>
           <td class="tdr"><?php echo $row1['Room_Bill']; ?></td>

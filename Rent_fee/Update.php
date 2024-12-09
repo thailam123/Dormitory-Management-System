@@ -1,14 +1,13 @@
 <?php
-include_once 'connection.php';
+include_once '../CommonMethods/connection.php';
 if (count($_POST) > 0) {
   $result = mysqli_query($conn, "UPDATE rent_fee 
-                     SET R_Name='" . $_POST['R_Name'] . "',
-                         Period='" . $_POST['Period'] . "',
+                     SET Period='" . $_POST['Period'] . "',
                          Room_Bill='" . $_POST['Room_Bill'] . "',
                          Elec_Bill='" . $_POST['Elec_Bill'] . "',
                          Internet_Bill='" . $_POST['Internet_Bill'] . "',
                          Water_Bill='" . $_POST['Water_Bill'] . "',
-                         rfStatus='" . $_POST['rfStatus'] . "'
+                         Status='" . $_POST['Status'] . "'
                      WHERE ID='" . $_POST['ID'] . "'");
 
   if ($result) {
@@ -128,41 +127,36 @@ $row = mysqli_fetch_array($result);
       <input type="hidden" name="ID" value="<?php echo $row['ID']; ?>">
 
       <label for="R_Name">Tên phòng:</label>
-      <input type="text" name="R_Name" value="<?php echo $row['R_Name']; ?>" required>
+      <input type="text" name="R_Name" value="<?php echo $row['R_Name']; ?>" readonly>
 
       <label for="Period">Kỳ hạn:</label>
       <input type="text" name="Period" value="<?php echo $row['Period']; ?>" required>
 
-      <label for="H_Name">Tòa nhà:</label>
-      <input type="text" name="H_Name" value="<?php echo $row['H_Name']; ?>" readonly>
+      <label for="Room_Bill">Giá tiền phòng(VND):</label>
+      <input type="number" step="any" name="Room_Bill" value="<?php echo $row['Room_Bill']; ?>" required>
 
-      <label for="Gender">Giới tính:</label>
-      <select name="Gender" required>
-        <option value="1" <?php if ($row['Gender'] == 'Nam')
-          echo 'selected'; ?>>Nam</option>
-        <option value="0" <?php if ($row['Gender'] == 'Nữ')
-          echo 'selected'; ?>>Nữ</option>
-      </select>
+      <label for="Elec_Bill">Giá tiền điện(VND):</label>
+      <input type="number" step="any" name="Elec_Bill" value="<?php echo $row['Elec_Bill']; ?>" required>
 
-      <label for="Num_of_Table">Số bàn:</label>
-      <input type="number" name="Num_of_Table" value="<?php echo $row['Num_of_Table']; ?>" required>
+      <label for="Internet_Bill">Giá tiền mạng(VND):</label>
+      <input type="number" step="any" name="Internet_Bill" value="<?php echo $row['Internet_Bill']; ?>" required>
 
-      <label for="Num_of_Bed">Số giường:</label>
-      <input type="number" name="Num_of_Bed" value="<?php echo $row['Num_of_Bed']; ?>" required>
+      <label for="Water_Bill">Giá tiền nước(VND):</label>
+      <input type="number" step="any" name="Water_Bill" value="<?php echo $row['Water_Bill']; ?>" required>
 
-      <label for="rStatus">Trạng thái:</label>
-      <select name="rStatus" required>
-        <option value="1" <?php if ($row['rStatus'] == 'Mở')
-          echo 'selected'; ?>>Mở</option>
-        <option value="0" <?php if ($row['rStatus'] == 'Đóng')
-          echo 'selected'; ?>>Đóng</option>
+      <label for="rfStatus">Trạng thái:</label>
+      <select name="rfStatus" required>
+        <option value="1" <?php if ($row['rfStatus'] == 'Đã thanh toán')
+          echo 'selected'; ?>>Đã thanh toán</option>
+        <option value="0" <?php if ($row['rfStatus'] == 'Chưa thanh toán')
+          echo 'selected'; ?>>Chưa thanh toán</option>
       </select>
 
       <input type="submit" name="submit" value="Cập nhật">
     </form>
 
     <div class="button-container">
-      <a href="DispRoom.php">Trở về danh sách chi phí</a>
+      <a href="DispRentFee.php">Trở về danh sách chi phí</a>
     </div>
   </div>
 
