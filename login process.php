@@ -20,12 +20,18 @@ if (isset($_POST['login'])) {
     if ($counter == 0) {
         echo "<script type='text/javascript'>alert('Invalid Username or Password!');
 		  document.location='login.php'</script>";
+    } elseif ($name === "admin") {
+        $_SESSION['id'] = $id;
+        $_SESSION['username'] = $name;
+
+
+        echo "<script type='text/javascript'>document.location='dashboard/home.php'</script>";
     } else {
 
         $_SESSION['id'] = $id;
         $_SESSION['username'] = $name;
 
 
-        echo "<script type='text/javascript'>document.location='dashboard/home.php'</script>";
+        echo "<script type='text/javascript'>document.location='sinhvien/login.php'</script>";
     }
 }
