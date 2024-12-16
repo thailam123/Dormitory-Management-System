@@ -1,33 +1,33 @@
 <?php
-// session_start();
+session_start();
 
-// // Kiểm tra xem sinh viên đã đăng nhập chưa
-// // if (!isset($_SESSION['student_id'])) {
-// //     header("Location: login.php"); // Chuyển hướng đến trang đăng nhập nếu chưa đăng nhập
-// //     exit();
-// // }
+// Check if the user is logged in and is a student
+if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'student' || !isset($_SESSION['student_id'])) {
+    header("Location: ../login.php"); // Redirect to the main login page
+    exit();
+}
 
-// // Thông tin sinh viên 
-// $student_id = $_SESSION['student_id'];
-// include 'CommonMethods/connection.php';
+// Student ID
+$student_id = $_SESSION['student_id'];
+include '../CommonMethods/connection.php';
 
-// // Truy vấn thông tin sinh viên từ cơ sở dữ liệu
-// $sql = "SELECT * FROM student WHERE Stu_id = '$student_id'";
-// $result = mysqli_query($conn, $sql);
-// $student = mysqli_fetch_assoc($result);
+// Fetch student information
+$sql = "SELECT s.*, r.R_Name, f.Floor_Number, h.H_Name 
+        FROM student s
+        INNER JOIN room r ON s.R_ID = r.R_ID
+        INNER JOIN floor f ON r.F_ID = f.F_ID
+        INNER JOIN hall h ON f.H_ID = h.H_ID
+        WHERE s.Stu_id = '$student_id'";
 
-// // Kiểm tra xem có sinh viên nào khớp với ID không
-// if (!$student) {
-//     // Xử lý trường hợp không tìm thấy sinh viên
-//     echo "Không tìm thấy thông tin sinh viên.";
-//     exit();
-// }
+$result = mysqli_query($conn, $sql);
 
-// // Lấy thông tin phòng của sinh viên
-// $room_id = $student['R_ID'];
-// $sql_room = "SELECT * FROM room WHERE R_ID = '$room_id'";
-// $result_room = mysqli_query($conn, $sql_room);
-// $room = mysqli_fetch_assoc($result_room);
+// Check if student exists
+if (!$result || mysqli_num_rows($result) == 0) {
+    echo "Student information not found.";
+    exit();
+}
+
+$student = mysqli_fetch_assoc($result);
 ?>
 
 
@@ -251,18 +251,31 @@
                 <p><span class="label">Họ và tên:</span>
                     <?php echo $student['Name']; ?>
                 </p>
-                <!-- Thêm các thông tin khác nếu cần -->
+                <p><span class="label">Ngày sinh:</span>
+                    <?php echo date("d/m/Y", strtotime($student['DOB'])); ?>
+                </p>
+                <p><span class="label">Giới tính:</span>
+                    <?php echo ($student['Gender'] == 1) ? "Nam" : "Nữ"; ?>
+                </p>
+                <p><span class="label">Số điện thoại:</span>
+                    <?php echo $student['Phone_number']; ?>
+                </p>
+                <p><span class="label">Email:</span>
+                    <?php echo $student['Email']; ?>
+                </p>
             </div>
 
             <div class="info-item">
                 <h3>Thông Tin Phòng</h3>
                 <p><span class="label">Tên phòng:</span>
-                    <?php echo $room['R_Name']; ?>
+                    <?php echo $student['R_Name']; ?>
                 </p>
                 <p><span class="label">Tòa nhà:</span>
-                    <?php echo $room['H_Name']; ?>
+                    <?php echo $student['H_Name']; ?>
                 </p>
-                <!-- Thêm các thông tin khác nếu cần -->
+                <p><span class="label">Tầng:</span>
+                    <?php echo $student['Floor_Number']; ?>
+                </p>
             </div>
         </div>
     </div>

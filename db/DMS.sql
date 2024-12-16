@@ -258,4 +258,13 @@ INSERT INTO `message_table` (`ID_student`, `Name`, `R_Name`, `Messages`) VALUES
 (20207644, 'Hoàng Hà My', 'B5F104', 'Cơm nhà hàng A không đảm bảo'),
 (20198237, 'Thái Văn Lâm', 'B5F101', 'Xin đổi phòng sang KTX B9');
 
+-- Set quyen cho user
+UPDATE `login` SET `password` = 'admin' WHERE `username` = 'admin';
+
+INSERT INTO `login` (`username`, `password`) VALUES
+('lam@example.com', '12345678'),
+('duc@example.com', '12345678'),
+('kyanh@example.com', '12345678'),
+('my@example.com', '12345678');
+
 

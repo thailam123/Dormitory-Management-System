@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect("db", "root", "", "DMS");
+$con = mysqli_connect("", "root", "", "DMS");
 
 // Check connection
 if (mysqli_connect_errno()) {

@@ -1,5 +1,5 @@
 <?php
-$sname = "db";
+$sname = "";
 $uname = "root";
 $password = "";
 $conn = mysqli_connect($sname, $uname, $password, 'DMS');
