@@ -353,8 +353,8 @@ $rent_result = mysqli_query($conn, $rent_sql);
 
             <!-- Rent Fee Section -->
             <div class="rent-section">
-                <h3>Thông tin hóa đơn</h3>
-                <?php if (mysqli_num_rows($rent_result) > 0) : ?>
+                <h3>Thông tin hóa đơn (Phòng <?php echo $student['R_Name']; ?>)</h3>
+                    <?php if (mysqli_num_rows($rent_result) > 0) : ?>
                     <table class="rent-table">
                         <thead>
                             <tr>
