@@ -48,23 +48,7 @@ $rent_result = mysqli_query($conn, $rent_sql);
 </head>
 
 <body>
-    <div class="sidebar">
-        <header>
-            <span><i class="fas fa-user-graduate"></i></span>
-            SINH VIÊN
-        </header>
-        <ul>
-            <li><a href="login.php"><i class="fas fa-home"></i> Trang chủ</a></li>
-            <li><a href="profile.php"><i class="fas fa-user"></i> Thông tin cá nhân</a></li>
-            <li><a href="change_password.php"><i class="fas fa-key"></i> Đổi mật khẩu</a></li>
-            <li class="active"><a href="view_bill.php"><i class="fas fa-file-invoice-dollar"></i> Xem chi phí</a></li>
-            <li><a href="send_message.php"><i class="fas fa-envelope"></i> Gửi tin nhắn</a></li>
-            <li><a href="report_issue.php"><i class="fas fa-exclamation-triangle"></i> Báo cáo vấn đề</a></li>
-        </ul>
-        <div class="logout-container">
-            <a href="logout.php" class="logout">Đăng xuất</a>
-        </div>
-    </div>
+    <?php include 'sidebar.php'; ?>
 
     <div class="main-content">
         <h1>Xem Hóa Đơn</h1>
