@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'student' || !i
 $student_id = $_SESSION['student_id'];
 include '../CommonMethods/connection.php';
 
-// Fetch student information along with room, floor, and hall details
+// Fetch student information
 $sql = "SELECT s.*, r.R_Name, r.Num_of_Bed, r.Num_of_Table, f.Floor_Number, h.H_Name 
         FROM student s
         INNER JOIN room r ON s.R_ID = r.R_ID
@@ -27,11 +27,43 @@ if (!$result || mysqli_num_rows($result) == 0) {
 
 $student = mysqli_fetch_assoc($result);
 
-// Fetch messages for the student
+// Handle profile update
+$profile_updated = false;
+$edit_mode = false; // Flag for edit mode
+
+if (isset($_POST['update_profile'])) {
+    $name = mysqli_real_escape_string($conn, $_POST['name']);
+    $dob = mysqli_real_escape_string($conn, $_POST['dob']);
+    $phone_number = mysqli_real_escape_string($conn, $_POST['phone_number']);
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+
+    $update_sql = "UPDATE student SET 
+                   Name = '$name', 
+                   DOB = '$dob', 
+                   Phone_number = '$phone_number', 
+                   Email = '$email'
+                   WHERE Stu_id = '$student_id'";
+
+    if (mysqli_query($conn, $update_sql)) {
+        $profile_updated = true;
+        // Update session variable if email is changed
+        if ($email != $student['Email']) {
+            $_SESSION['username'] = $email;
+        }
+        // Refresh data after update
+        $result = mysqli_query($conn, $sql);
+        $student = mysqli_fetch_assoc($result);
+    } else {
+        echo "Error updating profile: " . mysqli_error($conn);
+    }
+} elseif (isset($_POST['edit_profile'])) {
+    $edit_mode = true; // Enable edit mode
+}
+
+// Fetch messages and rent fee information
 $messages_sql = "SELECT Messages, Name FROM message_table WHERE ID_student = '$student_id'";
 $messages_result = mysqli_query($conn, $messages_sql);
 
-// Fetch rent fee information for the student
 $rent_sql = "SELECT rf.* 
              FROM rent_fee rf
              INNER JOIN room r ON rf.R_ID = r.R_ID
@@ -56,8 +88,8 @@ $rent_result = mysqli_query($conn, $rent_sql);
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 
-    <!-- Inline CSS Styles -->
-    <link rel="stylesheet" href="style.css"> 
+    <!-- Include your external CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -65,70 +97,82 @@ $rent_result = mysqli_query($conn, $rent_sql);
 
     <div class="main-content">
         <h1>Thông tin cá nhân</h1>
-
         <div class="profile-container">
-            <div class="info-grid">
-                <div class="info-section">
-                    <h3>Thông tin sinh viên</h3>
-                    <p class="info-label">Mã số sinh viên:</p>
-                    <p class="info-value">
-                        <?php echo $student['Stu_id']; ?>
-                    </p>
+            <?php if ($profile_updated) : ?>
+                <div class="success-message">Thông tin cá nhân đã được cập nhật thành công!</div>
+            <?php endif; ?>
 
-                    <p class="info-label">Họ và tên:</p>
-                    <p class="info-value">
-                        <?php echo $student['Name']; ?>
-                    </p>
+            <form method="post">
+                <div class="info-grid">
+                    <div class="info-section">
+                        <h3>Thông tin sinh viên</h3>
+                        <div class="form-group">
+                            <label for="id">Mã số sinh viên:</label>
+                            <input type="text" id="id" name="id" value="<?php echo $student['Stu_id']; ?>" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Họ và tên:</label>
+                            <input type="text" id="name" name="name" value="<?php echo $student['Name']; ?>" <?php echo $edit_mode ? '' : 'disabled'; ?>>
+                        </div>
 
-                    <p class="info-label">Ngày sinh:</p>
-                    <p class="info-value">
-                        <?php echo date("d/m/Y", strtotime($student['DOB'])); ?>
-                    </p>
+                        <div class="form-group">
+                            <label for="dob">Ngày sinh:</label>
+                            <input type="date" id="dob" name="dob" value="<?php echo $student['DOB']; ?>" <?php echo $edit_mode ? '' : 'disabled'; ?>>
+                        </div>
 
-                    <p class="info-label">Giới tính:</p>
-                    <p class="info-value">
-                        <?php echo ($student['Gender'] == 1) ? "Nam" : "Nữ"; ?>
-                    </p>
+                        <div class="form-group">
+                            <label for="gender">Giới tính:</label>
+                            <input type="text" id="gender" name="gender" value="<?php echo ($student['Gender'] == 1) ? "Nam" : "Nữ"; ?>" disabled>
+                        </div>
 
-                    <p class="info-label">Số điện thoại:</p>
-                    <p class="info-value">
-                        <?php echo $student['Phone_number']; ?>
-                    </p>
+                        <div class="form-group">
+                            <label for="phone_number">Số điện thoại:</label>
+                            <input type="tel" id="phone_number" name="phone_number" value="<?php echo $student['Phone_number']; ?>" <?php echo $edit_mode ? '' : 'disabled'; ?>>
+                        </div>
 
-                    <p class="info-label">Email:</p>
-                    <p class="info-value">
-                        <?php echo $student['Email']; ?>
-                    </p>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" value="<?php echo $student['Email']; ?>" <?php echo $edit_mode ? '' : 'disabled'; ?>>
+                        </div>
+                    </div>
+
+                    <!-- ... (Thông tin phòng - giữ nguyên) ... -->
+                    <div class="info-section">
+                        <h3>Thông tin phòng</h3>
+                        <div class="form-group">
+                            <label for="room_name">Tên phòng:</label>
+                            <input type="text" id="room_name" name="room_name" value="<?php echo $student['R_Name']; ?>" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="hall_name">Tòa nhà:</label>
+                            <input type="text" id="hall_name" name="hall_name" value="<?php echo $student['H_Name']; ?>" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="floor_number">Tầng:</label>
+                            <input type="text" id="floor_number" name="floor_number" value="<?php echo $student['Floor_Number']; ?>" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="num_of_bed">Số giường:</label>
+                            <input type="text" id="num_of_bed" name="num_of_bed" value="<?php echo $student['Num_of_Bed']; ?>" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="num_of_table">Số bàn:</label>
+                            <input type="text" id="num_of_table" name="num_of_table" value="<?php echo $student['Num_of_Table']; ?>" disabled>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="info-section">
-                    <h3>Thông tin phòng</h3>
-                    <p class="info-label">Tên phòng:</p>
-                    <p class="info-value">
-                        <?php echo $student['R_Name']; ?>
-                    </p>
+                <?php if (!$edit_mode) : ?>
+                    <button type="submit" name="edit_profile" class="edit-button">Cập nhật thông tin</button>
+                <?php else : ?>
+                    <button type="submit" name="update_profile" class="update-button">Lưu thay đổi</button>
+                <?php endif; ?>
+                <button type="button" id="change-password-btn" class="change-password-button">Đổi Mật Khẩu</button>
+            </form>
 
-                    <p class="info-label">Tòa nhà:</p>
-                    <p class="info-value">
-                        <?php echo $student['H_Name']; ?>
-                    </p>
-
-                    <p class="info-label">Tầng:</p>
-                    <p class="info-value">
-                        <?php echo $student['Floor_Number']; ?>
-                    </p>
-                    <p class="info-label">Số giường:</p>
-                    <p class="info-value">
-                        <?php echo $student['Num_of_Bed']; ?>
-                    </p>
-                    <p class="info-label">Số bàn:</p>
-                    <p class="info-value">
-                        <?php echo $student['Num_of_Table']; ?>
-                    </p>
-                </div>
-            </div>
-
-            <!-- Messages Section -->
+            <!-- ... (Messages Section and Rent Fee Section - giữ nguyên) ... -->
             <div class="messages-section">
                 <h3>Tin nhắn đã gửi</h3>
                 <?php if (mysqli_num_rows($messages_result) > 0) : ?>
@@ -149,8 +193,8 @@ $rent_result = mysqli_query($conn, $rent_sql);
 
             <!-- Rent Fee Section -->
             <div class="rent-section">
-                <h3>Thông tin hóa đơn (Phòng <?php echo $student['R_Name']; ?>)</h3>
-                    <?php if (mysqli_num_rows($rent_result) > 0) : ?>
+                <h3>Thông tin hóa đơn</h3>
+                <?php if (mysqli_num_rows($rent_result) > 0) : ?>
                     <table class="rent-table">
                         <thead>
                             <tr>
@@ -191,8 +235,85 @@ $rent_result = mysqli_query($conn, $rent_sql);
                     <p>Không có thông tin hóa đơn.</p>
                 <?php endif; ?>
             </div>
+
+            <!-- Change Password Modal -->
+            <div id="change-password-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button">×</span>
+                    <h2>Đổi Mật Khẩu</h2>
+                    <form id="change-password-form" method="post">
+                        <div class="form-group">
+                            <label for="old_password">Mật khẩu cũ:</label>
+                            <input type="password" id="old_password" name="old_password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="new_password">Mật khẩu mới:</label>
+                            <input type="password" id="new_password" name="new_password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm_new_password">Xác nhận mật khẩu mới:</label>
+                            <input type="password" id="confirm_new_password" name="confirm_new_password" required>
+                        </div>
+                        <button type="submit" name="change_password" class="change-password-button">Đổi Mật Khẩu</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("change-password-modal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("change-password-btn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close-button")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        document.getElementById('change-password-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+
+            // Get form data
+            var formData = new FormData(this);
+
+            // Send AJAX request to change_password.php
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'change_password.php', true);
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    // Handle response
+                    var response = JSON.parse(xhr.responseText);
+                    if (response.success) {
+                        alert('Mật khẩu đã được thay đổi thành công!');
+                        modal.style.display = "none"; // Close the modal
+                    } else {
+                        alert(response.message); // Display error message
+                    }
+                } else {
+                    alert('An error occurred. Please try again.');
+                }
+            };
+            xhr.send(formData);
+        });
+    </script>
 </body>
 
 </html>

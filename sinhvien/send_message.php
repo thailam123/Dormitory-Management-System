@@ -63,6 +63,23 @@ if (isset($_POST['send_message'])) {
     <link rel="stylesheet" href="style.css">
 </head>
 
+<script>
+    const messageTextarea = document.getElementById('message');
+    const charCount = document.getElementById('charCount');
+    const maxChars = 500; 
+
+    messageTextarea.addEventListener('input', function() {
+        const currentLength = messageTextarea.value.length;
+        charCount.textContent = currentLength + '/' + maxChars;
+
+        if (currentLength > maxChars) {
+            charCount.style.color = 'red'; 
+        } else {
+            charCount.style.color = 'inherit';
+        }
+    });
+</script>
+
 <body>
     <?php include 'sidebar.php'; ?>
 
@@ -76,7 +93,7 @@ if (isset($_POST['send_message'])) {
                 <form method="post">
                     <div class="form-group">
                         <label for="message">Nội dung tin nhắn:</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <textarea id="message" name="message" rows="5" placeholder="Nhập nội dung tin nhắn..." required></textarea>
                     </div>
                     <button type="submit" name="send_message" class="send-button">Gửi Tin Nhắn</button>
                 </form>

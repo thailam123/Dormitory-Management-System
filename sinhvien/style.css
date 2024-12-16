@@ -240,3 +240,245 @@ h1 {
     border-radius: 5px;
     margin-bottom: 15px;
 }
+
+/* Message Form Container Styles */
+.message-form-container {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px; /* Increased padding */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* More prominent shadow */
+    max-width: 600px; /* Limit maximum width */
+    margin: 0 auto; /* Center the form */
+}
+
+.form-group {
+    margin-bottom: 20px; /* Increased margin */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px; /* Increased margin */
+    font-weight: 700;
+    color: #2c3e50; /* Darker text color */
+}
+
+.form-group textarea {
+    width: 100%;
+    padding: 12px; /* Increased padding */
+    border: 1px solid #ced4da; /* Lighter border color */
+    border-radius: 8px; /* More rounded corners */
+    resize: vertical;
+    font-size: 16px; /* Larger font size */
+    font-family: 'Roboto', sans-serif; /* Match font family */
+}
+
+.form-group textarea:focus {
+    outline: none;
+    border-color: #1abc9c; /* Highlight on focus */
+    box-shadow: 0 0 5px rgba(26, 188, 156, 0.5); /* Add focus effect */
+}
+
+.send-button {
+    background-color: #1abc9c;
+    color: #fff;
+    border: none;
+    padding: 12px 25px; /* Increased padding */
+    border-radius: 8px; /* More rounded corners */
+    cursor: pointer;
+    font-size: 16px; /* Larger font size */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Add transform transition */
+}
+
+.send-button:hover {
+    background-color: #16a085;
+    transform: translateY(-2px); /* Lift button on hover */
+}
+
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 15px; /* Increased padding */
+    border-radius: 8px; /* More rounded corners */
+    margin-bottom: 20px; /* Increased margin */
+    font-size: 16px; /* Larger font size */
+}
+
+/* Styling for error messages (if you have any) */
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.report-button {
+    background-color: #e74c3c; /* Red color for reporting issues */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.report-button:hover {
+    background-color: #c0392b; /* Darker red on hover */
+}
+
+.report-form-container {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px; /* Increased padding */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* More prominent shadow */
+    max-width: 600px; /* Limit maximum width */
+    margin: 0 auto; /* Center the form */
+}
+
+.update-button {
+    background-color: #2980b9; /* Blue color */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+.update-button:hover {
+    background-color: #2471a3; /* Darker blue on hover */
+}
+
+.change-password-button {
+    background-color: #f39c12; /* Yellow color */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.change-password-button:hover {
+    background-color: #d68910; /* Darker yellow on hover */
+}
+
+.change-password-form-container {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.error-message {
+    background-color: #fdd;
+    border: 1px solid #faa;
+    color: #a00;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.edit-button {
+    background-color: #2ecc71; /* Green color */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+.edit-button:hover {
+    background-color: #27ae60; /* Darker green on hover */
+}
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    /* 5% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    /* Less width for the modal */
+    max-width: 400px;
+    /* Maximum width of the modal */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Change Password Form Styles */
+#change-password-form .form-group {
+    margin-bottom: 15px;
+}
+
+#change-password-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+#change-password-form input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#change-password-form .change-password-button {
+    background-color: #f39c12;
+    /* Yellow color */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#change-password-form .change-password-button:hover {
+    background-color: #d68910;
+    /* Darker yellow on hover */
+}
