@@ -293,6 +293,7 @@ $rent_result = mysqli_query($conn, $rent_sql);
 
             // Get form data
             var formData = new FormData(this);
+            formData.append('change_password', 'true');
 
             // Send AJAX request to change_password.php
             var xhr = new XMLHttpRequest();
