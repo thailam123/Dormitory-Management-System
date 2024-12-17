@@ -10,9 +10,12 @@ if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'student' || !i
 $student_id = $_SESSION['student_id'];
 include '../CommonMethods/connection.php';
 
-// Fetch student's room ID
-$room_sql = "SELECT R_ID FROM student WHERE Stu_id = '$student_id'";
-$room_result = mysqli_query($conn, $room_sql);
+// Fetch student's room ID using prepared statement
+$room_sql = "SELECT R_ID FROM student WHERE Stu_id = ?";
+$stmt = mysqli_prepare($conn, $room_sql);
+mysqli_stmt_bind_param($stmt, "i", $student_id);
+mysqli_stmt_execute($stmt);
+$room_result = mysqli_stmt_get_result($stmt);
 
 if (!$room_result || mysqli_num_rows($room_result) == 0) {
     echo "Could not find room information for the student.";
@@ -25,11 +28,14 @@ $room_id = $room_row['R_ID'];
 // Handle issue reporting
 $issue_reported = false;
 if (isset($_POST['report_issue'])) {
-    $issue_content = mysqli_real_escape_string($conn, $_POST['issue_content']);
+    $issue_content = $_POST['issue_content']; // Get the value, but don't escape it yet
 
-    // Insert the issue into the facility_problem table
-    $insert_sql = "INSERT INTO facility_problem (R_ID, Content, Status) VALUES ('$room_id', '$issue_content', 0)"; // 0 for unresolved
-    if (mysqli_query($conn, $insert_sql)) {
+    // Use prepared statement to insert the issue
+    $insert_sql = "INSERT INTO facility_problem (R_ID, Content, Status) VALUES (?, ?, 0)";
+    $stmt = mysqli_prepare($conn, $insert_sql);
+    mysqli_stmt_bind_param($stmt, "is", $room_id, $issue_content); // Bind parameters
+
+    if (mysqli_stmt_execute($stmt)) {
         $issue_reported = true;
     } else {
         echo "Error reporting issue: " . mysqli_error($conn);
@@ -70,7 +76,7 @@ if (isset($_POST['report_issue'])) {
                 <form method="post">
                     <div class="form-group">
                         <label for="issue_content">Nội dung vấn đề:</label>
-                        <textarea id="message" name="message" rows="5" placeholder="Nhập nội dung vấn đề..." required></textarea>
+                        <textarea id="issue_content" name="issue_content" rows="5" placeholder="Nhập nội dung vấn đề..." required></textarea>
                     </div>
                     <button type="submit" name="report_issue" class="report-button">Báo Cáo Vấn Đề</button>
                 </form>
