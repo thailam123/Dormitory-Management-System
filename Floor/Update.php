@@ -118,11 +118,11 @@ $row = mysqli_fetch_array(result: $result);
 
 <body>
     <div class="form-container">
-        <h2>Cập nhật thông tin phòng</h2>
+        <h2>Cập nhật thông tin Tầng</h2>
         <form name="frmUser" method="post" action="" onsubmit="return confirmUpdate();">
             <input type="hidden" name="F_ID" value="<?php echo $row['F_ID']; ?>">
 
-            <label for="Floor_Number">Tên phòng:</label>
+            <label for="Floor_Number">Tên Tầng:</label>
             <input type="text" name="Floor_Number" value="<?php echo $row['Floor_Number']; ?>" required>
 
             <label for="H_Name">Tòa nhà:</label>
@@ -143,7 +143,7 @@ $row = mysqli_fetch_array(result: $result);
         </form>
 
         <div class="button-container">
-            <a href="DispRoom.php">Trở về danh sách tầng</a>
+            <a href="DispFloor.php">Trở về danh sách tầng</a>
         </div>
     </div>
 
