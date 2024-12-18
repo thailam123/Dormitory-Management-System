@@ -297,7 +297,7 @@
             </div>
 
             <div class="box">
-                <img src="images/h4.jpg" alt="">
+                <img style="width: 300px;height=100px" src="images/h4.jpg" alt="">
                 <h3>B9</h3>
             </div>
 
