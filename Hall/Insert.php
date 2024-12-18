@@ -122,7 +122,7 @@ if (count($_POST) > 0) {
         </form>
 
         <div class="button-container">
-            <a href="DispRoom.php">Trở về danh sách tòa nhà</a>
+            <a href="DispHall.php">Trở về danh sách tòa nhà</a>
         </div>
     </div>
 
