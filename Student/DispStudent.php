@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quản lý Sinh viên</title>
-  <link rel="shortcut icon" href="https://juniv.edu/images/favicon.ico">
+  <link rel="shortcut icon" href="https://hust.edu.vn/uploads/sys/android-icon-36x36.png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
